@@ -1,0 +1,9 @@
+<h1>The whishlist for this event</h1>
+<ul>
+  <% @whishlists.each do |whishlist| %>
+  <li>
+    <%= whishlist.item_id.name %>
+  </li>
+  <% end %>
+</ul>
+

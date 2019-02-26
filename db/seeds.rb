@@ -9,7 +9,10 @@ require 'faker'
 
 puts 'Cleaning database...'
 Item.destroy_all
+<<<<<<< HEAD
 Guest.destroy_all
+=======
+>>>>>>> master
 
 puts 'Creating 10 vegetables items...'
 10.times do

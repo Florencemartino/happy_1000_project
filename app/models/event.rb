@@ -1,9 +1,9 @@
 class Event < ApplicationRecord
-  belongs_to :user, dependent: :destroy
+  belongs_to :user
   has_many :guests
   has_many :users, through: :guests
-
-  has_many :items, through: :whishlists
+  has_many :whishlists
+  # has_many :items, through: :whishlists
 
   validates :title, presence: true
   # validates :description, presence: true

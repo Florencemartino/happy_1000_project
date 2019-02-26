@@ -4,12 +4,16 @@ class GuestsController < ApplicationController
     @guests = User.all
   end
 
+  # def is_coming
+  #   guest.is_coming == true
+  #   # if guest = user.is_coming?
+  # end
 
 end
 
    # @guests = Event.find(params[:id]).users
 
-    # if guest = user.is_coming?
+
     #   @guests = guest
     # else
 

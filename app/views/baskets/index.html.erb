@@ -1,2 +1,9 @@
-<h1>Baskets#index</h1>
-<p>Find me in app/views/baskets/index.html.erb</p>
+<h1>The whishlist for this event</h1>
+<ul>
+  <% @whishlists.each do |whishlist| %>
+  <li>
+    <%= whishlist.item_id.name %>
+  </li>
+  <% end %>
+</ul>
+

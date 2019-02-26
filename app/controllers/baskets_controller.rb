@@ -1,5 +1,5 @@
 class BasketsController < ApplicationController
-  def select_items
+  def index
     @whishlists = Whishlist.all
   end
 end

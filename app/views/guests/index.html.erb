@@ -1,5 +1,13 @@
-<h2>Qui sera de la party ?</h2>
+<h2>Ton meal a bien été créé !</h2>
+<hr>
+<h3>Qui sera de la party ?</h3>
 
 <% @guests.each do |guest|%>
-  <li><%= guest.user.nickname %></li>
+  <li><%= guest.nickname %></li>
 <% end %>
+
+<hr>
+
+<%= link_to "Envoyer l'invit' !" %>
+<br>
+<%= link_to "Continuer" %>

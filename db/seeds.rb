@@ -40,6 +40,7 @@ puts 'Creating 10 vegetables items...'
   )
 end
 
+
 puts 'Creating whishlist...'
 ingredient_1 = Whishlist.create(item_id: 4, event_id: 1, quantity: 4)
 ingredient_2 = Whishlist.create(item_id: 6, event_id: 1, quantity: 2)
@@ -49,6 +50,7 @@ ingredient_4 = Whishlist.create(item_id: 7, event_id: 1, quantity: 3)
 puts 'Creating basket...'
 my_basket1 = Basket.create(whishlist_id: 1, user_id: 3, quantity: 4)
 my_basket2 = Basket.create(whishlist_id: 1, user_id: 3, quantity: 2)
+
 
 puts 'Finished!'
 

@@ -1,20 +1,21 @@
 class EventController < ApplicationController
+  def dashboard
+  end
+
   def new
     @event = Event.new
   end
 
   def create
     @event = Event.new(event_params)
-    @event.save
+    if @event.save
+      redirect_to :
   end
 
   def edit
   end
 
   def update
-  end
-
-  def dashboard
   end
 
   def destroy

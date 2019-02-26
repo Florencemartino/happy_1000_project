@@ -1,1 +1,5 @@
-index.html.erb
+<h2>Qui sera de la party ?</h2>
+
+<% @guests.each do |guest|%>
+  <li><%= guest.user.nickname %></li>
+<% end %>

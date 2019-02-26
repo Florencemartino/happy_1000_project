@@ -9,24 +9,12 @@ require 'faker'
 
 puts 'Cleaning database...'
 Item.destroy_all
-<<<<<<< HEAD
-Guest.destroy_all
-=======
->>>>>>> master
 
 puts 'Creating 10 vegetables items...'
 10.times do
   item = Item.create!(
     name: Faker::Food.vegetables,
     category: "légumes"
-  )
-end
-
-puts 'Creating 10 guests...'
-10.times do
-  guest = Guest.create!(
-  user_id: Faker::Name.first_name,
-
   )
 end
 

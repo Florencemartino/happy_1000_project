@@ -1,8 +1,14 @@
 class GuestsController < ApplicationController
 
   def index
-    @guests = Guest.all
-    @guests = Event.find(params[:id]).users
+    @guests = User.all
+    # @guests = Event.find(params[:id]).users
+
+    # if guest = user.is_coming?
+    #   @guests = guest
+    # else
+
+
 
   end
 

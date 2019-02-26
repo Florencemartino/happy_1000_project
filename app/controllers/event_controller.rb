@@ -1,5 +1,6 @@
 class EventController < ApplicationController
-  def dashboard
+  def index
+    @events = Event.all
   end
 
   def new
@@ -8,14 +9,16 @@ class EventController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    if @event.save
-      redirect_to :
+    @event.save
   end
 
   def edit
   end
 
   def update
+  end
+
+  def dashboard
   end
 
   def destroy

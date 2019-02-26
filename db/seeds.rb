@@ -10,7 +10,6 @@ require 'faker'
 puts 'Cleaning database...'
 Item.destroy_all
 
-
 puts 'Creating 10 vegetables items...'
 10.times do
   item = Item.create!(

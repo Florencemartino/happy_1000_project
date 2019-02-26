@@ -5,9 +5,8 @@ Rails.application.routes.draw do
   resources :events do
     resources :whishlists
     resources :guests
+    resources :baskets
   end
-  resources :guests, only: [:create, :update]
-  resources :baskets, only: [:create]
 
   resources :items
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

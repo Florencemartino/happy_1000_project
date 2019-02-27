@@ -75,6 +75,8 @@ ingredient_4 = Whishlist.create!(item_id: Item.fourth.id, event_id: event_1.id, 
 puts 'Creating basket...'
 my_basket1 = Basket.create!(whishlist_id: Whishlist.first.id, user_id: remi.id, quantity: 2)
 my_basket2 = Basket.create!(whishlist_id: Whishlist.second.id, user_id: flo.id, quantity: 2)
+my_basket3 = Basket.create!(whishlist_id: Whishlist.third.id, user_id: sam.id, quantity: 1)
+my_basket4 = Basket.create!(whishlist_id: Whishlist.fourth.id, user_id: susan.id, quantity: 2)
 
 
 

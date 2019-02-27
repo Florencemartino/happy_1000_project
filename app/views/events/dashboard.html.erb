@@ -34,18 +34,18 @@
 </ul>
 <!-- AUTRE TECHNIQUE POUR RECUPERER LE BASKET DE CHAQUE INVITE PAR EVENT -->
 <!-- <ul>
-  <#% @event.users.each do |user| %>
-    <#% if user.guests.where(event_id: params[:event_id]).first.is_coming == true %>
+  <%# @event.users.each do |user| %>
+    <%# if user.guests.where(event_id: params[:event_id]).first.is_coming == true %>
 
-      <li><%= user.nickname %> apportera : <#%= user.guests.where(event_id: params[:event_id]).first.is_coming %></li>
+      <li><%#= user.nickname %> apportera : <%#= user.guests.where(event_id: params[:event_id]).first.is_coming %></li>
 
       <ul>
-        <#% user.baskets.each do |basket| %>
+        <%# user.baskets.each do |basket| %>
         <li><#%= basket.whishlist.item.name %></li>
-        <#% end %>
+        <%# end %>
       </ul>
-    <#% end %>
-  <#% end %>
+    <%# end %>
+  <%# end %>
 </ul> -->
 
 

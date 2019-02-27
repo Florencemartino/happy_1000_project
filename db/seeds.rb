@@ -26,6 +26,7 @@ susan = User.create!(nickname: 'Susan', email: 'sus@gmail.com', password: 'azert
 puts 'Creating event...'
 
 event_1 = Event.create!(user_id: sam.id, title: "raclette", description: "ce sera bien", address: "16 villa gaudelet", date: Date.today)
+event_2 = Event.create!(user_id: remi.id, title: "couscous", description: "pétage de bid", address: "chez ma maman", date: Date.today)
 
 puts 'Creating guests...'
 g1 = Guest.create!(user_id: remi.id, event_id: event_1.id, is_coming: true)

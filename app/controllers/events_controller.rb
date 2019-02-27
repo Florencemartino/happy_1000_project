@@ -26,13 +26,11 @@ class EventsController < ApplicationController
 
   def dashboard
     @event = Event.find(params[:event_id])
-
   end
 
   def select_guest
     @guests = User.all
   end
-
 
   def destroy
   end
@@ -46,9 +44,7 @@ class EventsController < ApplicationController
     params.require(:event).permit(:title, :description, :address, :date)
   end
 
-
   def set_event
     @event = Event.find(params[:id])
   end
-
 end

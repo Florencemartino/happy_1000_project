@@ -64,6 +64,17 @@ vodka = Item.create!(name: "vodka", category: "alcool", icon: "icons/vodka.png")
 wine = Item.create!(name: "wine", category: "alcool", icon: "icons/wine.png")
 
 
+<<<<<<< HEAD
+puts 'Creating 10 vegetables items...'
+30.times do
+  item = Item.create!(
+    name: Faker::Food.vegetables,
+    category: "légumes"
+  )
+end
+
+=======
+>>>>>>> master
 
 puts 'Creating whishlist...'
 
@@ -71,11 +82,16 @@ ingredient_1 = Whishlist.create!(item_id: Item.first.id, event_id: event_1.id, q
 ingredient_2 = Whishlist.create!(item_id: Item.second.id, event_id: event_1.id, quantity: 2)
 ingredient_3 = Whishlist.create!(item_id: Item.third.id, event_id: event_1.id, quantity: 5)
 ingredient_4 = Whishlist.create!(item_id: Item.fourth.id, event_id: event_1.id, quantity: 3)
+ingredient_5 = Whishlist.create!(item_id: Item.fifth.id, event_id: event_1.id, quantity: 3)
+
 
 puts 'Creating basket...'
 my_basket1 = Basket.create!(whishlist_id: Whishlist.first.id, user_id: remi.id, quantity: 2)
 my_basket2 = Basket.create!(whishlist_id: Whishlist.second.id, user_id: flo.id, quantity: 2)
+<<<<<<< HEAD
+=======
 
+>>>>>>> master
 
 
 puts 'Finished!'

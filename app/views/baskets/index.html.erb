@@ -5,6 +5,7 @@
   <% @whishlists.each do |whishlist| %>
   <li>
     <%= link_to whishlist.item.name %>
+    <%= image_tag whishlist.item.icon %>
   </li>
   <% end %>
 </ul>
@@ -17,4 +18,8 @@
   </li>
 </ul>
 
-<%= image_tag "icons/cheese.png" %>
+
+
+
+
+

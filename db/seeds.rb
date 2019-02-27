@@ -53,6 +53,13 @@ puts 'Creating basket...'
 my_basket1 = Basket.create!(whishlist_id: 1, user_id: remi.id, quantity: 2)
 my_basket2 = Basket.create!(whishlist_id: 1, user_id: flo.id, quantity: 2)
 
+puts 'Creating items...'
+cheese = Item.new({
+    name:         'fromage',
+    category:      'salé',
+    icon: "icons/cheese.png"
+  })
+cheese.save!
 
 puts 'Finished!'
 

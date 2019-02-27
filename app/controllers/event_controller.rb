@@ -1,4 +1,6 @@
 class EventController < ApplicationController
+  before_action :set_event, only: [:edit, :dashboard, :destroy, :account]
+
   def index
     @events = Event.all
   end
@@ -31,5 +33,9 @@ class EventController < ApplicationController
 
   def event_params
     params.require(:event).permit(:title, :description, :address, :date)
+  end
+
+  def set_event
+    @event = Event.find(params[:id])
   end
 end

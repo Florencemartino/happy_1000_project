@@ -2,22 +2,22 @@
 <h1 class="text-center"><%= @event.title %></h1>
 <div class="text-center"><em>crée par <%= @event.user.nickname %></em></div>
 
-  <div class="text-center">
+  <!-- <div class="text-center">
    <p>la wishlist:</p>
-      <% @event.whishlists.each do |item| %>
-        <li style="list-style-type: none;"><%= item.item.name %></li>
-      <% end %>
-  </div>
+      <%# @event.whishlists.each do |item| %>
+        <li style="list-style-type: none;"><%#= item.item.name %></li>
+      <%# end %>
+  </div> -->
 <p>Description : <%= @event.description %></p>
 <p>Addresse : <%= @event.address %></p>
 <p>Date | Heure : <%= @event.date %></p>
 
-<p> [x] Je participe </p>
-
-<h3>Liste des invités</h3>
+<p> [x] Je participe </p> <br>
 
 <!-- LISTE LES GENS QUI VIENNENT AVEC LEUR BASKET -->
 <!-- LES GENS QUI NE VIENNENT PAS NE SERONT PAS AFFICHES ICI     -->
+
+<h3> Qui ramène quoi :</h3>
 <ul>
   <% @event.guests.each do |guest| %>
     <% if guest.is_coming %>
@@ -26,7 +26,9 @@
 
       <ul>
         <% guest.user.baskets.each do |basket| %>
-        <li><%= basket.whishlist.item.name %></li>
+        <li><%= basket.whishlist.item.name %>
+          <%= image_tag basket.whishlist.item.icon %>
+        </li>
         <% end %>
       </ul>
     <% end %>
@@ -56,20 +58,12 @@
 
 
 
-<div>
-<h3> Ce qu'on ramène</h3>
-  <ul>
-    <li>guest 1 : </li>
-    <li>guest 2 : </li>
-    <li>user 3 : </li>
-  </ul>
-</div>
 
 <div>
   <p>Total : 93€ </p>
 </div>
 
-<%= link_to "voir la wishlist" %> <br>
+
 <%= link_to "Equilibres"%> <br>
 <%= link_to "Voir mon panier", event_baskets_path, :class => "btn-medium" %> <br>
 <%= link_to "Description de l'event", event_path(@event), :class => "btn-medium" %>

@@ -11,6 +11,8 @@ root to: 'events#index'
  get "events/:event_id/select_guest", to: "events#select_guest", as: :select_guest
 
 
+
+
   resources :events do
     resources :whishlists
     resources :guests

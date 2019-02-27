@@ -2,6 +2,8 @@
 <h1 class="text-center"><%= @event.title %></h1>
 <div class="text-center"><em>crée par <%= @event.user.nickname %></em></div>
 
+<%= link_to "#{@event.guests.count + 1} participants", event_guests_path(@event) %>
+
   <div class="text-center">
    <p>la wishlist:</p>
       <% @event.whishlists.each do |item| %>
@@ -17,7 +19,7 @@
 <h3>Liste des invités</h3>
 
 <!-- LISTE LES GENS QUI VIENNENT AVEC LEUR BASKET -->
-<!-- LES GENS QUI NE VIENNENT PAS NE SERONT PAS AFFICHES ICI     -->
+<!-- LES GENS QUI NE VIENNENT PAS NE SERONT PAS AFFICHES ICI, MAIS DANS L'INDEX DES GUESTS VIA UN TAB/ONGLET : "PARTICIPE / NE PARTICIPE PAS"     -->
 <ul>
   <% @event.guests.each do |guest| %>
     <% if guest.is_coming %>

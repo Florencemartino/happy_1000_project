@@ -4,9 +4,12 @@ Rails.application.routes.draw do
   get 'whishlists/new'
   get 'whishlists/create'
 devise_for :users
-root to: 'event#index'
+root to: 'events#index'
 
- get "events/:event_id/dashboard", to: "reviews#dashboard", as: :dashboard
+ get "events/:event_id/dashboard", to: "events#dashboard", as: :dashboard
+
+ get "events/:event_id/select_guest", to: "events#select_guest", as: :select_guest
+
 
   resources :events do
     resources :whishlists

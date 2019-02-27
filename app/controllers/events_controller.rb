@@ -1,4 +1,7 @@
-class EventController < ApplicationController
+class EventsController < ApplicationController
+
+  before_action :set_event, only: [:edit, :destroy, :account]
+
   def index
     @events = Event.all
   end
@@ -19,7 +22,13 @@ class EventController < ApplicationController
   end
 
   def dashboard
+    @event = Event.find(params[:event_id])
   end
+
+  def select_guest
+    @guests = User.all
+  end
+
 
   def destroy
   end
@@ -32,4 +41,10 @@ class EventController < ApplicationController
   def event_params
     params.require(:event).permit(:title, :description, :address, :date)
   end
+
+
+  def set_event
+    @event = Event.find(params[:id])
+  end
+
 end

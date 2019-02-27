@@ -24,13 +24,14 @@ susan = User.create!(nickname: 'susan', email: 'sus@gmail.com', password: 'azert
 
 
 puts 'Creating event...'
-event_1 = Event.create!(user_id: sam.id, title: "raclette", description: "ce sera bien", address: "16 villa gaudelet", date: Date.today)
 
+event_1 = Event.create!(user_id: sam.id, title: "raclette", description: "ce sera bien", address: "16 villa gaudelet", date: Date.today)
 
 puts 'Creating guests...'
 g1 = Guest.create!(user_id: remi.id, event_id: event_1.id, is_coming: true)
 g2 = Guest.create!(user_id: flo.id, event_id: event_1.id, is_coming: true)
 g3 = Guest.create!(user_id: susan.id, event_id: event_1.id, is_coming: true)
+
 
 puts 'Creating 10 vegetables items...'
 30.times do
@@ -42,6 +43,7 @@ end
 
 
 puts 'Creating whishlist...'
+
 ingredient_1 = Whishlist.create!(item_id: Item.first.id, event_id: event_1.id, quantity: 4)
 ingredient_2 = Whishlist.create!(item_id: Item.second.id, event_id: event_1.id, quantity: 2)
 ingredient_3 = Whishlist.create!(item_id: Item.third.id, event_id: event_1.id, quantity: 5)

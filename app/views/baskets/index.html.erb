@@ -1,9 +1,20 @@
-<h1>The whishlist for this event</h1>
+
+
+<h1>Liste de course ou tout le monde doit choisir quelque chose :</h1>
 <ul>
   <% @whishlists.each do |whishlist| %>
   <li>
-    <%= whishlist.item_id.name %>
+    <%= link_to whishlist.item.name %>
   </li>
   <% end %>
 </ul>
 
+<h1>Mon panier :</h1>
+
+<ul>
+  <li>
+     Iceberg lettuce
+  </li>
+</ul>
+
+<%= image_tag "icons/cheese.png" %>

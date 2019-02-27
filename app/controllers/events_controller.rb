@@ -1,4 +1,4 @@
-class EventController < ApplicationController
+class EventsController < ApplicationController
   def index
     @events = Event.all
   end
@@ -16,6 +16,10 @@ class EventController < ApplicationController
   end
 
   def update
+  end
+
+  def select_guest
+    @guests = User.all
   end
 
   def dashboard

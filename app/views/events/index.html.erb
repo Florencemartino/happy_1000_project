@@ -1,0 +1,6 @@
+<h1 class="text-center">My events</h1>
+<ul>
+  <% @events.each do |event| %>
+    <li><%= link_to event.title, dashboard_path(event) %></li>
+  <% end %>
+</ul>

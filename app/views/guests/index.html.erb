@@ -1,0 +1,10 @@
+<h1>Guest List des gars sûrs</h1>
+<hr>
+
+<% @guests.each do |guest|%>
+  <li><%= guest.user.nickname %></li>
+<% end %>
+
+<hr>
+
+<%= link_to 'Dashboard' %>

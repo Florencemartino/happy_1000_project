@@ -1,6 +1,7 @@
 class WhishlistsController < ApplicationController
   def index
     @whishlists = Whishlist.all
+    @whishlist = Whishlist.new
   end
 
   def new
@@ -9,12 +10,16 @@ class WhishlistsController < ApplicationController
   def create
   end
 
-  # def show
-  #   @basket = Basket.find(params[:id])
-  #   @whishlist = @basket.whishlist
-  # end
+  def update
+    @whishlist = Whishlist.find(params[:id])
+    @whishlist.quantity += 1
+    @whishlist.save!
+    redirect_to event_whishlists_path(@whishlist)
+  end
 
-  # def select_items
-  #   @whishlists = Whishlist.all
-  # end
+  private
+
+  def whislist_params
+    params.require(:whishlist).permit(:quantity, :item_id, :event_id)
+  end
 end

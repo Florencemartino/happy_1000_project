@@ -1,23 +1,39 @@
 <div class="container">
   <h1>Créé ta whishlist</h1>
   <div class="row"></div>
-  <div class="row">
-    <div class="col-xs-12">
-      <ul>
-        <%@whishlists.each do |whishlist| %>
-        <li>
-          <%= whishlist.item.name %>
-          <% end %>
-        </li>
-      </ul>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="card">
+          <ul>
+            <%@whishlists.each do |whishlist| %>
+            <li>
+              <%= link_to whishlist.item.name, event_whishlist_path(whishlist.event_id, whishlist.id, sens: 1), method: :put %> : <%= whishlist.quantity %>
+            <% end %>
+            </li>
+          </ul>
+        </div>
+        </div>
+      </div>
     </div>
-  </div>
   <div class="row btn-flex">
     <div class="col-xs-4">
-      <%= link_to "Valider", root_path, :class => "btn btn-primary" %>
+      <%#= link_to "Valider", root_path, :class => "btn btn-primary" %>
+      <%= link_to "Modifier", "#my-modal", :class => "btn btn-primary", "data-toggle" => "modal" %>
+      <div class="modal hide fade" id="my-modal" title="Valider">
+        <div class="modal-header">
+          <button aria-hidden="true" class="close" data-dismiss="modal" type="button">×</button>
+          <h3 id="myModalLabel">Modal header</h3>
+        </div>
+        <div class="modal-body">
+          Modal Body
+        </div>
+        <div class="modal-footer">
+          <button aria-hidden="true" class="btn" data-dismiss="modal">Close</button>
+        </div>
+      </div>
     </div>
     <div class="col-xs-4">
-      <%= link_to "Modifier", root_path, :class => "btn btn-info" %>
+      <%= link_to "Valider", event_whishlists_path, :class => "btn btn-success" %>
     </div>
   </div>
 </div>

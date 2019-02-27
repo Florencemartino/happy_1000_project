@@ -27,6 +27,7 @@ class EventsController < ApplicationController
 
   def dashboard
     @event = Event.find(params[:event_id])
+
   end
 
   def select_guest

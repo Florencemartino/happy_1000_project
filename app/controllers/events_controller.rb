@@ -1,5 +1,5 @@
-class EventController < ApplicationController
-  before_action :set_event, only: [:edit, :dashboard, :destroy, :account]
+class EventsController < ApplicationController
+  before_action :set_event, only: [:edit, :destroy, :account]
 
   def index
     @events = Event.all
@@ -21,6 +21,7 @@ class EventController < ApplicationController
   end
 
   def dashboard
+    @event = Event.find(params[:event_id])
   end
 
   def destroy

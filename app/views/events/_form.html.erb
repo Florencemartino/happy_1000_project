@@ -2,13 +2,14 @@
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
       <%= simple_form_for @event do |f| %>
-        <%= f.label :titre %><br>
-        <%= f.input :title %>
+        <%= f.input :title, label: "Titre" %>
         <%= f.input :description %>
-        <%= f.input :address %>
+        <%= f.input :address, label: "Adresse"  %>
         <%= f.input :date %>
-        <%= f.submit class: 'btn btn-primary' %>
+        <%= f.submit "Créer", class: 'btn btn-primary' %>
       <% end %>
     </div>
   </div>
 </div>
+
+

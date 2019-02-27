@@ -1,9 +1,7 @@
 class GuestsController < ApplicationController
 
-  # def is_coming
-  #   guest.is_coming == true
-  #   # if guest = user.is_coming?
-  # end
+  def index
+    @guests = Guest.where(is_coming: true)
+  end
 
 end
-

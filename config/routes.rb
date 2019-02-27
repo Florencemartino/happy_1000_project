@@ -3,17 +3,12 @@ Rails.application.routes.draw do
 devise_for :users
 root to: 'events#index'
 
- get "events/:event_id/dashboard", to: "events#dashboard", as: :dashboard
-
- get "events/:event_id/select_guest", to: "events#select_guest", as: :select_guest
-
-
-
-
   resources :events do
     resources :whishlists
     resources :guests
     resources :baskets
+    get "/dashboard", to: "events#dashboard", as: :dashboard
+    get "/select_guest", to: "events#select_guest", as: :select_guest
   end
 
 

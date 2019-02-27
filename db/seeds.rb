@@ -18,8 +18,8 @@ Basket.destroy_all
 puts 'Creating users...'
 sam = User.create!(nickname: 'Samir', email: 'sam@gmail.com', password: 'azerty')
 remi = User.create!(nickname: 'Remi', email: 'rem@gmail.com', password: 'azerty')
-flo = User.create!(nickname: 'flo', email: 'flo@gmail.com', password: 'azerty')
-susan = User.create!(nickname: 'susan', email: 'sus@gmail.com', password: 'azerty')
+flo = User.create!(nickname: 'Flo', email: 'flo@gmail.com', password: 'azerty')
+susan = User.create!(nickname: 'Susan', email: 'sus@gmail.com', password: 'azerty')
 
 
 
@@ -31,7 +31,7 @@ puts 'Creating guests...'
 g1 = Guest.create!(user_id: remi.id, event_id: event_1.id, is_coming: true)
 g2 = Guest.create!(user_id: flo.id, event_id: event_1.id, is_coming: true)
 g3 = Guest.create!(user_id: susan.id, event_id: event_1.id, is_coming: true)
-
+g4 = Guest.create!(user_id: sam.id, event_id: event_1.id, is_coming: false)
 
 puts 'Creating 10 vegetables items...'
 10.times do
@@ -50,8 +50,8 @@ ingredient_3 = Whishlist.create!(item_id: Item.third.id, event_id: event_1.id, q
 ingredient_4 = Whishlist.create!(item_id: Item.fourth.id, event_id: event_1.id, quantity: 3)
 
 puts 'Creating basket...'
-my_basket1 = Basket.create!(whishlist_id: 1, user_id: remi.id, quantity: 2)
-my_basket2 = Basket.create!(whishlist_id: 1, user_id: flo.id, quantity: 2)
+my_basket1 = Basket.create!(whishlist_id: Whishlist.first.id, user_id: remi.id, quantity: 2)
+my_basket2 = Basket.create!(whishlist_id: Whishlist.second.id, user_id: flo.id, quantity: 2)
 
 puts 'Creating items...'
 cheese = Item.new({

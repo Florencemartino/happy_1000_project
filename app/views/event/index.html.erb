@@ -1,0 +1,6 @@
+<h1 class="text-center">My events</h1>
+<ul>
+  <% @events.each do |event| %>
+    <li><%= event.title %></li>
+  <% end %>
+</ul>

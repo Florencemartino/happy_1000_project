@@ -63,6 +63,7 @@ tomato = Item.create!(name: "tomate", category: "salé", icon: "icons.tomato.png
 vodka = Item.create!(name: "vodka", category: "alcool", icon: "icons/vodka.png")
 wine = Item.create!(name: "wine", category: "alcool", icon: "icons/wine.png")
 
+
 puts 'Creating whishlist...'
 
 ingredient_1 = Whishlist.create!(item_id: Item.first.id, event_id: event_1.id, quantity: 0)
@@ -77,6 +78,7 @@ my_basket1 = Basket.create!(whishlist_id: Whishlist.first.id, user_id: remi.id, 
 my_basket2 = Basket.create!(whishlist_id: Whishlist.second.id, user_id: flo.id, quantity: 2)
 my_basket3 = Basket.create!(whishlist_id: Whishlist.third.id, user_id: sam.id, quantity: 1)
 my_basket4 = Basket.create!(whishlist_id: Whishlist.fourth.id, user_id: susan.id, quantity: 2)
+
 
 
 puts 'Finished!'

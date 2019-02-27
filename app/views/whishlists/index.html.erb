@@ -1,0 +1,10 @@
+<div class="container">
+  <h1>Créé ta whishlist</h1>
+  <ul>
+    <%@whishlists.each do |whishlist| %>
+    <li>
+      <%= whishlist.item.name %>
+      <% end %>
+    </li>
+  </ul>
+</div>

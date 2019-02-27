@@ -33,7 +33,7 @@ g2 = Guest.create!(user_id: flo.id, event_id: event_1.id, is_coming: true)
 g3 = Guest.create!(user_id: susan.id, event_id: event_1.id, is_coming: true)
 
 puts 'Creating 10 vegetables items...'
-10.times do
+30.times do
   item = Item.create!(
     name: Faker::Food.vegetables,
     category: "légumes"
@@ -46,10 +46,12 @@ ingredient_1 = Whishlist.create!(item_id: Item.first.id, event_id: event_1.id, q
 ingredient_2 = Whishlist.create!(item_id: Item.second.id, event_id: event_1.id, quantity: 2)
 ingredient_3 = Whishlist.create!(item_id: Item.third.id, event_id: event_1.id, quantity: 5)
 ingredient_4 = Whishlist.create!(item_id: Item.fourth.id, event_id: event_1.id, quantity: 3)
+ingredient_5 = Whishlist.create!(item_id: Item.fifth.id, event_id: event_1.id, quantity: 3)
+
 
 puts 'Creating basket...'
-my_basket1 = Basket.create!(whishlist_id: 1, user_id: remi.id, quantity: 2)
-my_basket2 = Basket.create!(whishlist_id: 1, user_id: flo.id, quantity: 2)
+my_basket1 = Basket.create!(whishlist_id: Whishlist.first.id, user_id: remi.id, quantity: 2)
+my_basket2 = Basket.create!(whishlist_id: Whishlist.second.id, user_id: flo.id, quantity: 2)
 
 
 puts 'Finished!'

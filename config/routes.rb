@@ -4,7 +4,6 @@ devise_for :users
 root to: 'events#index'
 
  get "events/:event_id/dashboard", to: "events#dashboard", as: :dashboard
-
  get "events/:event_id/select_guest", to: "events#select_guest", as: :select_guest
 
 

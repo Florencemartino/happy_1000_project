@@ -1,18 +1,63 @@
 
 <h1 class="text-center"><%= @event.title %></h1>
+<div class="text-center"><em>crée par <%= @event.user.nickname %></em></div>
 
-<div>
+  <div class="text-center">
+   <p>la wishlist:</p>
+      <% @event.whishlists.each do |item| %>
+        <li style="list-style-type: none;"><%= item.item.name %></li>
+      <% end %>
+  </div>
+<p>Description : <%= @event.description %></p>
+<p>Addresse : <%= @event.address %></p>
+<p>Date | Heure : <%= @event.date %></p>
 
-<p>[Raclette Party]</p>
-<p>[12 participants]</p>
-<p>Date</p>
-<p>adresse</p>
 <p> [x] Je participe </p>
 
-</div>
+<h3>Liste des invités</h3>
+
+<!-- LISTE LES GENS QUI VIENNENT AVEC LEUR BASKET -->
+<!-- LES GENS QUI NE VIENNENT PAS NE SERONT PAS AFFICHES ICI     -->
+<ul>
+  <% @event.guests.each do |guest| %>
+    <% if guest.is_coming %>
+
+      <li><%= guest.user.nickname %> apportera :</li>
+
+      <ul>
+        <% guest.user.baskets.each do |basket| %>
+        <li><%= basket.whishlist.item.name %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  <% end %>
+</ul>
+<!-- AUTRE TECHNIQUE POUR RECUPERER LE BASKET DE CHAQUE INVITE PAR EVENT -->
+<!-- <ul>
+  <#% @event.users.each do |user| %>
+    <#% if user.guests.where(event_id: params[:event_id]).first.is_coming == true %>
+
+      <li><%= user.nickname %> apportera : <#%= user.guests.where(event_id: params[:event_id]).first.is_coming %></li>
+
+      <ul>
+        <#% user.baskets.each do |basket| %>
+        <li><#%= basket.whishlist.item.name %></li>
+        <#% end %>
+      </ul>
+    <#% end %>
+  <#% end %>
+</ul> -->
+
+
+
+<% @event.whishlists.each do |user_item| %>
+
+<% end %>
+
+
 
 <div>
-<h3> Ce que nous devons ramener :</h3>
+<h3> Ce qu'on ramène</h3>
   <ul>
     <li>guest 1 : </li>
     <li>guest 2 : </li>

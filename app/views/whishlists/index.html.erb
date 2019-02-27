@@ -5,11 +5,21 @@
       <div class="col-xs-12">
         <div class="card">
           <ul>
-            <%@whishlists.each do |whishlist| %>
-            <li>
-              <%= link_to whishlist.item.name, event_whishlist_path(whishlist.event_id, whishlist.id, sens: 1), method: :put %> : <%= whishlist.quantity %>
+            <% @whishlists.each do |whishlist| %>
+              <li>
+                <%= link_to event_whishlist_path(whishlist.event.id, whishlist.id, sens: '-1' ), method: :patch, class: "quantity-css" do %>
+                  <i class="fas fa-minus"></i>
+                <% end %>
+
+                  <%= whishlist.item.name %>
+
+                <%= link_to event_whishlist_path(whishlist.event_id, whishlist.id, sens: '1'), class: "quantity-css", method: :patch do %>
+                    <i class="fas fa-plus"></i>
+                <% end %>
+
+                  : <%= whishlist.quantity %>
+              </li>
             <% end %>
-            </li>
           </ul>
         </div>
         </div>
@@ -37,3 +47,6 @@
     </div>
   </div>
 </div>
+
+
+<%#= link_to whishlist.item.name, event_whishlist_path(whishlist.event_id, whishlist.id), method: :put %>  <%#= whishlist.quantity %>

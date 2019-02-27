@@ -1,7 +1,9 @@
 class BasketsController < ApplicationController
-  # def index
-  #   @whishlists = Whishlist.all
-  # end
+
+  def index
+    @whishlists = Whishlist.all
+  end
+
   def show
     @basket = Basket.find(params[:id])
     @whishlist = @basket.whishlist

@@ -19,7 +19,7 @@ puts 'Creating users...'
 sam = User.create!(nickname: 'Samir', email: 'sam@gmail.com', password: 'azerty')
 remi = User.create!(nickname: 'Remi', email: 'rem@gmail.com', password: 'azerty')
 flo = User.create!(nickname: 'Flo', email: 'flo@gmail.com', password: 'azerty')
-susan = User.create!(nickname: 'Susan', email: 'sus@gmail.com', password: 'azerty')
+susan = User.create!(nickname: 'Susan', email: 'sus@gmail.com', password: 'azerty', photo:'icons/hotdog.png')
 
 
 

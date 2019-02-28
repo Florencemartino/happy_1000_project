@@ -6,7 +6,7 @@
 <%= link_to "#{@event.guests.count + 1} participants", event_guests_path(@event) %>
 <p>Description : <%= @event.description %></p>
 <p>Addresse : <%= @event.address %></p>
-<p>Date | Heure : <%= @event.date %></p>
+<p>Date | Heure : <%= @event.date.strftime("%d/%m/%Y à %H:%M") %></p>
 
 <% if current_user.guests.first.is_coming %>
   <p>Je participe <i class="fas fa-check-circle"></i></p>

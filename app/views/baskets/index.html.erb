@@ -1,8 +1,8 @@
 
 
-<h1>Liste de course où tout le monde doit choisir quelque chose :</h1>
+<h1>Liste de course générale :</h1>
 <ul>
-  <% @whishlists.each do |whishlist| %>
+  <% @event.whishlists.each do |whishlist| %>
     <li>
       <%= link_to whishlist.item.name %>
       <%= image_tag whishlist.item.icon %>
@@ -16,8 +16,11 @@
   <% current_user.baskets.each do |item| %>
    <li> <%= item.whishlist.item.name %>
     <%= image_tag item.whishlist.item.icon %>
+  </li>
    <%#= link_to "Ajouter un prix", edit_basket_path(@basket) %>
   <% end %>
+</ul>
+
 
 
 

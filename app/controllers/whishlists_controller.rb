@@ -12,7 +12,12 @@ class WhishlistsController < ApplicationController
 
   def update
     @whishlist = Whishlist.find(params[:id])
-    @whishlist.quantity += 1
+    case params[:sens]
+    when "1"
+      then @whishlist.quantity += 1
+    when "-1"
+      then @whishlist.quantity -= 1
+    end
     @whishlist.save!
     redirect_to event_whishlists_path(@whishlist)
   end

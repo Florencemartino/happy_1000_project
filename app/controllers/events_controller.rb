@@ -42,6 +42,8 @@ class EventsController < ApplicationController
   end
 
   def select_guest
+    @event = Event.find(params[:event_id])
+
 
     @guests = User.where.not(id: current_user.id)
 

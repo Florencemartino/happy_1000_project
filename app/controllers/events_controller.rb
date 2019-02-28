@@ -18,7 +18,7 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.user = current_user
     if @event.save
-      redirect_to root_path
+      redirect_to event_whishlists_path(@event.id)
     else
       render :new
     end

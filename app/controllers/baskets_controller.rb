@@ -1,4 +1,5 @@
 class BasketsController < ApplicationController
+  before_action :authenticate_user!
 
   def index
     @whishlists = Whishlist.all

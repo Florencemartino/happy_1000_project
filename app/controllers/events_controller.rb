@@ -33,7 +33,8 @@ class EventsController < ApplicationController
   end
 
   def select_guest
-    @guests = User.all
+
+    @guests = User.where.not(id: current_user.id)
 
 # ALERT INVITATION BIEN ENVOYE - ALERT INVITATION BIEN ENVOYE
   # if on appui sur btn submit

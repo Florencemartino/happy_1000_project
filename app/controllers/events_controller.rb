@@ -35,6 +35,12 @@ class EventsController < ApplicationController
   def select_guest
     @guests = User.all
 
+# ALERT INVITATION BIEN ENVOYE - ALERT INVITATION BIEN ENVOYE
+  # if on appui sur btn submit
+  #   flash.now[:notic] = "Ton invitation a bien été envoyée 🎉"
+  #   render :select_guest
+  # end
+
 # BARRE SEARCH  BARRE SEARCH  BARRE SEARCH  BARRE SEARCH  BARRE SEARCH
     # if params[:query].present?
     #   @guest = User.where("nickname ILIKE ?", "%#{params[:query]}%")

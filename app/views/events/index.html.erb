@@ -1,6 +1,23 @@
 <h1 class="text-center">My events</h1>
 <ul>
+
   <% @events.each do |event| %>
     <li><%= link_to event.title, event_dashboard_path(event) %></li>
+
+  <% if @events.blank? %>
+    <p>Tu n'as aucun meal de prévu...</p>
+    <br>
+    <p>C'est l'occastion d'organiser un nouveau Happy 1000 !</p>
+  <% else %>
+    <% @events.each do |event| %>
+      <li><%= link_to event.title, event_dashboard_path(event) %></li>
+    <% end %>
+
   <% end %>
 </ul>
+
+
+
+
+
+

@@ -5,6 +5,7 @@
   <% @whishlists.each do |whishlist| %>
   <li>
     <%= link_to whishlist.item.name %>
+    <%= image_tag whishlist.item.icon %>
   </li>
   <% end %>
 </ul>
@@ -12,9 +13,10 @@
 <h1>Mon panier :</h1>
 
 <ul>
-  <li>
-     Iceberg lettuce
-  </li>
+  <% current_user.items.each do |item| %>
+   <li><%= item.name %>
+   <%= image_tag item.icon %>
+   </li>
+  <% end %>
 </ul>
 
-<%= image_tag "icons/cheese.png" %>

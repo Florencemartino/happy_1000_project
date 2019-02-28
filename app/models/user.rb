@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :baskets
   has_many :guests
   has_many :whishlists, through: :baskets
+  has_many :items, through: :whishlists
 
   validates :nickname, presence: true
   validates :nickname, uniqueness: true

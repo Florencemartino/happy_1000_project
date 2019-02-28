@@ -2,6 +2,11 @@
 <hr>
 <h3>Qui sera de la party ?</h3>
 
+<%= simple_form_for :query, method: :get, html: { class: "form-inline" } do |f| %>
+    <%= f.input :nickname, as: :string, placeholder: "Tape le nom de ton petit pote" %>
+    <%= f.button :submit, "Rechercher", class: 'btn btn-success' %>
+<% end %>
+
 <% @guests.each do |guest|%>
   <li><%= guest.nickname %></li>
 <% end %>

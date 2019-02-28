@@ -17,6 +17,10 @@
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
+                <!-- app/views/articles/_form.html.erb -->
+    <%= f.input :photo %>
+    <%= f.input :photo_cache, as: :hidden %>
+  <!-- [...] -->s
   </div>
 
   <div class="form-actions">

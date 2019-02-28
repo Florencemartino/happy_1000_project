@@ -3,6 +3,7 @@
 
   <% @events.each do |event| %>
     <li><%= link_to event.title, event_dashboard_path(event) %></li>
+  <% end %>
 
   <% if @events.blank? %>
     <p>Tu n'as aucun meal de prévu...</p>

@@ -8,17 +8,12 @@
   <% else %>
     <% @events.each do |event| %>
       <li><%= link_to event.title, event_dashboard_path(event) %></li>
+      <%= link_to edit_event_path(event) do %>
+        <i class="fas fa-pencil-alt"></i>
+      <% end %>
+      <%= link_to event_path(event), method: :delete, data: { confirm: "Veux-tu vraiment supprimer ce meal ?" } do %>
+        <i class="fas fa-trash-alt"></i>
+      <% end %>
     <% end %>
   <% end %>
 </ul>
-
-<%= link_to  do %>
-  <i class="fas fa-pencil-alt"></i>
-<% end %>
-
-<%= link_to method: :delete, data: { confirm: "Veux-tu vraiment supprimer ce meal ?" } do %>
-  <i class="fas fa-trash-alt"></i>
-<% end %>
-
-<!-- edit_event(@event)
-event_path(@event), -->

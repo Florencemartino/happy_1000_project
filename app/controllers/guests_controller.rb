@@ -1,7 +1,7 @@
 class GuestsController < ApplicationController
 
   def index
-    @guests = Guest.where(is_coming: true)
+    @event = Event.find(params[:event_id])
   end
 
 end

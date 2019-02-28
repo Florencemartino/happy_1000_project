@@ -1,7 +1,8 @@
 <h1 class="text-center">Mes Happy 1000</h1>
 <ul>
+
   <% if @events.blank? %>
-    <p>Tu n'as aucun meals de prévu...</p>
+    <p>Tu n'as aucun meal de prévu...</p>
     <br>
     <p>C'est l'occastion d'organiser un nouveau Happy 1000 !</p>
     <%= link_to "Créer mon 1er Happy 1000", new_event_path, :class => "btn btn-primary" %>
@@ -15,5 +16,6 @@
         <i class="fas fa-trash-alt"></i>
       <% end %>
     <% end %>
+
   <% end %>
 </ul>

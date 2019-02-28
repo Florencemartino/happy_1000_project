@@ -12,10 +12,13 @@
   <% end %>
 </ul>
 
-<%= link_to 'Modifier mon meal' do %>
+<%= link_to  do %>
   <i class="fas fa-pencil-alt"></i>
 <% end %>
 
-<%= link_to 'Supprimer mon meal' do %>
+<%= link_to method: :delete, data: { confirm: "Veux-tu vraiment supprimer ce meal ?" } do %>
   <i class="fas fa-trash-alt"></i>
 <% end %>
+
+<!-- edit_event(@event)
+event_path(@event), -->

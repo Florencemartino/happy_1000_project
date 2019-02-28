@@ -1,18 +1,33 @@
-<h2>Ton meal a bien été créé !</h2>
-<hr>
-<h3>Qui sera de la party ?</h3>
+<div class="alert alert-success" role="alert">
+  Ton invitation a bien été envoyée 🎉
+</div>
 
-<%= simple_form_for :query, method: :get, html: { class: "form-inline" } do |f| %>
-    <%= f.input :nickname, as: :string, placeholder: "Tape le nom de ton petit pote" %>
-    <%= f.button :submit, "Rechercher", class: 'btn btn-success' %>
-<% end %>
 
-<% @guests.each do |guest|%>
-  <li><%= guest.nickname %></li>
-<% end %>
+<h2 class="text-center">Qui sera de la party ?</h2>
 
-<hr>
+<div class="container text-center">
+  <div>
+  <%= simple_form_for :query, method: :get, html: { class: "form-inline" } do |f| %>
+      <%= f.input :nickname, as: :string, placeholder: "Tape le nom de ton petit pote" %>
+      <%= f.button :submit, "Rechercher", class: 'btn btn-success' %>
+  <% end %>
+  </div>
 
-<%= link_to "Envoyer l'invit' !" %>
-<br>
-<%= link_to "Continuer" %>
+  <br>
+  <br>
+
+
+  <div class="form-check form-check-inline">
+    <% @guests.each do |guest|%>
+      <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+      <label class="form-check-label" for="inlineCheckbox1"><%= guest.nickname %></label>
+    <% end %>
+      <button type="submit" class="btn btn-primary">Envoyer l'invit' !</button>
+  </div>
+
+  <hr>
+
+  <br>
+  <%= link_to "Continuer" %>
+
+</div>

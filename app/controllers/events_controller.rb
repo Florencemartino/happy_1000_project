@@ -35,6 +35,7 @@ class EventsController < ApplicationController
   def select_guest
     @guests = User.all
 
+# BARRE SEARCH  BARRE SEARCH  BARRE SEARCH  BARRE SEARCH  BARRE SEARCH
     # if params[:query].present?
     #   @guest = User.where("nickname ILIKE ?", "%#{params[:query]}%")
     # else

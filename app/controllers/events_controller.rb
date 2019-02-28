@@ -4,6 +4,7 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
+    # 2 cas : afficher les cartes des events auxquels on est invite, ET les evenements qu'on organise
   end
 
   def show

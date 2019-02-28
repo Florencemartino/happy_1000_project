@@ -10,7 +10,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.6);
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
-.card-trip > img {
+.card-photo > img {
   height: 200px;
   width: 100%;
   object-fit: cover;
@@ -50,4 +50,35 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.6);
 
 .avatar-bordered{
   border-radius: 100%;
+}
+
+.card-photo .fa-pencil-alt {
+  position: absolute;
+  font-size: 1.3em;
+  right: 50px;
+  top: 15px;
+  color: $mauve1;
+  opacity: .6;
+    &:hover{
+      color: $mauve1;
+      opacity: 1;
+    }
+  // width: 40px;
+}
+
+.card-photo .fa-trash-alt {
+  position: absolute;
+  font-size: 1.3em;
+  right: 25px;
+  top: 15px;
+  color: $mauve1;
+  opacity: .6;
+    &:hover{
+      color: $mauve1;
+      opacity: 1;
+    }
+}
+
+.card-photo{
+  position: relative;
 }

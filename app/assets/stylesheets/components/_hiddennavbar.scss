@@ -40,6 +40,8 @@
 #main {
   transition: margin-left .5s;
   min-width: 100%;
+  min-height: calc(100vh - 10rem);
+  position: relative;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */

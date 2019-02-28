@@ -2,6 +2,7 @@
 
 
 <% if @events.blank? %>
+<!-- verifier la condition suivante pour afficher les cartes : current_user.events ET current_user.guests -->
   <p>Tu n'as aucun meal de prévu...</p>
   <p>C'est l'occastion d'organiser un nouveau Happy 1000 !</p>
   <div class="text-center"><%= link_to "Créer mon 1er Happy 1000", new_event_path, :class => "btn btn-primary" %></div>
@@ -12,30 +13,35 @@
       <div class="container">
         <div class="row">
           <div class="col-xs-12">
-            <div class="card-trip">
-              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg">
-              <div class="card-trip-infos">
-                <div>
-                  <h2><%= event.title %></h2>
-                  <p>Short description here!</p>
+
+              <div class="card-trip">
+                <div class="card-photo">
+                  <%= link_to edit_event_path(event) do %>
+                    <i class="fas fa-pencil-alt"></i>
+                  <% end %>
+                  <%= link_to event_path(event), method: :delete, data: { confirm: "Veux-tu vraiment supprimer ce meal ?" } do %>
+                    <i class="fas fa-trash-alt"></i>
+                  <% end %>
+                  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg">
                 </div>
-                <h2 class="card-trip-pricing">£99.99</h2>
-                <%= cl_image_tag event.user.photo, height: 50, width: 50, crop: :fill, gravity: :face, :radius => "max", class: 'card-trip-user' %>
-                <!-- <img src='https://kitt.lewagon.com/placeholder/users/krokrob' class="card-trip-user avatar-bordered"/> -->
+                <div class="card-trip-infos">
+                  <div>
+                    <h2><%= event.title %></h2>
+                    <p><%= event.description %></p>
+                  </div>
+                  <p>organisé par <%= event.user.nickname %></p>
+                  <%= cl_image_tag event.user.photo, height: 50, width: 50, crop: :fill, gravity: :face, :radius => "max", class: 'card-trip-user' %>
+                  <!-- <img src='https://kitt.lewagon.com/placeholder/users/krokrob' class="card-trip-user avatar-bordered"/> -->
+                </div>
               </div>
-            </div>
           </div>
         </div>
       </div>
     </div>
 
     <li><%= link_to event.title, event_dashboard_path(event) %></li>
-    <%= link_to edit_event_path(event) do %>
-      <i class="fas fa-pencil-alt"></i>
-    <% end %>
-    <%= link_to event_path(event), method: :delete, data: { confirm: "Veux-tu vraiment supprimer ce meal ?" } do %>
-      <i class="fas fa-trash-alt"></i>
-    <% end %>
+
+
   <% end %>
 
 <% end %>

@@ -11,11 +11,11 @@
 </ul>
 
 <h1>Mon panier :</h1>
-<%= @basket %>
+
 <ul>
   <% current_user.baskets.each do |item| %>
-   <li><%= item.name %>
-   <%= image_tag item.icon %>
+   <li> <%= item.whishlist.item.name %>
+    <%= image_tag item.whishlist.item.icon %>
    <%#= link_to "Ajouter un prix", edit_basket_path(@basket) %>
   <% end %>
 

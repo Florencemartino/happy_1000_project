@@ -1,7 +1,7 @@
 class WhishlistsController < ApplicationController
   def index
-    @whishlists = Whishlist.all
-    @whishlist = Whishlist.new
+    @items = Item.all
+    @whishlists = Whishlist.where(event: params[:id])
   end
 
   def new

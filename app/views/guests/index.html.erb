@@ -1,19 +1,21 @@
 <h1 class="text-center">Liste des invités</h1>
 
-<h2>Participera au meal</h2>
-  <%= @event.user.nickname %>
-<% @event.guests.each do |guest| %>
-  <% if guest.is_coming %>
-    <%= guest.user.nickname %>
-  <% end %>
-<% end %>
+<h2>Participera</h2>
 
-<h2>Ne participera pas au meal</h2>
-<% @event.guests.each do |guest| %>
-  <% if guest.is_coming == false %>
-    <%= guest.user.nickname %>
+  <li><%= @event.user.nickname %> <em>(organisateur)</em></li>
+  <% @event.guests.each do |guest| %>
+    <% if guest.is_coming %>
+     <li><%= guest.user.nickname %></li>
+    <% end %>
   <% end %>
-<% end %>
+
+<h2>Ne participera pas</h2>
+
+  <% @event.guests.each do |guest| %>
+    <% if guest.is_coming == false %>
+      <li><%= guest.user.nickname %></li>
+    <% end %>
+  <% end %>
 
 
 <div class="text-center"><%= link_to 'Back to the event', event_dashboard_path, class: "btn btn-primary" %></div>

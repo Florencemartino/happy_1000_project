@@ -1,19 +1,19 @@
 
 
-<h1>Liste de course ou tout le monde doit choisir quelque chose :</h1>
+<h1>Liste de course où tout le monde doit choisir quelque chose :</h1>
 <ul>
   <% @whishlists.each do |whishlist| %>
-  <li>
-    <%= link_to whishlist.item.name %>
-    <%= image_tag whishlist.item.icon %>
-  </li>
+    <li>
+      <%= link_to whishlist.item.name %>
+      <%= image_tag whishlist.item.icon %>
+    </li>
   <% end %>
 </ul>
 
 <h1>Mon panier :</h1>
 <%= @basket %>
 <ul>
-  <% current_user.items.each do |item| %>
+  <% current_user.baskets.each do |item| %>
    <li><%= item.name %>
    <%= image_tag item.icon %>
    <%= link_to "Ajouter un prix"%>

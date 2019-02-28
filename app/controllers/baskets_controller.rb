@@ -9,6 +9,7 @@ class BasketsController < ApplicationController
   def index
     @event = Event.find(params[:event_id])
     @whishlists = Whishlist.all
+
   end
 
   def edit

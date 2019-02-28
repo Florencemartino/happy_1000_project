@@ -1,2 +1,10 @@
-<h1>Baskets#new</h1>
-<p>Find me in app/views/baskets/new.html.erb</p>
+<%#= render 'form', basket: @basket %>
+
+<div class="col-md-4 col-md-offset-4">
+      <%= simple_form_for [@event, @basket] do |f| %>
+        <%= f.input :price_in_cent, label: "Prix de ton toto"  %>
+        <%= f.submit "Ajoute ton prix", :class => "btn-medium" %>
+     <!--  <div class="btn-medium-new-booking"> -->
+        <% end %>
+        <br>
+    </div>

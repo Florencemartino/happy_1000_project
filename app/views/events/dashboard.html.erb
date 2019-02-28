@@ -24,7 +24,6 @@
 <ul>
   <% @event.guests.each do |guest| %>
     <% if guest.is_coming %>
-
       <li><%#= cl_image_tag guest.user.photo, height: 50, width: 50, crop: :fill %><%= guest.user.nickname %> apportera :</li>
 
       <ul>

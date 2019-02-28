@@ -16,10 +16,12 @@ Item.destroy_all
 Basket.destroy_all
 
 puts 'Creating users...'
+
 sam = User.create!(nickname: 'Samir', email: 'sam@gmail.com', password: 'azerty', photo: 'icons/user.png')
 remi = User.create!(nickname: 'Remi', email: 'rem@gmail.com', password: 'azerty', photo: 'icons/user.png')
 flo = User.create!(nickname: 'Flo', email: 'flo@gmail.com', password: 'azerty', photo: 'icons/user.png')
 susan = User.create!(nickname: 'Susan', email: 'sus@gmail.com', password: 'azerty', photo: 'icons/user.png')
+
 
 
 

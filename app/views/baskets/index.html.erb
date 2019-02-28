@@ -16,7 +16,7 @@
   <% current_user.baskets.each do |item| %>
    <li><%= item.name %>
    <%= image_tag item.icon %>
-   <%= link_to "Ajouter un prix"%>
+   <%#= link_to "Ajouter un prix", edit_basket_path(@basket) %>
   <% end %>
 
 

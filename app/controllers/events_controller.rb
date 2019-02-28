@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
-
-  before_action :set_event, only: [:show, :edit, :update, :destroy, :account]
+    before_action :authenticate_user!
+ before_action :set_event, only: [:show, :edit, :update, :destroy, :account]
 
   def index
     @events = Event.all
@@ -16,7 +16,12 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    @event.save
+    @event.user = current_user
+    if @event.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def edit
@@ -31,6 +36,9 @@ class EventsController < ApplicationController
 
   def dashboard
     @event = Event.find(params[:event_id])
+    @whishlists = Whishlist.where(event_id: @event.id)
+    @baskets = Basket.where(user_id: current_user.id)
+    @user_baskets = @baskets.select {|x| x.user_id == current_user.id}
   end
 
   def select_guest

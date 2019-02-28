@@ -13,7 +13,6 @@ class BasketsController < ApplicationController
   end
 
   def edit
-    raise
   end
 
   def show

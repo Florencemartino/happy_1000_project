@@ -6,10 +6,10 @@
         <ul class="list-inline">
           <% @items.each do |item| %>
             <li>
-              <%= image_tag(item.icon) %>
+              <%= image_tag item.icon %>
               (<%= item.category %>)
 
-              <%= link_to event_whishlists_path(item: item.id), class: "quantity-css", method: :post do %>
+              <%= link_to event_whishlists_path(@event, item: item.id), class: "quantity-css", method: :post do %>
                   <i class="fas fa-plus-circle"></i>
               <% end %>
             </li>
@@ -26,13 +26,17 @@
                 <i class="fas fa-minus"></i>
               <% end %>
 
-                <%= whishlist.item.name %>
+              <%= image_tag whishlist.item.icon %>
 
               <%= link_to event_whishlist_path(whishlist.event_id, whishlist.id, sens: '1'), class: "quantity-css", method: :patch do %>
                   <i class="fas fa-plus"></i>
               <% end %>
 
-                : <%= whishlist.quantity %>
+              : <%= whishlist.quantity %>
+
+              <%=link_to event_whishlist_path(whishlist.event_id, whishlist.id), method: :delete, data: { confirm: "Do you realy want to delete this item ?" } do %>
+                <i class="fas fa-trash-alt"></i>
+              <% end %>
             </li>
           <% end %>
         </ul>

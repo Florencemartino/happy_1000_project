@@ -1,6 +1,17 @@
+// .whishlist-container {
+//   position: relative;
+// }
+
+.card-container {
+  display: flex;
+  justify-content: center;
+}
+
 .btn-flex {
   display: flex;
   justify-content: space-around;
+  align-item: center;
+  // position: absolute;
 }
 
 .item-icon img {

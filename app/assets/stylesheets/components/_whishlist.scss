@@ -1,12 +1,24 @@
+// .whishlist-container {
+//   position: relative;
+// }
+
+.card-container {
+  display: flex;
+  justify-content: center;
+}
+
 .btn-flex {
   display: flex;
   justify-content: space-around;
+  align-item: center;
+  // position: absolute;
 }
 
 .item-icon img {
   height: 50px;
 }
 
-.whishlist-card {
-
+.quantity-css {
+  color: #161968;
+  font-size: 20px;
 }

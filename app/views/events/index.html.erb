@@ -1,18 +1,19 @@
-<h1 class="text-center">My events</h1>
+<h1 class="text-center">Mes Happy 1000</h1>
 <ul>
   <% if @events.blank? %>
     <p>Tu n'as aucun meals de prévu...</p>
     <br>
     <p>C'est l'occastion d'organiser un nouveau Happy 1000 !</p>
+    <%= link_to "Créer mon 1er Happy 1000", new_event_path, :class => "btn btn-primary" %>
   <% else %>
     <% @events.each do |event| %>
       <li><%= link_to event.title, event_dashboard_path(event) %></li>
+      <%= link_to edit_event_path(event) do %>
+        <i class="fas fa-pencil-alt"></i>
+      <% end %>
+      <%= link_to event_path(event), method: :delete, data: { confirm: "Veux-tu vraiment supprimer ce meal ?" } do %>
+        <i class="fas fa-trash-alt"></i>
+      <% end %>
     <% end %>
   <% end %>
 </ul>
-
-
-
-
-
-

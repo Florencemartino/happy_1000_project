@@ -20,22 +20,33 @@ class EventsController < ApplicationController
   end
 
   def edit
+    @event = Event.find(params[:id])
   end
 
   def update
+    @event = Event.find(params[:id])
+    @event.update(event_params)
+    redirect_to root_path
   end
 
   def dashboard
     @event = Event.find(params[:event_id])
-
   end
 
   def select_guest
     @guests = User.all
+
+    # if params[:query].present?
+    #   @guest = User.where("nickname ILIKE ?", "%#{params[:query]}%")
+    # else
+    #   @guests = User.all
+    # end
   end
 
-
   def destroy
+    @event = Event.find(params[:event_id])
+    @event.destroy
+    redirect_to :root
   end
 
   def account
@@ -46,7 +57,6 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event).permit(:title, :description, :address, :date)
   end
-
 
   def set_event
     @event = Event.find(params[:id])

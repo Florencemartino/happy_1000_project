@@ -14,7 +14,7 @@
   </ul>
 
 
-  <h1>Mon panier :</h1
+  <h1>Mon panier :</h1>
   <ul class="list-inline">
     <% @baskets.each do |basket| %>
      <li>
@@ -30,5 +30,13 @@
       <%=link_to event_baskets_path(basket.event.id, basket.id), method: :delete, data: { confirm: "Do you realy want to delete this item ?" } do %>
         <i class="fas fa-trash-alt"></i>
       <% end %>
+      <%= link_to "Ajouter un prix", edit_event_basket_path(@event, basket) %>
+      <% if basket.price_in_cent.nil? %>
+      <%= puts "Ton #{basket.whishlist.item.name} n'a pas de prix" %>
+      <% else %>
+      <%= basket.price_in_cent %>
+      <% end %>
     <% end %>
+    </li>
+  </ul>
 </div>

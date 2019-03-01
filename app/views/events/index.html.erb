@@ -1,20 +1,30 @@
 <!-- <h1 class="text-center">Mes Happy 1000</h1>
  -->
-
-<% if !current_user.guests.blank? %>
-
+<% if current_user.guests.empty? && current_user.events.empty?  %>
+  <h2 class="text-center">Vous n'avez aucun meal pour le moment</h2>
   <div class="text-center">
-    <%= image_tag "happy_pan.png", alt: "alttext", class: "low-opacity medium-size" %>
+    <%= image_tag "happy_sad.png", alt: "alttext", class: "low-opacity medium-size" %>
   </div>
   <div class="text-center">
     <%= link_to "Organiser un meal", new_event_path, :class => "btn btn-info mauve" %>
   </div>
 
-  <div class="participation">
-    <%= image_tag "happy_fork.png", alt: "alttext", class: 'happy-fork' %>
-    <h3 class="section">Meals auxquels vous participez</h3>
-  </div>
 
+<% else %>
+   <div class="text-center">
+     <%= image_tag "happy_pan.png", alt: "alttext", class: "low-opacity medium-size" %>
+   </div>
+   <div class="text-center">
+     <%= link_to "Organiser un meal", new_event_path, :class => "btn btn-info mauve" %>
+   </div>
+<% end %>
+
+<% if !current_user.guests.blank? %>
+
+ <div class="participation">
+   <%= image_tag "happy_fork.png", alt: "alttext", class: 'happy-fork' %>
+   <h3 class="section">Meals auxquels vous participez</h3>
+ </div>
     <% current_user.guests.each do |event| %>
 
       <div class="container-exterieur">
@@ -55,7 +65,7 @@
       </div>
     <% end %>
 
-<% end %>
+<%# end %>
 
 
 
@@ -80,14 +90,14 @@
     <%#= link_to "Organiser un meal", new_event_path, :class => "btn btn-info mauve" %>
   </div>
  -->
-<% if current_user.events %>
+<% elsif !current_user.events.blank? %>
 
-  <div class="text-center">
-    <%= image_tag "happy_pan.png", alt: "alttext", class: "low-opacity medium-size" %>
+<!--   <div class="text-center">
+    <%#= image_tag "happy_pan.png", alt: "alttext", class: "low-opacity medium-size" %>
   </div>
   <div class="text-center">
-    <%= link_to "Organiser un meal", new_event_path, :class => "btn btn-info mauve" %>
-  </div>
+    <%#= link_to "Organiser un meal", new_event_path, :class => "btn btn-info mauve" %>
+  </div> -->
 
 
   <div class="participation">

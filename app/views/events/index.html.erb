@@ -23,17 +23,19 @@
             <div class="col-md-12">
 
                 <div class="card-trip">
-                  <div class="card-photo">
-                    <!-- <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg"> -->
-                    <div class="card-background">
-                      <h2 class="yellow-title"><%= event.event.title %></h2>
-                      <div class="card-details">
-                        <h6 class="yellow-details"><i class="far fa-calendar-alt"></i> <%= event.event.date.strftime("%d/%m/%Y") %></h6>
-                        <h6 class="yellow-details"><i class="far fa-clock"></i> <%= event.event.date.strftime("%HH%M") %></h6>
-                        <h6 class="yellow-details"><i class="fas fa-users"></i> <%= event.event.guests.count + 1 %></h6>
+                  <%= link_to event_dashboard_path(event), class: 'dashboard-path' do %>
+                    <div class="card-photo">
+                      <!-- <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg"> -->
+                      <div class="card-background">
+                        <h2 class="yellow-title"><%= event.event.title %></h2>
+                        <div class="card-details">
+                          <h6 class="yellow-details"><i class="far fa-calendar-alt"></i> <%= event.event.date.strftime("%d/%m/%Y") %></h6>
+                          <h6 class="yellow-details"><i class="far fa-clock"></i> <%= event.event.date.strftime("%HH%M") %></h6>
+                          <h6 class="yellow-details"><i class="fas fa-users"></i> <%= event.event.guests.count + 1 %></h6>
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  <% end %>
                   <div class="card-trip-infos">
                     <p>Organisé par <strong><%= event.user.nickname %></strong></p>
                     <p><em>"<%= event.event.description %>"</em></p>
@@ -92,17 +94,19 @@
             <div class="col-md-12">
 
                 <div class="card-trip">
-                  <div class="card-photo">
-                    <!-- <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg"> -->
-                    <div class="card-background">
-                      <h2 class="yellow-title"><%= event.title %></h2>
-                      <div class="card-details">
-                        <h6 class="yellow-details"><i class="far fa-calendar-alt"></i> <%= event.date.strftime("%d/%m/%Y") %></h6>
-                        <h6 class="yellow-details"><i class="far fa-clock"></i> <%= event.date.strftime("%HH%M") %></h6>
-                        <h6 class="yellow-details"><i class="fas fa-users"></i> <%= event.guests.count + 1 %></h6>
+                  <%= link_to event_dashboard_path(event), class: 'dashboard-path' do %>
+                    <div class="card-photo">
+                      <!-- <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg"> -->
+                      <div class="card-background">
+                        <h2 class="yellow-title"><%= event.title %></h2>
+                        <div class="card-details">
+                          <h6 class="yellow-details"><i class="far fa-calendar-alt"></i> <%= event.date.strftime("%d/%m/%Y") %></h6>
+                          <h6 class="yellow-details"><i class="far fa-clock"></i> <%= event.date.strftime("%HH%M") %></h6>
+                          <h6 class="yellow-details"><i class="fas fa-users"></i> <%= event.guests.count + 1 %></h6>
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  <% end %>
                   <div class="card-trip-infos">
                     <p>Organisé par <strong><%= event.user.nickname %></strong></p>
                     <p><em>"<%= event.description %>"</em></p>

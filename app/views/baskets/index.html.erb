@@ -17,11 +17,11 @@
   <ul class="list-inline">
     <% @baskets.each do |basket| %>
      <li>
-      <%= link_to event_baskets_path(basket.event.id, basket.id, sens: '-1' ), method: :patch, class: "quantity-css" do %>
+      <%= link_to event_basket_path(basket.event.id, basket.id, sens: '-1' ), method: :patch, class: "quantity-css" do %>
         <i class="fas fa-minus"></i>
       <% end %>
       <%= image_tag basket.whishlist.item.icon %>
-      <%= link_to event_baskets_path(basket.event.id, basket.id, sens: '1' ), method: :patch, class: "quantity-css" do %>
+      <%= link_to event_basket_path(basket.event.id, basket.id, sens: '1' ), method: :patch, class: "quantity-css" do %>
         <i class="fas fa-plus"></i>
       <% end %>
        : <strong><%= basket.quantity %></strong> <%= basket.whishlist.item.name %> :
@@ -30,5 +30,4 @@
         <i class="fas fa-trash-alt"></i>
       <% end %>
     <% end %>
-    <%= raise %>
 </div>

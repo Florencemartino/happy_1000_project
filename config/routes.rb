@@ -13,6 +13,7 @@ root to: 'events#index'
     resources :guests
     resources :baskets
     get "/dashboard", to: "events#dashboard", as: :dashboard
+    get "/account", to: "events#account", as: :account
     get "/select_guest", to: "events#select_guest", as: :select_guest
   end
 

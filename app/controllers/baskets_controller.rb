@@ -8,11 +8,24 @@ class BasketsController < ApplicationController
 
   def index
     @event = Event.find(params[:event_id])
+    @baskets = current_user.baskets.where(event: @event)
     @whishlists = Whishlist.all
-
   end
 
   def edit
+    @event = Event.find(params[:event_id])
+    @baskets = current_user.baskets.where(event: @event)
+  end
+
+  def update
+    @basket = Basket.find(params[:id])
+    @event = Event.find(params[:event_id])
+    @basket.update(basket_params)
+    if @basket.save
+      redirect_to event_baskets_path
+    else
+      render :new
+    end
   end
 
   def show

@@ -10,14 +10,21 @@
   <% end %>
 </ul>
 
+
 <h1>Mon panier :</h1>
 
 <ul>
-  <% current_user.baskets.each do |item| %>
-   <li> <%= item.whishlist.item.name %>
-    <%= image_tag item.whishlist.item.icon %>
+  <% current_user.baskets.each do |basket| %>
+   <li> <%= basket.whishlist.item.name %>
+    <%= image_tag basket.whishlist.item.icon %>
   </li>
-   <%#= link_to "Ajouter un prix", edit_basket_path(@basket) %>
+
+   <%= link_to "Ajouter un prix", edit_event_basket_path(@event, basket) %>
+   <% if basket.price_in_cent.nil? %>
+   <%= puts "ton roti n'a pas de prix" %>
+   <% else  %>
+   <%= basket.price_in_cent %> €
+   <% end %>
   <% end %>
 </ul>
 

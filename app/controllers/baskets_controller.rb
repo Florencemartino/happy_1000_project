@@ -22,7 +22,7 @@ class BasketsController < ApplicationController
     @basket = Basket.new
     @basket.whishlist = @whishlist
     @basket.user = current_user
-    @basket.quantity = 1
+    @basket.quantity = 0
     @basket.price_in_cent = 0
     @basket.save
     redirect_to event_baskets_path(@event)

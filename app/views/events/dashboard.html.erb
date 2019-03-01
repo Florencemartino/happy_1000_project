@@ -3,7 +3,7 @@
 <div class="text-center"><em>crée par <%= @event.user.nickname %></em></div>
 
 
-<%= link_to "#{@event.guests.count + 1} participants", event_guests_path(@event) %>
+<%= link_to "#{@event.guests.count + 1} invités", event_guests_path(@event) %>
 <p>Description : <%= @event.description %></p>
 <p>Addresse : <%= @event.address %></p>
 <p>Date | Heure : <%= @event.date.strftime("%d/%m/%Y à %H:%M") %></p>
@@ -19,7 +19,6 @@
 <!-- LES GENS QUI NE VIENNENT PAS NE SERONT PAS AFFICHES ICI, MAIS DANS L'INDEX DES GUESTS VIA UN TAB/ONGLET : "PARTICIPE / NE PARTICIPE PAS"     -->
 
 <h3> Qui ramène quoi :</h3>
-
 <ul>
   <% @event.guests.each do |guest| %>
     <% if guest.is_coming %>

@@ -1,0 +1,24 @@
+.mauve {
+  color: $mauve1;
+  margin: 1rem 0;
+}
+
+.connexion {
+  font-size: calc(9px + .5vw);
+}
+
+.log-buttons{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.log-buttons a {
+  margin: 0 5px;
+}
+
+@media screen and (max-width: 750px) {
+  .log-buttons a:last-child {
+    margin-right: -4vw;
+  }
+}

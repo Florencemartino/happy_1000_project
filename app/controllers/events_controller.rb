@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_event, only: [:show, :edit, :update, :destroy, :account]
+  before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
     @events = Event.all
@@ -26,7 +26,6 @@ class EventsController < ApplicationController
 
   def edit
     @event = Event.find(params[:id])
-
   end
 
   def update
@@ -39,26 +38,11 @@ class EventsController < ApplicationController
     @event = Event.find(params[:event_id])
     @whishlists = Whishlist.where(event_id: @event.id)
     @baskets = Basket.where(user_id: current_user.id)
-    @user_baskets = @baskets.select {|x| x.user_id == current_user.id}
   end
 
   def select_guest
     @event = Event.find(params[:event_id])
-
     @guests = User.where.not(id: current_user.id)
-
-# ALERT INVITATION BIEN ENVOYE - ALERT INVITATION BIEN ENVOYE
-  # if on appui sur btn submit
-  #   flash.now[:notic] = "Ton invitation a bien été envoyée 🎉"
-  #   render :select_guest
-  # end
-
-# BARRE SEARCH  BARRE SEARCH  BARRE SEARCH  BARRE SEARCH  BARRE SEARCH
-    # if params[:query].present?
-    #   @guest = User.where("nickname ILIKE ?", "%#{params[:query]}%")
-    # else
-    #   @guests = User.all
-    # end
   end
 
   def destroy
@@ -68,6 +52,9 @@ class EventsController < ApplicationController
   end
 
   def account
+    @event = Event.find(params[:event_id])
+    @whishlists = Whishlist.where(event_id: @event.id)
+    @baskets = Basket.where(user_id: current_user.id)
   end
 
   private
@@ -80,3 +67,16 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
   end
 end
+
+    #ALERT INVITATION BIEN ENVOYE - ALERT INVITATION BIEN ENVOYE
+    # if on appui sur btn submit
+    #   flash.now[:notic] = "Ton invitation a bien été envoyée 🎉"
+    #   render :select_guest
+    #end
+
+  # BARRE SEARCH  BARRE SEARCH  BARRE SEARCH  BARRE SEARCH  BARRE SEARCH
+      # if params[:query].present?
+      #   @guest = User.where("nickname ILIKE ?", "%#{params[:query]}%")
+      # else
+      #   @guests = User.all
+      # end

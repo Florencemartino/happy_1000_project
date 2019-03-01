@@ -8,12 +8,12 @@
 require 'faker'
 
 puts 'Cleaning database...'
-User.destroy_all
-Guest.destroy_all
-Event.destroy_all
 Whishlist.destroy_all
 Item.destroy_all
 Basket.destroy_all
+Event.destroy_all
+Guest.destroy_all
+User.destroy_all
 
 puts 'Creating users...'
 

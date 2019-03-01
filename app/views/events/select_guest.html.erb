@@ -14,7 +14,7 @@
 <%= simple_form_for :guest_ids, method: :post, url: event_guests_path(@event) do |f|%>
   <div class="form-check form-check-inline">
     <% @guests.each do |guest|%>
-      <input class="form-check-input" type="checkbox" id='<%= "inlineCheckbox#{guest.id}" %>' value="option1" name='<%= "guest_ids[#{guest.id}]" %>'>
+      <input class="form-check-input" type="checkbox" id='<%= "inlineCheckbox#{guest.id}" %>' value='<%= "#{guest.id}" %>' name="guests_ids[]">
       <label class="form-check-label" for='<%= "inlineCheckbox#{guest.id}" %>'>
 
         <%= guest.nickname %>
@@ -28,9 +28,10 @@
       <%= f.submit "Envoyer l'invit' !", class: "btn btn-primary" %>
   </div>
 <% end %>
+
   <hr>
   <br>
-  <%= link_to "Continuer" %>
+  <%= link_to "Continuer", event_dashboard_path(@event) %>
 
 </div>
 

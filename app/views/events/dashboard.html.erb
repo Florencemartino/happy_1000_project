@@ -3,7 +3,7 @@
 <div class="text-center"><em>crée par <%= @event.user.nickname %></em></div>
 
 
-<%= link_to "#{@event.guests.count + 1} participants", event_guests_path(@event) %>
+<%= link_to "#{@event.guests.count + 1} invités", event_guests_path(@event) %>
 <p>Description : <%= @event.description %></p>
 <p>Addresse : <%= @event.address %></p>
 <p>Date | Heure : <%= @event.date.strftime("%d/%m/%Y à %H:%M") %></p>
@@ -17,9 +17,20 @@
 <!-- LISTE LES GENS QUI VIENNENT AVEC LEUR BASKET -->
 
 <!-- LES GENS QUI NE VIENNENT PAS NE SERONT PAS AFFICHES ICI, MAIS DANS L'INDEX DES GUESTS VIA UN TAB/ONGLET : "PARTICIPE / NE PARTICIPE PAS"     -->
-
-
+<hr>
 <h3> Qui ramène quoi :</h3>
+
+<ul>
+  <% if @event.user.photo.blank?%>
+    <%= image_tag "https://www.weekend-esprithautsdefrance.com/sites/picardiev3/themes/picardiev3/img_v2/user-default.jpg", alt: "alttext", height: 50, width: 50, crop: :fill%>
+  <% else %>
+    <%= cl_image_tag @event.user.photo, height: 50, width: 50, crop: :fill %>
+  <% end %>
+  <%= @event.user.nickname %> <em>(organisateur)</em> apportera :
+  <% @event.user.baskets.each do |basket| %>
+  <li><%= basket.whishlist.item.name %><%= image_tag basket.whishlist.item.icon %></li>
+  <% end %>
+</ul>
 
 <ul>
   <% @event.guests.each do |guest| %>
@@ -31,10 +42,24 @@
         <li><%= basket.whishlist.item.name %><%= image_tag basket.whishlist.item.icon %></li>
         <% end %>
       </ul>
-
+    <% end %>
+<% end %>
+<hr>
+<% sum = 0 %>
+  <% @baskets.each do |basket| %>
+    <% i = basket.price_in_cent %>
+      <% if i.nil? %>
+        <% i = 0 %>
+      <% else %>
+    <% sum += i %>
     <% end %>
   <% end %>
-</ul>
+<p>Total de repas :<%= sum %> € </p>
+
+
+<%= link_to "Equilibres", event_account_path(@event)%> <br>
+<%= link_to "Voir mon panier", event_baskets_path, :class => "btn-medium" %> <br>
+<%= link_to "Description de l'event", event_path(@event), :class => "btn-medium" %>
 <!-- AUTRE TECHNIQUE POUR RECUPERER LE BASKET DE CHAQUE INVITE PAR EVENT -->
 <!-- <ul>
   <%# @event.users.each do |user| %>
@@ -52,14 +77,3 @@
   <%# end %>
 </ul> -->
 
-
-
-
-<div>
-  <p>Total : 93€ </p>
-</div>
-
-
-<%= link_to "Equilibres"%> <br>
-<%= link_to "Voir mon panier", event_baskets_path, :class => "btn-medium" %> <br>
-<%= link_to "Description de l'event", event_path(@event), :class => "btn-medium" %>

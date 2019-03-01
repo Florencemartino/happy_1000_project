@@ -1,0 +1,5 @@
+<h1>modifier le prix de mes éléments :</h1>
+
+<%= @basket.price_in_cent  %> €
+<%= @basket.whishlist.item.name %>
+<%= render 'form', basket: @basket %>

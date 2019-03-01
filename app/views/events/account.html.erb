@@ -1,2 +1,17 @@
-<h1>Event#account</h1>
-<p>Find me in app/views/event/account.html.erb</p>
+<h3> C'est l'heure des comptes ! </h3>
+
+<h3> Voici le coût total pour : <%= @event.title %></h3>
+
+
+<% sum = 0 %>
+  <% @baskets.each do |basket| %>
+    <% i = basket.price_in_cent %>
+      <% if i.nil? %>
+        <% i = 0 %>
+      <% else %>
+    <% sum += i %>
+    <% end %>
+  <% end %>
+<p>Total de repas :<%= sum %> € </p>
+
+

@@ -1,23 +1,34 @@
 
 
-<h1>Liste de course où tout le monde doit choisir quelque chose :</h1>
-<ul>
-  <% @whishlists.each do |whishlist| %>
-    <li>
-      <%= link_to whishlist.item.name %>
-      <%= image_tag whishlist.item.icon %>
-    </li>
-  <% end %>
-</ul>
+<div class="container">
+  <h1>Liste de course où tout le monde doit choisir quelque chose :</h1>
+  <ul class="list-inline">
+    <% @whishlists.each do |whishlist| %>
+      <li>
+        <%= image_tag whishlist.item.icon %>
+        (<strong><%= whishlist.quantity %></strong> <%= whishlist.item.name %> )
+         -
+          <%= link_to "Ajouter à ton panier", event_baskets_path(@event, whishlist: whishlist.id), method: :post %>
+      </li>
+    <% end %>
+  </ul>
 
-<h1>Mon panier :</h1>
-<%= @basket %>
-<ul>
-  <% current_user.baskets.each do |item| %>
-   <li><%= item.name %>
-   <%= image_tag item.icon %>
-   <%#= link_to "Ajouter un prix", edit_basket_path(@basket) %>
-  <% end %>
-
-
-
+  <h1>Mon panier :</h1
+  <ul class="list-inline">
+    <% @baskets.each do |basket| %>
+     <li>
+      <%= link_to event_baskets_path(basket.event.id, basket.id, sens: '-1' ), method: :patch, class: "quantity-css" do %>
+        <i class="fas fa-minus"></i>
+      <% end %>
+      <%= image_tag basket.whishlist.item.icon %>
+      <%= link_to event_baskets_path(basket.event.id, basket.id, sens: '1' ), method: :patch, class: "quantity-css" do %>
+        <i class="fas fa-plus"></i>
+      <% end %>
+       : <strong><%= basket.quantity %></strong> <%= basket.whishlist.item.name %> :
+      <%#= link_to "Ajouter un prix", edit_basket_path(@basket) %>
+      <%=link_to event_baskets_path(basket.event.id, basket.id), method: :delete, data: { confirm: "Do you realy want to delete this item ?" } do %>
+        <i class="fas fa-trash-alt"></i>
+      <% end %>
+    <% end %>
+    <%= raise %>
+</div>

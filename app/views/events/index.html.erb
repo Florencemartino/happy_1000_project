@@ -1,8 +1,8 @@
 <!-- <h1 class="text-center">Mes Happy 1000</h1>
  -->
 
-<% if current_user.guests %>
-<!-- verifier la condition suivante pour afficher les cartes : current_user.events ET current_user.guests -->
+<% if !current_user.guests.blank? %>
+
   <div class="text-center">
     <%= image_tag "happy_pan.png", alt: "alttext", class: "low-opacity medium-size" %>
   </div>
@@ -16,7 +16,7 @@
   </div>
 
     <% current_user.guests.each do |event| %>
-    <%# raise %>
+
       <div class="container-exterieur">
         <div class="container">
           <div class="row">
@@ -47,7 +47,6 @@
                       <i class="fas fa-trash-alt"></i>
                     <% end %>
                     <%= cl_image_tag event.user.photo, height: 50, width: 50, crop: :fill, gravity: :face, :radius => "max", class: 'card-trip-user' %>
-                    <!-- <img src='https://kitt.lewagon.com/placeholder/users/krokrob' class="card-trip-user avatar-bordered"/> -->
                   </div>
                 </div>
             </div>
@@ -73,7 +72,6 @@
 
 
 
-<% if current_user.events %>
 <!--   <div class="text-center">
     <%#= image_tag "happy_pan.png", alt: "alttext", class: "low-opacity medium-size" %>
   </div>
@@ -82,6 +80,15 @@
     <%#= link_to "Organiser un meal", new_event_path, :class => "btn btn-info mauve" %>
   </div>
  -->
+<% if current_user.events %>
+
+  <div class="text-center">
+    <%= image_tag "happy_pan.png", alt: "alttext", class: "low-opacity medium-size" %>
+  </div>
+  <div class="text-center">
+    <%= link_to "Organiser un meal", new_event_path, :class => "btn btn-info mauve" %>
+  </div>
+
   <div class="participation">
     <%= image_tag "happy_chef.png", alt: "alttext", class: 'happy-chef' %>
     <h3 class="section">Meals que vous organisez</h3>

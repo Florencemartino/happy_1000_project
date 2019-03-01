@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :events, dependent: :destroy
+
   has_many :baskets
   has_many :guests
   has_many :whishlists, through: :baskets

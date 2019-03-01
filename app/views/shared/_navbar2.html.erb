@@ -16,11 +16,11 @@
       <% if user_signed_in? %>
         <% if current_user.photo.blank? %>
           <%= link_to edit_user_registration_path do  %>
-            <img src="https://www.weekend-esprithautsdefrance.com/sites/picardiev3/themes/picardiev3/img_v2/user-default.jpg" class="avatar dropdown-toggle" id="navbar-wagon-menu">
+            <img src="https://www.weekend-esprithautsdefrance.com/sites/picardiev3/themes/picardiev3/img_v2/user-default.jpg" class="avatar" id="navbar-wagon-menu">
           <% end %>
         <% else %>
           <%= link_to edit_user_registration_path do  %>
-            <%= cl_image_tag current_user.photo, height: 50, width: 50, crop: :fill, gravity: :face, :radius => "max", class: "avatar dropdown-toggle" %>
+            <%= cl_image_tag current_user.photo, height: 50, width: 50, crop: :fill, gravity: :face, :radius => "max", class: "avatar" %>
           <% end %>
         <% end %>
 
@@ -36,7 +36,7 @@
 <!--         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu"> -->
 
         <div class="log-buttons">
-            <%= link_to "Se connecter", new_user_session_path, class: 'btn btn-info connexion mauve' %>
+            <%= link_to "Se connecter", new_user_session_path, class: 'btn btn-info connexion mauve text-nowrap' %>
             <%= link_to "S'inscrire", new_user_registration_path, class: 'btn btn-info connexion mauve'%>
         </div>
       <% end %>

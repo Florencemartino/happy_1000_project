@@ -4,7 +4,7 @@
 }
 
 .connexion {
-  font-size: calc(9px + .5vw);
+  font-size: calc(7px + .5vw);
 }
 
 .log-buttons{
@@ -14,11 +14,11 @@
 }
 
 .log-buttons a {
-  margin: 0 5px;
+  margin: 0 2%;
 }
 
 @media screen and (max-width: 750px) {
   .log-buttons a:last-child {
-    margin-right: -4vw;
+    margin-right: -3vw;
   }
 }

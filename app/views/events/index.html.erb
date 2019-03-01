@@ -65,40 +65,7 @@
       </div>
     <% end %>
 
-<%# end %>
-
-
-
-<!--   <p>Tu n'as aucun meal pour le moment</p>
-  <p>C'est l'occastion d'organiser un nouveau Happy 1000 !</p>
-  <div class="text-center">
-    <%#= link_to "Organiser un meal", new_event_path, :class => "btn btn-info mauve" %>
-  </div> -->
-
-
-
-<!--     <li><%#= link_to event.title, event_dashboard_path(event) %></li>
- -->
-
-
-
-<!--   <div class="text-center">
-    <%#= image_tag "happy_pan.png", alt: "alttext", class: "low-opacity medium-size" %>
-  </div>
-
-  <div class="text-center">
-    <%#= link_to "Organiser un meal", new_event_path, :class => "btn btn-info mauve" %>
-  </div>
- -->
 <% elsif !current_user.events.blank? %>
-
-<!--   <div class="text-center">
-    <%#= image_tag "happy_pan.png", alt: "alttext", class: "low-opacity medium-size" %>
-  </div>
-  <div class="text-center">
-    <%#= link_to "Organiser un meal", new_event_path, :class => "btn btn-info mauve" %>
-  </div> -->
-
 
   <div class="participation">
     <%= image_tag "happy_chef.png", alt: "alttext", class: 'happy-chef' %>
@@ -144,8 +111,5 @@
         </div>
       </div>
     <% end %>
-
-
-
 
 <% end %>

@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
 
-  # get 'whishlists/index'
+  # get 'whishlists/index'sssssqsd
   # get 'whishlists/new'
   # get 'whishlists/create'
 devise_for :users
 root to: 'events#index'
+
+
 
   resources :events do
     resources :whishlists

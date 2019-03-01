@@ -61,7 +61,7 @@ rhum = Item.create!(name: "rhum", category: "alcool", icon: "icons/rhum.png")
 sausage = Item.create!(name: "saucisse", category: "salé", icon: "icons/sausage.png")
 steak = Item.create!(name: "steak", category: "salé", icon: "icons/steak.png")
 tequila = Item.create!(name: "tequila", category: "alcool", icon: "icons/tequila.png")
-tomato = Item.create!(name: "tomate", category: "salé", icon: "icons.tomato.png")
+tomato = Item.create!(name: "tomate", category: "salé", icon: "icons/tomato.png")
 vodka = Item.create!(name: "vodka", category: "alcool", icon: "icons/vodka.png")
 wine = Item.create!(name: "wine", category: "alcool", icon: "icons/wine.png")
 

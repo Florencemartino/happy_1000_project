@@ -17,8 +17,21 @@
 <!-- LISTE LES GENS QUI VIENNENT AVEC LEUR BASKET -->
 
 <!-- LES GENS QUI NE VIENNENT PAS NE SERONT PAS AFFICHES ICI, MAIS DANS L'INDEX DES GUESTS VIA UN TAB/ONGLET : "PARTICIPE / NE PARTICIPE PAS"     -->
-
+<hr>
 <h3> Qui ramène quoi :</h3>
+
+<ul>
+  <% if @event.user.photo.blank?%>
+    <%= image_tag "https://www.weekend-esprithautsdefrance.com/sites/picardiev3/themes/picardiev3/img_v2/user-default.jpg", alt: "alttext", height: 50, width: 50, crop: :fill%>
+  <% else %>
+    <%= cl_image_tag @event.user.photo, height: 50, width: 50, crop: :fill %>
+  <% end %>
+  <%= @event.user.nickname %> <em>(organisateur)</em> apportera :
+  <% @event.user.baskets.each do |basket| %>
+  <li><%= basket.whishlist.item.name %><%= image_tag basket.whishlist.item.icon %></li>
+  <% end %>
+</ul>
+
 <ul>
   <% @event.guests.each do |guest| %>
     <% if guest.is_coming %>
@@ -31,7 +44,7 @@
       </ul>
     <% end %>
 <% end %>
-
+<hr>
 <% sum = 0 %>
   <% @baskets.each do |basket| %>
     <% i = basket.price_in_cent %>

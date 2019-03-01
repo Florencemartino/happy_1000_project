@@ -21,7 +21,7 @@
 
    <%= link_to "Ajouter un prix", edit_event_basket_path(@event, basket) %>
    <% if basket.price_in_cent.nil? %>
-   <%= puts "ton roti n'a pas de prix" %>
+   <%= puts "ton #{basket.whishlist.item.name} n'a pas de prix" %>
    <% else  %>
    <%= basket.price_in_cent %> €
    <% end %>

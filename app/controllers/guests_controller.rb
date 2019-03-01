@@ -6,21 +6,31 @@ class GuestsController < ApplicationController
   end
 
   def create
-    raise
-    @guest = Guest.new(guest_params)
-    @guest.user = current_user
-    @guest.save
-    redirect_to guests_invited_path(@event)
+    params[:guests_ids].each do |guest_id|
+      @guest = Guest.new
+      @guest.user = User.find(guest_id)
+      @guest.event = Event.find(params[:event_id])
+      @guest.save!
+      redirect_to event_dashboard_path(@event)
+
+    # if @guest.save
+    #   flash.now[:notice] = "Ton invit' a bien été envoyée 🎉"
+    #   redirect_to event_dashboard_path(@event)
+    # else
+    #   flash.now[:alert] = "Choisi au moins 1 poto à inviter quand même... 🙄"
+    #   render :select_guest
+
+
+    end
   end
 
   private
 
   def guest_params
-    params.require(:guest).permit(:user_id, :event_id, :is_coming)
   end
 
   def set_event
     @event = Event.find(params[:event_id])
   end
-end
 
+end

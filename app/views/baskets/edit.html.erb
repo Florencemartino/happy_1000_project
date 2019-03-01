@@ -1,0 +1,10 @@
+<h1>modifier le prix de mes éléments :</h1>
+
+<ul>
+  <% current_user.baskets.each do |basket| %>
+  <li> <%= basket.price_in_cent  %> €
+      <%= basket.whishlist.item.name %>
+      <%= render 'form', basket: basket %>
+  </li>
+      <% end %>
+</ul>

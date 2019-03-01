@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
-    before_action :authenticate_user!
- before_action :set_event, only: [:show, :edit, :update, :destroy, :account]
+  before_action :authenticate_user!
+  before_action :set_event, only: [:show, :edit, :update, :destroy, :account]
 
   def index
     @events = Event.all
@@ -45,7 +45,6 @@ class EventsController < ApplicationController
   def select_guest
     @event = Event.find(params[:event_id])
 
-
     @guests = User.where.not(id: current_user.id)
 
 # ALERT INVITATION BIEN ENVOYE - ALERT INVITATION BIEN ENVOYE
@@ -63,7 +62,7 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    @event = Event.find(params[:event_id])
+    @event = Event.find(params[:id])
     @event.destroy
     redirect_to :root
   end

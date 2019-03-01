@@ -20,7 +20,7 @@
           <% end %>
         <% else %>
           <%= link_to edit_user_registration_path do  %>
-            <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="avatar dropdown-toggle" id="navbar-wagon-menu">
+            <%= cl_image_tag current_user.photo, height: 50, width: 50, crop: :fill, gravity: :face, :radius => "max", class: "avatar dropdown-toggle" %>
           <% end %>
         <% end %>
 

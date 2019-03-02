@@ -1,16 +1,24 @@
 <h2 class="text-center">Qui sera de la party ?</h2>
 
-<div class="container text-center">
-
-  <div class="form-inline">
-    <%= form_tag event_select_guest_path(@event), method: :get do %>
-      <%= text_field_tag :query, params[:query], placeholder: "Tape le nom de ton petit pote", class: "form-control"%>
-    <% end %>
-      <%= image_submit_tag ("search-solid.svg"), class: "form-control btn-primary" %>
-  </div>
+<div class="container">
 
 
-<!-- CHECK BOX 1 CHECK BOX 1 CHECK BOX 1 CHECK BOX 1 CHECK BOX 1 CHECK BOX 1 CHECK BOX 1 CHECK BOX 1-->
+      <div class="form-inline">
+        <%= form_tag event_select_guest_path(@event), method: :get do %>
+          <%= text_field_tag :query, params[:query], placeholder: "Tape le nom de ton petit pote", class: "form-control"%>
+        <% end %>
+          <%= image_submit_tag ("search-solid.svg"), class: "form-control btn-primary" %>
+      </div>
+
+<!-- DRAFT DYNAMIC CHECKBOXES - DRAFT DYNAMIC CHECKBOXES - DRAFT DYNAMIC CHECKBOXES -->
+
+<!-- <%#= simple_form_for :guest_ids do |f| %>
+  <%#= f.association :users, as: :check_boxes %>
+<%# end %> -->
+
+
+
+<!-- CHECKBOX AVEC LE SEARCH + ORIGINALE -->
   <%= simple_form_for :guest_ids, method: :post, url: event_guests_path(@event) do |f|%>
     <div class="form-check form-check-inline">
       <% @results.each do |result| %>
@@ -44,7 +52,7 @@
   <br>
   <br>
 
-<!-- CHECK BOX 2 CHECK BOX 2 CHECK BOX 2 CHECK BOX 2 CHECK BOX 2 CHECK BOX 2 CHECK BOX 2 CHECK BOX 2-->
+<!-- CHECKBOX ORIGINALE SANS LE SEARCH - CHECKBOX ORIGINALE SANS LE SEARCH -->
 <!--   <%= simple_form_for :guest_ids, method: :post, url: event_guests_path(@event) do |f|%>
     <div class="form-check form-check-inline">
       <% @guests.each do |guest|%>

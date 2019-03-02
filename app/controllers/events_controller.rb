@@ -43,6 +43,13 @@ class EventsController < ApplicationController
   def select_guest
     @event = Event.find(params[:event_id])
     @guests = User.where.not(id: current_user.id)
+
+  # BARRE SEARCH  BARRE SEARCH  BARRE SEARCH  BARRE SEARCH  BARRE SEARCH
+    if params[:query].present?
+      @results = User.where("nickname ILIKE ?", "%#{params[:query]}%")
+    else
+      @guests
+    end
   end
 
   def destroy
@@ -67,16 +74,3 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
   end
 end
-
-    #ALERT INVITATION BIEN ENVOYE - ALERT INVITATION BIEN ENVOYE
-    # if on appui sur btn submit
-    #   flash.now[:notic] = "Ton invitation a bien été envoyée 🎉"
-    #   render :select_guest
-    #end
-
-  # BARRE SEARCH  BARRE SEARCH  BARRE SEARCH  BARRE SEARCH  BARRE SEARCH
-      # if params[:query].present?
-      #   @guest = User.where("nickname ILIKE ?", "%#{params[:query]}%")
-      # else
-      #   @guests = User.all
-      # end

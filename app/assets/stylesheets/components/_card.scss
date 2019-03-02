@@ -62,7 +62,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.6);
 }
 
 .container-exterieur{
-  margin: 0.8rem 2rem;
+  margin: 1.3rem 1.5rem;
 }
 
 .avatar-bordered{
@@ -135,4 +135,14 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.6);
   right: 5%;
   z-index: -1;
   transform: rotate(38deg);
+}
+
+.participe{
+  margin-bottom: 7%;
+}
+
+@media screen and (max-width: 750px) {
+  .participe{
+    margin-bottom: 12%;
+  }
 }

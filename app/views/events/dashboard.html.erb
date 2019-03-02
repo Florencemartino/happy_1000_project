@@ -14,55 +14,59 @@
     <% else %>
       <p><i class="fas fa-times-circle"></i> Je ne participe pas</p>
     <% end %>
-    <p>Description <%= @event.description %><i class="fas fa-caret-square-down"></i></p>
+    <p><i class="fas fa-caret-square-down"></i> Description</p>
+    <div id="description-details">
+      <p class="description-content"><%= @event.description %></p>
+    </div>
   </div>
 </div>
 <!-- LISTE LES GENS QUI VIENNENT AVEC LEUR BASKET -->
 
 <!-- LES GENS QUI NE VIENNENT PAS NE SERONT PAS AFFICHES ICI, MAIS DANS L'INDEX DES GUESTS VIA UN TAB/ONGLET : "PARTICIPE / NE PARTICIPE PAS"     -->
+<div id="rest-of-content">
+  <h3 class="text-center">On ramène quoi?</h3>
 
-<h3 class="text-center">On ramène quoi?</h3>
-
-<ul>
-  <% if @event.user.photo.blank?%>
-    <%= image_tag "default-user.png", alt: "alttext", class: "avatar", id: "navbar-wagon-menu" %>
-  <% else %>
-    <%= cl_image_tag @event.user.photo, height: 50, width: 50, crop: :fill %>
-  <% end %>
-  <%= @event.user.nickname %> <em>(organisateur)</em> apportera :
-  <% @event.user.baskets.each do |basket| %>
-  <li><%= basket.whishlist.item.name %><%= image_tag basket.whishlist.item.icon %></li>
-  <% end %>
-</ul>
-
-<ul>
-  <% @event.guests.each do |guest| %>
-    <% if guest.is_coming %>
-      <li><%#= cl_image_tag guest.user.photo, height: 50, width: 50, crop: :fill %><%= guest.user.nickname %> apportera :</li>
-
-      <ul>
-        <% guest.user.baskets.each do |basket| %>
-        <li><%= basket.whishlist.item.name %><%= image_tag basket.whishlist.item.icon %></li>
-        <% end %>
-      </ul>
+  <ul>
+    <% if @event.user.photo.blank?%>
+      <%= image_tag "default-user.png", alt: "alttext", class: "avatar", id: "navbar-wagon-menu" %>
+    <% else %>
+      <%= cl_image_tag @event.user.photo, height: 50, width: 50, crop: :fill %>
     <% end %>
-<% end %>
-<hr>
-<% sum = 0 %>
-  <% @baskets.each do |basket| %>
-    <% i = basket.price_in_cent %>
-      <% if i.nil? %>
-        <% i = 0 %>
-      <% else %>
-    <% sum += i %>
+    <%= @event.user.nickname %> <em>(organisateur)</em> apportera :
+    <% @event.user.baskets.each do |basket| %>
+    <li><%= basket.whishlist.item.name %><%= image_tag basket.whishlist.item.icon %></li>
     <% end %>
+  </ul>
+
+  <ul>
+    <% @event.guests.each do |guest| %>
+      <% if guest.is_coming %>
+        <li><%#= cl_image_tag guest.user.photo, height: 50, width: 50, crop: :fill %><%= guest.user.nickname %> apportera :</li>
+
+        <ul>
+          <% guest.user.baskets.each do |basket| %>
+          <li><%= basket.whishlist.item.name %><%= image_tag basket.whishlist.item.icon %></li>
+          <% end %>
+        </ul>
+      <% end %>
   <% end %>
-<p>Total de repas :<%= sum %> € </p>
+  <hr>
+  <% sum = 0 %>
+    <% @baskets.each do |basket| %>
+      <% i = basket.price_in_cent %>
+        <% if i.nil? %>
+          <% i = 0 %>
+        <% else %>
+      <% sum += i %>
+      <% end %>
+    <% end %>
+  <p>Total de repas :<%= sum %> € </p>
 
 
-<%= link_to "Equilibres", event_account_path(@event)%> <br>
-<%= link_to "Voir mon panier", event_baskets_path, :class => "btn-medium" %> <br>
-<%= link_to "Description de l'event", event_path(@event), :class => "btn-medium" %>
+  <%= link_to "Equilibres", event_account_path(@event)%> <br>
+  <%= link_to "Voir mon panier", event_baskets_path, :class => "btn-medium" %> <br>
+  <%= link_to "Description de l'event", event_path(@event), :class => "btn-medium" %>
+</div>
 <!-- AUTRE TECHNIQUE POUR RECUPERER LE BASKET DE CHAQUE INVITE PAR EVENT -->
 <!-- <ul>
   <%# @event.users.each do |user| %>

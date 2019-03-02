@@ -55,9 +55,10 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.6);
 .card-trip-infos .card-trip-user {
   position: absolute;
   left: 25px;
-  top: -30px;
+  top: -20px;
   width: 40px;
-  border-radius: 3px solid $mauve1;
+  border-radius: 50%;
+  border: 3px solid $mauve1;
 }
 
 .container-exterieur{
@@ -120,4 +121,18 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.6);
   &:hover{
     text-decoration: none;
   }
+}
+
+.background{
+  position: relative;
+}
+
+#broccoli-logo{
+  position: absolute;
+  opacity: 0.35;
+  width: 45%;
+  bottom: -15%;
+  right: 5%;
+  z-index: -1;
+  transform: rotate(38deg);
 }

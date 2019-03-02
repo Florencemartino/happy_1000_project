@@ -16,7 +16,8 @@
       <% if user_signed_in? %>
         <% if current_user.photo.blank? %>
           <%= link_to edit_user_registration_path do  %>
-            <img src="https://www.weekend-esprithautsdefrance.com/sites/picardiev3/themes/picardiev3/img_v2/user-default.jpg" class="avatar" id="navbar-wagon-menu">
+
+            <%= image_tag "default-user.png", alt: "alttext", class: "avatar", id: "navbar-wagon-menu" %>
           <% end %>
         <% else %>
           <%= link_to edit_user_registration_path do  %>

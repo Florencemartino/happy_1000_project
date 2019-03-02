@@ -55,13 +55,23 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.6);
 .card-trip-infos .card-trip-user {
   position: absolute;
   left: 25px;
-  top: -30px;
+  top: -20px;
   width: 40px;
-  border-radius: 3px solid $mauve1;
+  border-radius: 50%;
+  border: 3px solid $mauve1;
+}
+
+.card-trip-infos .card-trip-user-y {
+  position: absolute;
+  left: 25px;
+  top: -20px;
+  width: 40px;
+  border-radius: 50%;
+  border: 3px solid $yellow;
 }
 
 .container-exterieur{
-  margin: 0.8rem 2rem;
+  margin: 1.3rem 1.5rem;
 }
 
 .avatar-bordered{
@@ -95,6 +105,14 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.6);
   justify-content: center;
   height: 22vh;
 }
+.card-background-y{
+  background-color: $yellow;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 22vh;
+}
 
 .card-details{
   display: flex;
@@ -115,9 +133,53 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.6);
   margin: 5px;
 }
 
+.mauve-title{
+  color: $mauve1;
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.mauve-details{
+  color: $mauve1;
+  margin: 5px;
+}
+
+
 .dashboard-path{
   text-decoration: none;
   &:hover{
     text-decoration: none;
   }
 }
+
+.background{
+  position: relative;
+}
+
+#broccoli-logo{
+  position: absolute;
+  opacity: 0.35;
+  width: 45%;
+  bottom: -15%;
+  right: 5%;
+  z-index: -1;
+  transform: rotate(38deg);
+}
+
+.participe{
+  margin-bottom: 7%;
+}
+
+@media screen and (max-width: 750px) {
+  .participe{
+    margin-bottom: 12%;
+  }
+}
+
+.avatar{
+  width: 3.5rem;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+

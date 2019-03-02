@@ -58,6 +58,12 @@
                       <%= link_to event_path(event), method: :delete, data: { confirm: "Veux-tu vraiment supprimer ce meal ?" } do %>
                         <i class="fas fa-trash-alt"></i>
                       <% end %>
+
+                      <% if event.user.photo.blank? %>
+                          <%= image_tag "default-user.png", alt: "alttext", class: "card-trip-user", id: "navbar-wagon-menu" %>
+                      <% else %>
+                          <%= cl_image_tag event.user.photo, width: 50, crop: :fill, gravity: :face, :radius => "max", class: "card-trip-user" %>
+                      <% end %>
                       <%#= cl_image_tag event.user.photo, height: 50, width: 50, crop: :fill, gravity: :face, :radius => "max", class: 'card-trip-user' %>
                     </div>
                   </div>
@@ -90,12 +96,12 @@
                   <%= link_to event_dashboard_path(event), class: 'dashboard-path' do %>
                     <div class="card-photo">
                       <!-- <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg"> -->
-                      <div class="card-background">
-                        <h2 class="yellow-title"><%= event.title %></h2>
+                      <div class="card-background-y">
+                        <h2 class="mauve-title"><%= event.title %></h2>
                         <div class="card-details">
-                          <h6 class="yellow-details"><i class="far fa-calendar-alt"></i> <%= event.date.strftime("%d/%m/%Y") %></h6>
-                          <h6 class="yellow-details"><i class="far fa-clock"></i> <%= event.date.strftime("%HH%M") %></h6>
-                          <h6 class="yellow-details"><i class="fas fa-users"></i> <%= event.guests.count + 1 %></h6>
+                          <h6 class="mauve-details"><i class="far fa-calendar-alt"></i> <%= event.date.strftime("%d/%m/%Y") %></h6>
+                          <h6 class="mauve-details"><i class="far fa-clock"></i> <%= event.date.strftime("%HH%M") %></h6>
+                          <h6 class="mauve-details"><i class="fas fa-users"></i> <%= event.guests.count + 1 %></h6>
                         </div>
                       </div>
                     </div>
@@ -113,9 +119,9 @@
                     <% end %>
 
                     <% if event.user.photo.blank? %>
-                        <%= image_tag "default-user.png", alt: "alttext", class: "card-trip-user", id: "navbar-wagon-menu" %>
+                        <%= image_tag "default-user.png", alt: "alttext", class: "card-trip-user-y", id: "navbar-wagon-menu" %>
                     <% else %>
-                        <%= cl_image_tag event.user.photo, width: 50, crop: :fill, gravity: :face, :radius => "max", class: "card-trip-user" %>
+                        <%= cl_image_tag event.user.photo, width: 50, crop: :fill, gravity: :face, :radius => "max", class: "card-trip-user-y" %>
                     <% end %>
                     <%#= cl_image_tag event.user.photo, height: 50, width: 50, crop: :fill, gravity: :face, :radius => "max", class: 'card-trip-user' %>
                     <!-- <img src='https://kitt.lewagon.com/placeholder/users/krokrob' class="card-trip-user avatar-bordered"/> -->

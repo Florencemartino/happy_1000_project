@@ -8,8 +8,8 @@
 require 'faker'
 
 puts 'Cleaning database...'
-Whishlist.destroy_all
 Item.destroy_all
+Whishlist.destroy_all
 Basket.destroy_all
 Event.destroy_all
 Guest.destroy_all

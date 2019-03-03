@@ -1,0 +1,21 @@
+.guest-choices {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.guest-choice {
+  border: solid 3px #b7b7b7;
+  border-radius: 50px;
+  flex: 0 0 30%;
+  text-align: center;
+  &:hover {
+    opacity: 0.4;
+    cursor: pointer;
+  }
+  &.active {
+  border: solid 3px $mauve1;
+  border-radius: 50px;
+  }
+}

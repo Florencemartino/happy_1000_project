@@ -2,79 +2,46 @@
 
 <div class="container">
 
+  <div class="form-inline">
+    <%= form_tag event_select_guest_path(@event), method: :get do %>
+      <%= text_field_tag :query, params[:query], placeholder: "Tape le nom de ton petit pote", class: "form-control"%>
+    <% end %>
+      <%= image_submit_tag ("search-solid.svg"), class: "form-control btn-primary" %>
+  </div>
 
-      <div class="form-inline">
-        <%= form_tag event_select_guest_path(@event), method: :get do %>
-          <%= text_field_tag :query, params[:query], placeholder: "Tape le nom de ton petit pote", class: "form-control"%>
+<!-- DRAFT DYNAMIC CHECKBOXES SANS LE SEARCH - DRAFT DYNAMIC CHECKBOXES SANS LE SEARCH  -->
+
+  <%= simple_form_for :guest_ids, method: :post, url: event_guests_path(@event) do |f|%>
+    <div class="form-group">
+
+      <div class="guest-choices">
+        <% @guests.each do |guest|%>
+
+          <input class="hidden" type="checkbox" id='<%= "inlineCheckbox#{guest.id}" %>' value='<%= "#{guest.id}" %>' name="guests_ids[]">
+
+          <label for='<%= "inlineCheckbox#{guest.id}" %>'>
+            <div class="guest-choice">
+              <% if guest.photo.blank? %>
+                <%= image_tag "icons/user.png", alt: "alttext" %>
+              <% else %>
+                <%= cl_image_tag guest.photo, height: 100, width: 100, crop: :fill, radius: 80 %>
+              <% end %>
+            </div>
+
+            <div class="text-center">
+              <%= guest.nickname %>
+            </div>
+          </label>
+
         <% end %>
-          <%= image_submit_tag ("search-solid.svg"), class: "form-control btn-primary" %>
       </div>
 
-<!-- DRAFT DYNAMIC CHECKBOXES - DRAFT DYNAMIC CHECKBOXES - DRAFT DYNAMIC CHECKBOXES -->
+      <div class="text-center">
+        <%= f.submit "Envoyer l'invit' !", class: "btn btn-primary" %>
+      </div>
 
-<!-- <%#= simple_form_for :guest_ids do |f| %>
-  <%#= f.association :users, as: :check_boxes %>
-<%# end %> -->
-
-
-
-<!-- CHECKBOX AVEC LE SEARCH + ORIGINALE -->
-  <%= simple_form_for :guest_ids, method: :post, url: event_guests_path(@event) do |f|%>
-    <div class="form-check form-check-inline">
-      <% @results.each do |result| %>
-        <input class="form-check-input" type="checkbox" id='<%= "inlineCheckbox#{result.id}" %>' value='<%= "#{result.id}" %>' name="guests_ids[]">
-        <label class="form-check-label" for='<%= "inlineCheckbox#{result.id}" %>'>
-          <%= result.nickname %>
-          <% if result.photo.blank? %>
-            <%= image_tag "icons/user.png", alt: "alttext" %>
-          <% else %>
-            <%= cl_image_tag result.photo, height: 100, width: 100, crop: :fill, radius: 80 %>
-          <% end %>
-        </label>
-      <% end %>
-
-      <% @guests.each do |guest|%>
-        <input class="form-check-input" type="checkbox" id='<%= "inlineCheckbox#{guest.id}" %>' value='<%= "#{guest.id}" %>' name="guests_ids[]">
-        <label class="form-check-label" for='<%= "inlineCheckbox#{guest.id}" %>'>
-          <%= guest.nickname %>
-          <% if guest.photo.blank? %>
-            <%= image_tag "icons/user.png", alt: "alttext" %>
-          <% else %>
-            <%= cl_image_tag guest.photo, height: 100, width: 100, crop: :fill, radius: 80 %>
-          <% end %>
-        </label>
-      <% end %>
-
-      <%= f.submit "Envoyer l'invit' !", class: "btn btn-primary" %>
     </div>
   <% end %>
-
-  <br>
-  <br>
-
-<!-- CHECKBOX ORIGINALE SANS LE SEARCH - CHECKBOX ORIGINALE SANS LE SEARCH -->
-<!--   <%= simple_form_for :guest_ids, method: :post, url: event_guests_path(@event) do |f|%>
-    <div class="form-check form-check-inline">
-      <% @guests.each do |guest|%>
-        <input class="form-check-input" type="checkbox" id='<%= "inlineCheckbox#{guest.id}" %>' value='<%= "#{guest.id}" %>' name="guests_ids[]">
-        <label class="form-check-label" for='<%= "inlineCheckbox#{guest.id}" %>'>
-
-          <%= guest.nickname %>
-          <% if guest.photo.blank? %>
-            <%= image_tag "icons/user.png", alt: "alttext" %>
-          <% else %>
-            <%= cl_image_tag guest.photo, height: 100, width: 100, crop: :fill, radius: 80 %>
-          <% end %>
-        </label>
-      <% end %>
-        <%= f.submit "Envoyer l'invit' !", class: "btn btn-primary" %>
-    </div>
-  <% end %> -->
-
-  <hr>
-  <br>
-  <%= link_to "Continuer", event_dashboard_path(@event) %>
-
 </div>
 
 

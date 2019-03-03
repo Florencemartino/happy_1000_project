@@ -6,6 +6,7 @@ class GuestsController < ApplicationController
   end
 
   def create
+    # binding.pry
     params[:guests_ids].each do |guest_id|
       @guest = Guest.new
       @guest.user = User.find(guest_id)

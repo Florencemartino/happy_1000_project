@@ -1,6 +1,6 @@
 <h2 class="text-center">Qui sera de la party ?</h2>
 
-<div class="container">
+<div class="container text-center">
 
   <div class="form-inline">
     <%= form_tag event_select_guest_path(@event), method: :get do %>
@@ -17,14 +17,14 @@
       <div class="guest-choices">
         <% @guests.each do |guest|%>
 
-          <input class="hidden" type="checkbox" id='<%= "inlineCheckbox#{guest.id}" %>' value='<%= "#{guest.id}" %>' name="guests_ids[]">
+          <input type="checkbox" id='<%= "inlineCheckbox#{guest.id}" %>' value='<%= "#{guest.id}" %>' name="guests_ids[]">
 
           <label for='<%= "inlineCheckbox#{guest.id}" %>'>
             <div class="guest-choice">
               <% if guest.photo.blank? %>
-                <%= image_tag "default-user.png",height: 50, width: 50, crop: :fill, radius: 80, alt: "alttext" %>
+                <%= image_tag "default-user.png",height: 50, width: 50, crop: :fill, alt: "alttext", class: "avatar-bordered" %>
               <% else %>
-                <%= cl_image_tag guest.photo, height: 50, width: 50, crop: :fill, radius: 80 %>
+                <%= cl_image_tag guest.photo, height: 50, width: 50, crop: :fill, class: "avatar-bordered" %>
               <% end %>
             </div>
 

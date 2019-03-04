@@ -1,21 +1,32 @@
 .guest-choices {
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  margin: 20px 0;
+  justify-content: center;
+  align-items: center;
+  input[type=checkbox]{
+    display: none;
+    margin: 20px 0;
+  }
 }
 
-.guest-choice {
+input[type=checkbox]:checked+label .guest-choice {
+  border: solid 3px $mauve1;
+  border-radius: 50px;
+  transform: scale(1.1);
+  flex: 0 0 30%;
+  text-align: center;
+}
+
+label {
+  margin: 20px 20px;
+  .guest-choice {
   border: solid 3px #b7b7b7;
   border-radius: 50px;
   flex: 0 0 30%;
   text-align: center;
-  &:hover {
-    opacity: 0.4;
-    cursor: pointer;
   }
-  &.active {
-  border: solid 3px $mauve1;
-  border-radius: 50px;
-  }
+}
+
+
+.form-inline {
+  justify-content: center;
 }

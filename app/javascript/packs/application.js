@@ -2,9 +2,14 @@ import "bootstrap";
 import 'plugins/flatpickr'
 
 import { navigation } from '../components/slider';
+import { foodNav } from '../components/slider-wishlist';
 
 if (document.querySelector(".slider.step2")) {
   navigation();
+}
+
+if (document.querySelector(".slider2.sale")) {
+  foodNav();
 }
 
 import { initialization } from '../components/dynamicnavbar';

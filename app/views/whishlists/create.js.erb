@@ -1,0 +1,9 @@
+// document.querySelector("[item='<%= @item.id %>']")
+//   .remove();
+
+function addItem() {
+  const addNewItem = document.getElementById("basket-card");
+  addNewItem.insertAdjacentHTML('beforeend', "<li whishlist-item-id='<%= @whishlist.id %>'>\n<%= j render 'button-basket', whishlist: @whishlist %></li>");
+}
+
+addItem()

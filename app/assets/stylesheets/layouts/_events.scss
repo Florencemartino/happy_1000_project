@@ -3,11 +3,17 @@
   width: 100vw;
   background-color: $yellow;
   // box-shadow: ;
-  margin: 2rem 0;
+  margin: 5vh 0;
   color: $mauve1;
   position: relative;
   display: flex;
   align-items: center;
+}
+
+@media screen and (max-width: 750px) {
+  .participation {
+    margin: 6vh 0;
+  }
 }
 
 .happy-fork{
@@ -18,7 +24,7 @@
 }
 
 .happy-chef{
-  width: 4.2rem;
+  width: 4rem;
   position: absolute;
   top: -35px;
   left: 30px;

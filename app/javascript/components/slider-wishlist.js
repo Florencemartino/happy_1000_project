@@ -1,7 +1,7 @@
-const sale1 = document.querySelector(".nav1");
-const sucre1 = document.querySelector(".nav2");
-const soft1 = document.querySelector(".nav3");
-const alcool1 = document.querySelector(".nav4");
+const sale1 = document.querySelector(".nav11");
+const sucre1 = document.querySelector(".nav22");
+const soft1 = document.querySelector(".nav33");
+const alcool1 = document.querySelector(".nav44");
 const slider2 = document.querySelector(".slider2.sale");
 
 function clear() {

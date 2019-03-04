@@ -27,34 +27,97 @@
   <div class="btn btn-primary btn-nav nav3">Mes meals</div>
 </div>
 
-<div class="slider-container">
-  <div class="slider step2">
 
-    <div class="slide">
-    <!-- CODER ICI POUR AJOUTER INVITATION EN ATTENTE (ACCEPTER / REFUSER INVIT) -->
-      <div class="participe">
-        <div class="background">
-          <div class="participation">
-           <%= image_tag "happy_waiting.png", alt: "waiting logo", class: 'happy-waiting' %>
-           <h3 class="section">En attente</h3>
-          </div>
-          <%= image_tag "wine.png", alt: "wine", id: "wine-logo"  %>
-        </div>
-      </div>
+  <div class="slider-container">
+    <div class="slider step2">
 
-    </div>
-
-    <!-- IF USER IS INVITED TO EVENTS -->
-    <div class="slide">
-      <% if !current_user.guests.blank? %>
+      <div class="slide">
+      <!-- CODER ICI POUR AJOUTER INVITATION EN ATTENTE (ACCEPTER / REFUSER INVIT) -->
         <div class="participe">
           <div class="background">
             <div class="participation">
-             <%= image_tag "happy_fork.png", alt: "attending logo", class: 'happy-fork' %>
-             <h3 class="section">Je participe</h3>
+             <%= image_tag "happy_waiting.png", alt: "waiting logo", class: 'happy-waiting' %>
+             <h3 class="section">En attente</h3>
             </div>
-            <% current_user.guests.each do |event| %>
+            <%= image_tag "wine.png", alt: "wine", id: "wine-logo"  %>
+          </div>
+        </div>
 
+      </div>
+
+      <!-- IF USER IS INVITED TO EVENTS -->
+      <div class="slide">
+        <% if !current_user.guests.blank? %>
+          <div class="participe">
+            <div class="background">
+              <div class="participation">
+               <%= image_tag "happy_fork.png", alt: "attending logo", class: 'happy-fork' %>
+               <h3 class="section">Je participe</h3>
+              </div>
+
+              <% current_user.guests.each do |event| %>
+                <div class="container-exterieur">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-md-12">
+
+                          <div class="card-trip">
+                            <%= link_to event_dashboard_path(event), class: 'dashboard-path' do %>
+                              <div class="card-photo">
+                                <!-- <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg"> -->
+                                <div class="card-background">
+                                  <h2 class="yellow-title"><%= event.event.title %></h2>
+                                  <div class="card-details">
+                                    <h6 class="yellow-details"><i class="far fa-calendar-alt"></i> <%= event.event.date.strftime("%d/%m/%Y") %></h6>
+                                    <h6 class="yellow-details"><i class="far fa-clock"></i> <%= event.event.date.strftime("%HH%M") %></h6>
+                                    <h6 class="yellow-details"><i class="fas fa-users"></i> <%= event.event.guests.count + 1 %></h6>
+                                  </div>
+                                </div>
+                              </div>
+                            <% end %>
+                            <div class="card-trip-infos">
+                              <p>Organisé par <strong><%= event.user.nickname %></strong></p>
+                              <!-- <p><em>"<%= event.event.description %>"</em></p> -->
+
+                              <%= link_to edit_event_path(event) do %>
+                                <i class="fas fa-pencil-alt"></i>
+                              <% end %>
+                              <%= link_to event_path(event), method: :delete, data: { confirm: "Veux-tu vraiment supprimer ce meal ?" } do %>
+                                <i class="fas fa-trash-alt"></i>
+                              <% end %>
+
+                              <% if event.user.photo.blank? %>
+                                  <%= image_tag "default-user.png", alt: "alttext", class: "card-trip-user", id: "navbar-wagon-menu" %>
+                              <% else %>
+                                  <%= cl_image_tag event.user.photo, width: 50, crop: :fill, gravity: :face, :radius => "max", class: "card-trip-user" %>
+                              <% end %>
+                              <%#= cl_image_tag event.user.photo, height: 50, width: 50, crop: :fill, gravity: :face, :radius => "max", class: 'card-trip-user' %>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+              <%= image_tag "cheese.png", alt: "cheese", id: "cheese-logo"  %>
+              <%= image_tag "carrot.png", alt: "carrot", id: "carrot-logo"  %>
+            </div>
+
+          </div>
+        <% end %>
+      </div>
+
+      <!-- IF USER IS HOSTING EVENTS -->
+      <div class="slide">
+        <% if !current_user.events.blank? %>
+
+          <div class="background">
+            <div class="participation">
+              <%= image_tag "happy_chef.png", alt: "alttext", class: 'happy-chef' %>
+              <h3 class="section">Mes meals</h3>
+            </div>
+
+            <% current_user.events.each do |event| %>
               <div class="container-exterieur">
                 <div class="container">
                   <div class="row">
@@ -64,33 +127,35 @@
                           <%= link_to event_dashboard_path(event), class: 'dashboard-path' do %>
                             <div class="card-photo">
                               <!-- <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg"> -->
-                              <div class="card-background">
-                                <h2 class="yellow-title"><%= event.event.title %></h2>
+                              <div class="card-background-y">
+                                <h2 class="mauve-title"><%= event.title %></h2>
                                 <div class="card-details">
-                                  <h6 class="yellow-details"><i class="far fa-calendar-alt"></i> <%= event.event.date.strftime("%d/%m/%Y") %></h6>
-                                  <h6 class="yellow-details"><i class="far fa-clock"></i> <%= event.event.date.strftime("%HH%M") %></h6>
-                                  <h6 class="yellow-details"><i class="fas fa-users"></i> <%= event.event.guests.count + 1 %></h6>
+                                  <h6 class="mauve-details"><i class="far fa-calendar-alt"></i> <%= event.date.strftime("%d/%m/%Y") %></h6>
+                                  <h6 class="mauve-details"><i class="far fa-clock"></i> <%= event.date.strftime("%HH%M") %></h6>
+                                  <h6 class="mauve-details"><i class="fas fa-users"></i> <%= event.guests.count + 1 %></h6>
                                 </div>
                               </div>
                             </div>
                           <% end %>
                           <div class="card-trip-infos">
                             <p>Organisé par <strong><%= event.user.nickname %></strong></p>
-                            <!-- <p><em>"<%= event.event.description %>"</em></p> -->
+                           <!--  <p><em>"<%= event.description %>"</em></p> -->
 
                             <%= link_to edit_event_path(event) do %>
                               <i class="fas fa-pencil-alt"></i>
                             <% end %>
+
                             <%= link_to event_path(event), method: :delete, data: { confirm: "Veux-tu vraiment supprimer ce meal ?" } do %>
                               <i class="fas fa-trash-alt"></i>
                             <% end %>
 
                             <% if event.user.photo.blank? %>
-                                <%= image_tag "default-user.png", alt: "alttext", class: "card-trip-user", id: "navbar-wagon-menu" %>
+                                <%= image_tag "default-user.png", alt: "alttext", class: "card-trip-user-y", id: "navbar-wagon-menu" %>
                             <% else %>
-                                <%= cl_image_tag event.user.photo, width: 50, crop: :fill, gravity: :face, :radius => "max", class: "card-trip-user" %>
+                                <%= cl_image_tag event.user.photo, width: 50, crop: :fill, gravity: :face, :radius => "max", class: "card-trip-user-y" %>
                             <% end %>
                             <%#= cl_image_tag event.user.photo, height: 50, width: 50, crop: :fill, gravity: :face, :radius => "max", class: 'card-trip-user' %>
+                            <!-- <img src='https://kitt.lewagon.com/placeholder/users/krokrob' class="card-trip-user avatar-bordered"/> -->
                           </div>
                         </div>
                     </div>
@@ -98,78 +163,14 @@
                 </div>
               </div>
             <% end %>
-            <%= image_tag "cheese.png", alt: "cheese", id: "cheese-logo"  %>
-            <%= image_tag "carrot.png", alt: "carrot", id: "carrot-logo"  %>
+            <%= image_tag "broccoli.png", alt: "broccoli", id: "broccoli-logo"  %>
+            <%= image_tag "frying-pan.png", alt: "frying-pan", id: "frying-logo"  %>
           </div>
+        <% end %>
+      </div>
 
-        </div>
-      <% end %>
     </div>
-
-    <!-- IF USER IS HOSTING EVENTS -->
-    <div class="slide">
-      <% if !current_user.events.blank? %>
-
-        <div class="background">
-          <div class="participation">
-            <%= image_tag "happy_chef.png", alt: "alttext", class: 'happy-chef' %>
-            <h3 class="section">Mes meals</h3>
-          </div>
-
-          <% current_user.events.each do |event| %>
-            <div class="container-exterieur">
-              <div class="container">
-                <div class="row">
-                  <div class="col-md-12">
-
-                      <div class="card-trip">
-                        <%= link_to event_dashboard_path(event), class: 'dashboard-path' do %>
-                          <div class="card-photo">
-                            <!-- <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg"> -->
-                            <div class="card-background-y">
-                              <h2 class="mauve-title"><%= event.title %></h2>
-                              <div class="card-details">
-                                <h6 class="mauve-details"><i class="far fa-calendar-alt"></i> <%= event.date.strftime("%d/%m/%Y") %></h6>
-                                <h6 class="mauve-details"><i class="far fa-clock"></i> <%= event.date.strftime("%HH%M") %></h6>
-                                <h6 class="mauve-details"><i class="fas fa-users"></i> <%= event.guests.count + 1 %></h6>
-                              </div>
-                            </div>
-                          </div>
-                        <% end %>
-                        <div class="card-trip-infos">
-                          <p>Organisé par <strong><%= event.user.nickname %></strong></p>
-                         <!--  <p><em>"<%= event.description %>"</em></p> -->
-
-                          <%= link_to edit_event_path(event) do %>
-                            <i class="fas fa-pencil-alt"></i>
-                          <% end %>
-
-                          <%= link_to event_path(event), method: :delete, data: { confirm: "Veux-tu vraiment supprimer ce meal ?" } do %>
-                            <i class="fas fa-trash-alt"></i>
-                          <% end %>
-
-                          <% if event.user.photo.blank? %>
-                              <%= image_tag "default-user.png", alt: "alttext", class: "card-trip-user-y", id: "navbar-wagon-menu" %>
-                          <% else %>
-                              <%= cl_image_tag event.user.photo, width: 50, crop: :fill, gravity: :face, :radius => "max", class: "card-trip-user-y" %>
-                          <% end %>
-                          <%#= cl_image_tag event.user.photo, height: 50, width: 50, crop: :fill, gravity: :face, :radius => "max", class: 'card-trip-user' %>
-                          <!-- <img src='https://kitt.lewagon.com/placeholder/users/krokrob' class="card-trip-user avatar-bordered"/> -->
-                        </div>
-                      </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          <% end %>
-          <%= image_tag "broccoli.png", alt: "broccoli", id: "broccoli-logo"  %>
-          <%= image_tag "frying-pan.png", alt: "frying-pan", id: "frying-logo"  %>
-        </div>
-      <% end %>
-    </div>
-
   </div>
-</div>
 
 
 

@@ -1,38 +1,46 @@
 <h2 class="text-center">Qui sera de la party ?</h2>
 
 <div class="container text-center">
-  <div>
-  <%= simple_form_for :query, method: :get, html: { class: "form-inline" } do |f| %>
-      <%= f.input :nickname, as: :string, placeholder: "Tape le nom de ton petit pote" %>
-      <%= f.button :submit, "Rechercher", class: 'btn btn-success' %>
-  <% end %>
-  </div>
 
-  <br>
-  <br>
-
-<%= simple_form_for :guest_ids, method: :post, url: event_guests_path(@event) do |f|%>
-  <div class="form-check form-check-inline">
-    <% @guests.each do |guest|%>
-      <input class="form-check-input" type="checkbox" id='<%= "inlineCheckbox#{guest.id}" %>' value='<%= "#{guest.id}" %>' name="guests_ids[]">
-      <label class="form-check-label" for='<%= "inlineCheckbox#{guest.id}" %>'>
-
-        <%= guest.nickname %>
-        <% if guest.photo.blank? %>
-          <%= image_tag "default-user.png",height: 50, width: 50, crop: :fill, radius: 80, alt: "alttext" %>
-        <% else %>
-          <%= cl_image_tag guest.photo, height: 50, width: 50, crop: :fill, radius: 80 %>
-        <% end %>
-      </label>
+  <div class="form-inline">
+    <%= form_tag event_select_guest_path(@event), method: :get do %>
+      <%= text_field_tag :query, params[:query], placeholder: "Tape le nom de ton petit pote", class: "form-control"%>
     <% end %>
-      <%= f.submit "Envoyer l'invit' !", class: "btn btn-primary" %>
+      <%= image_submit_tag ("search-solid.svg"), class: "form-control btn-primary" %>
   </div>
-<% end %>
 
-  <hr>
-  <br>
-  <%= link_to "Continuer", event_dashboard_path(@event) %>
+<!-- DRAFT DYNAMIC CHECKBOXES SANS LE SEARCH - DRAFT DYNAMIC CHECKBOXES SANS LE SEARCH  -->
 
+  <%= simple_form_for :guest_ids, method: :post, url: event_guests_path(@event) do |f|%>
+    <div class="form-group">
+
+      <div class="guest-choices">
+        <% @guests.each do |guest|%>
+
+          <input type="checkbox" id='<%= "inlineCheckbox#{guest.id}" %>' value='<%= "#{guest.id}" %>' name="guests_ids[]">
+
+          <label for='<%= "inlineCheckbox#{guest.id}" %>'>
+            <div class="guest-choice">
+              <% if guest.photo.blank? %>
+                <%= image_tag "default-user.png",height: 50, width: 50, crop: :fill, alt: "alttext", class: "avatar-bordered" %>
+              <% else %>
+                <%= cl_image_tag guest.photo, height: 50, width: 50, crop: :fill, class: "avatar-bordered" %>
+              <% end %>
+            </div>
+
+            <div class="text-center">
+              <%= guest.nickname %>
+            </div>
+          </label>
+        <% end %>
+      </div>
+
+      <div class="text-center">
+        <%= f.submit "Envoyer l'invit' !", class: "btn btn-primary" %>
+      </div>
+
+    </div>
+  <% end %>
 </div>
 
 

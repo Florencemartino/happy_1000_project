@@ -2,31 +2,28 @@
 
 <h3> Voici le coût total pour : <%= @event.title %></h3>
 
-<% sum = 0 %>
-  <% @baskets.each do |basket| %>
-    <% i = basket.price_in_cent %>
-      <% if i.nil? %>
-        <% i = 0 %>
-      <% else %>
-    <% sum += i %>
-    <% end %>
-  <% end %>
-<p>Total du repas :<%= sum %> € </p>
-<% average = sum/(@guests.count).to_f %>
+<p>Total du repas :<%= @total %> € </p>
+<% average = @total/(@guests.count) %>
 
-<p>Total par personne : <%= average.round(2) %> € </p>
+<p>Total par personne : <%= average.to_f %> € </p>
+
 
 <h3> Qui doit quoi à qui : </h3>
-
-<%= @event.user.nickname %> <br> <!-- pour le test, enlever ensuite -->
-<% @event.guests.each do |guest| %>
-  <% if guest.is_coming %>
-    <%= guest.user.nickname %> <br>
-
-  <% end %>
+<% @refund_per_person.each do |user, refunds| %>
+  <ul class="list-inline">
+    <li>
+        <% if user.photo.blank?%>
+          <%= image_tag "default-user.png", alt: "alttext", class: "avatar", id: "navbar-wagon-menu" %>
+        <% else %>
+          <%= cl_image_tag user.photo, height: 50, width: 50, crop: :fill %>
+        <% end %>
+      <%= user.nickname %> doit :
+      <% refunds.each do |refund, amount| %>
+        <%= amount %> € à <%= refund.nickname %> |
+      <% end %>
+    </li>
+  </ul>
 <% end %>
-
-
 
 
 

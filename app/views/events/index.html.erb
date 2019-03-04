@@ -1,6 +1,5 @@
-<!-- <h1 class="text-center">Mes Happy 1000</h1>
- -->
 <% if current_user.guests.empty? && current_user.events.empty?  %>
+
   <h2 class="text-center mauve">Vous n'avez aucun meal pour le moment</h2>
   <div class="text-center">
     <%= image_tag "happy_sad.png", alt: "alttext", class: "pan" %>
@@ -9,28 +8,30 @@
     <%= link_to "Organiser un meal", new_event_path, :class => "btn btn-info mauve" %>
   </div>
 
-
 <% else %>
+
    <div class="text-center">
      <%= image_tag "happy_pan.png", alt: "alttext", class: "pan" %>
    </div>
    <div class="text-center">
      <%= link_to "Organiser un meal", new_event_path, :class => "btn btn-info mauve" %>
    </div>
+
 <% end %>
 
 
-<!-- si lutilisateur est invite a des events, afficher les cartes dinvit -->
-
-
-
-
+<!-- BOUTONS POUR NAVIGER AVEC SLIDER -->
+<div class="buttons-index">
+  <div class="btn btn-primary btn-nav nav1">En attente</div>
+  <div class="btn btn-primary btn-nav nav2">Je participe</div>
+  <div class="btn btn-primary btn-nav nav3">Mes meals</div>
+</div>
 
 <div class="slider-container">
   <div class="slider step2">
 
     <div class="slide">
-
+    <!-- CODER ICI POUR AJOUTER INVITATION EN ATTENTE (ACCEPTER / REFUSER INVIT) -->
       <div class="participe">
         <div class="background">
           <div class="participation">
@@ -43,6 +44,7 @@
 
     </div>
 
+    <!-- IF USER IS INVITED TO EVENTS -->
     <div class="slide">
       <% if !current_user.guests.blank? %>
         <div class="participe">
@@ -104,6 +106,7 @@
       <% end %>
     </div>
 
+    <!-- IF USER IS HOSTING EVENTS -->
     <div class="slide">
       <% if !current_user.events.blank? %>
 
@@ -168,9 +171,5 @@
   </div>
 </div>
 
-<div class="buttons-index">
-  <div class="btn btn-primary btn-nav nav1">En attente</div>
-  <div class="btn btn-primary btn-nav nav2">Je participe</div>
-  <div class="btn btn-primary btn-nav nav3">Mes meals</div>
-</div>
+
 

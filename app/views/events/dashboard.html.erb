@@ -14,7 +14,7 @@
     <% else %>
       <p><i class="fas fa-times-circle"></i> Je ne participe pas</p>
     <% end %>
-    <p><i class="fas fa-caret-square-down"></i> Description</p>
+    <p><%= image_tag "info.png", alt: "alttext", class: 'small-icon' %> Description</p>
     <div id="description-details">
       <p class="description-content"><%= @event.description %></p>
     </div>

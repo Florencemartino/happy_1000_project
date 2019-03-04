@@ -44,6 +44,7 @@
     </div>
 
     <div class="slide">
+
       <% if !current_user.guests.blank? %>
         <div class="participe">
           <div class="background">
@@ -102,9 +103,11 @@
 
         </div>
       <% end %>
+
     </div>
 
     <div class="slide">
+
       <% if !current_user.events.blank? %>
 
         <div class="background">
@@ -163,6 +166,7 @@
           <%= image_tag "frying-pan.png", alt: "frying-pan", id: "frying-logo"  %>
         </div>
       <% end %>
+
     </div>
 
   </div>

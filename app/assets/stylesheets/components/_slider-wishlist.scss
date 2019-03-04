@@ -1,0 +1,37 @@
+.slider2 {
+ width: 400vw;
+ height: 500px;
+ left: 0vw;
+ position: absolute;
+ display: flex;
+ transition: left 0.3s ease;
+ // background-color: yellow;
+
+}
+
+.slide-food{
+  width:100vw;
+  height: 500px;
+}
+
+.slider2.sale{
+  left: 0;
+}
+
+.slider2.sucre{
+  left: -100vw;
+}
+
+.slider2.soft{
+  left: -200vw;
+}
+
+.slider2.alcool{
+  left: -300vw;
+}
+
+.btn-nav2{
+  width: calc(100% / 4);
+  color: $yellow;
+  margin: 0 3px;
+}

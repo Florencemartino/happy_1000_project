@@ -2,46 +2,59 @@
   <h2>Qu'as-tu besoin pour ton meal ?</h2>
   <!-- <div class="row card-container">
     <div class="col-xs-6 col-sm-6 col-md-6"> -->
-      <div class="card category">
-        <ul class="list-inline">
-          <p class= "text-center"> Salé </p>
-            <% @items.each do |item| %>
-              <% if item.category == "salé" %>
-                <li>
-                  <%= image_tag item.icon %>
-                  (<%= item.name %>)
 
-                  <%= link_to event_whishlists_path(@event, item: item.id), class: "quantity-css", method: :post, remote: true do %>
-                      <i class="fas fa-plus-circle"></i>
-                  <% end %>
-                </li>
-              <% end %>
-            <% end %>
-        </ul>
+      <div class="buttons-index">
+        <div class="btn btn-primary btn-nav2 nav11">Salé</div>
+        <div class="btn btn-primary btn-nav2 nav22">Sucré</div>
+        <div class="btn btn-primary btn-nav2 nav33">Soft</div>
+        <div class="btn btn-primary btn-nav2 nav44">Alcool</div>
       </div>
-  <!--   </div> -->
 
-  <!--   <div class="row card-container">
-    <div class="col-xs-6 col-sm-6 col-md-6"> -->
-      <div class="card category">
-        <ul class="list-inline">
-          <p class= "text-center"> Sucré </p>
-            <% @items.each do |item| %>
-              <% if item.category == "sucré" %>
-                <li>
-                  <%= image_tag item.icon %>
-                  (<%= item.name %>)
+      <div class="slider-container">
+        <div class="slider2 sale">
 
-                  <%= link_to event_whishlists_path(@event, item: item.id), class: "quantity-css", method: :post, remote: true do %>
-                      <i class="fas fa-plus-circle"></i>
+          <div class="slide-food">
+            <div class="card category">
+              <ul class="list-inline">
+                <p class= "text-center"> Salé </p>
+                  <% @items.each do |item| %>
+                    <% if item.category == "salé" %>
+                      <li>
+                        <%= image_tag item.icon %>
+                        (<%= item.name %>)
+
+                        <%= link_to event_whishlists_path(@event, item: item.id), class: "quantity-css", method: :post, remote: true do %>
+                            <i class="fas fa-plus-circle"></i>
+                        <% end %>
+                      </li>
+                    <% end %>
                   <% end %>
-                </li>
-              <% end %>
-            <% end %>
-        </ul>
-      </div>
-<!--  </div>  -->
-      <div class="card category">
+              </ul>
+            </div>
+          </div>
+
+          <div class="slide-food">
+            <div class="card category">
+              <ul class="list-inline">
+                <p class= "text-center"> Sucré </p>
+                  <% @items.each do |item| %>
+                    <% if item.category == "sucré" %>
+                      <li>
+                        <%= image_tag item.icon %>
+                        (<%= item.name %>)
+
+                        <%= link_to event_whishlists_path(@event, item: item.id), class: "quantity-css", method: :post, remote: true do %>
+                            <i class="fas fa-plus-circle"></i>
+                        <% end %>
+                      </li>
+                    <% end %>
+                  <% end %>
+              </ul>
+            </div>
+          </div>
+
+          <div class="slide-food">
+            <div class="card category">
               <ul class="list-inline">
                 <p class= "text-center"> Soft </p>
                   <% @items.each do |item| %>
@@ -58,8 +71,10 @@
                   <% end %>
               </ul>
             </div>
+          </div>
 
-        <div class="card category">
+          <div class="slide-food">
+            <div class="card category">
               <ul class="list-inline">
                 <p class= "text-center"> Alcool </p>
                   <% @items.each do |item| %>
@@ -76,38 +91,23 @@
                   <% end %>
               </ul>
             </div>
+          </div>
 
+        </div>
+      </div>
 
-   <!--  <div class="col-xs-6 col-sm-6 col-md-6"> -->
       <div class="card category">
         <ul class="list-inline" id="basket-card">
           <p class= "text-center"> Sélection : </p>
           <% @whishlists.each do |whishlist| %>
-          <li id="whishlist-item-id-<%= whishlist.id %>">
-            <%= render 'button-basket', whishlist: whishlist %>
-          </li>
+            <li id="whishlist-item-id-<%= whishlist.id %>">
+              <%= render 'button-basket', whishlist: whishlist %>
+            </li>
           <% end %>
         </ul>
       </div>
-    </div>
-  </div>
+
   <div class="row btn-flex">
-    <!-- <div class="col-xs-4">
-      <%#= link_to "Valider", root_path, :class => "btn btn-primary" %>
-      <%#= link_to "Modifier", "#my-modal", :class => "btn btn-primary", "data-toggle" => "modal" %>
-      <div class="modal hide fade" id="my-modal" title="Valider">
-        <div class="modal-header">
-          <button aria-hidden="true" class="close" data-dismiss="modal" type="button">×</button>
-          <h3 id="myModalLabel">Modal header</h3>
-        </div>
-        <div class="modal-body">
-          Modal Body
-        </div>
-        <div class="modal-footer">
-          <button aria-hidden="true" class="btn" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div> -->
     <div class="col-xs-4">
       <%= link_to "Valider",  event_select_guest_path, :class => "btn btn-primary" %>
     </div>

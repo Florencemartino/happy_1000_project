@@ -6,7 +6,9 @@
         <%= f.input :description %>
         <%= f.input :address, label: "Adresse", input_html: { id: 'address-input' }  %>
         <%= f.input :date, as: :string, input_html: { class: 'datepicker' } %>
-        <%= f.submit "Créer", class: 'btn btn-primary' %>
+        <div class="text-center">
+          <%= f.submit "Créer", class: 'btn btn-primary' %>
+        </div>
       <% end %>
     </div>
   </div>

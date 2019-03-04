@@ -1,47 +1,61 @@
 <h1 class="text-center">Liste des invités</h1>
 
-<h2>Invités</h2>
 
-<li>
-<% if @event.user.photo.blank?%>
-  <%= image_tag "https://www.weekend-esprithautsdefrance.com/sites/picardiev3/themes/picardiev3/img_v2/user-default.jpg", alt: "alttext", height: 50, width: 50, crop: :fill%>
-<% else %>
-  <%= cl_image_tag @event.user.photo, height: 50, width: 50, crop: :fill %>
-<% end %>
-<%= @event.user.nickname %> <em>(organisateur)</em>
-</li>
-<br>
-<% @event.guests.each do |guest| %>
-  <% if guest.user.photo.blank?%>
-    <li><%= image_tag "https://www.weekend-esprithautsdefrance.com/sites/picardiev3/themes/picardiev3/img_v2/user-default.jpg", alt: "alttext", height: 50, width: 50, crop: :fill%>
-  <% else %>
-    <%= cl_image_tag guest.user.photo, height: 50, width: 50, crop: :fill %>
-  <% end %>
-  <%= guest.user.nickname %></li>
+<div class="container">
+  <h2>Guest List</h2>
+
+  <div>
+    <div>
+      <% if @event.user.photo.blank?%>
+        <%= image_tag "https://www.weekend-esprithautsdefrance.com/sites/picardiev3/themes/picardiev3/img_v2/user-default.jpg", alt: "alttext", height: 50, width: 50, crop: :fill, class: "avatar-bordered"%>
+      <% else %>
+        <%= cl_image_tag @event.user.photo, height: 50, width: 50, crop: :fill %>
+      <% end %>
+    </div>
+
+    <div><%= @event.user.nickname %></div>
+
+    <% @event.guests.each do |guest| %>
+      <% if guest.user.photo.blank?%>
+        <%= image_tag "https://www.weekend-esprithautsdefrance.com/sites/picardiev3/themes/picardiev3/img_v2/user-default.jpg", alt: "alttext", height: 50, width: 50, crop: :fill, class: "avatar-bordered"%>
+      <% else %>
+        <%= cl_image_tag guest.user.photo, height: 50, width: 50, crop: :fill, class: "avatar-bordered" %>
+      <% end %>
+      <%= guest.user.nickname %>
+      <br>
+    <% end %>
+
+  </div>
+
   <br>
-<% end %>
 
-<hr>
 
-<h2>Participera</h2>
 
-  <li><%= @event.user.nickname %> <em>(organisateur)</em></li>
-  <% @event.guests.each do |guest| %>
-    <% if guest.is_coming %>
-     <li><%= guest.user.nickname %></li>
+
+  <hr>
+
+  <h2>Participera</h2>
+
+    <li><%= @event.user.nickname %> <em>(organisateur)</em></li>
+    <% @event.guests.each do |guest| %>
+      <% if guest.is_coming %>
+       <li><%= guest.user.nickname %></li>
+      <% end %>
     <% end %>
-  <% end %>
 
-<hr>
+  <hr>
 
-<h2>Ne participera pas</h2>
+  <h2>Ne participera pas</h2>
 
-  <% @event.guests.each do |guest| %>
-    <% if guest.is_coming == false %>
-      <li><%= guest.user.nickname %></li>
+    <% @event.guests.each do |guest| %>
+      <% if guest.is_coming == false %>
+        <li><%= guest.user.nickname %></li>
+      <% end %>
     <% end %>
-  <% end %>
 
 
-<div class="text-center"><%= link_to 'Back to the event', event_dashboard_path, class: "btn btn-primary" %></div>
+  <div class="text-center"><%= link_to 'Back to the event', event_dashboard_path, class: "btn btn-primary" %></div>
 
+
+
+</div>

@@ -1,0 +1,47 @@
+.slider-container{
+  width: 100vw;
+  height: 300px;
+  margin: 0;
+  background-color: purple;
+  position: relative;
+  overflow: hidden;
+}
+
+.slider{
+ width: 300vw;
+ height: 300px;
+ left: -100vw;
+ position: absolute;
+ display: flex;
+ background-color: yellow;
+
+}
+
+.slide{
+  width:100vw;
+  height: 300px;
+}
+
+.slider.step1{
+  left: 0;
+}
+
+.slider.step2{
+  left: -100vw;
+}
+
+.slider.step3{
+  left: -200vw;
+}
+
+.buttons-index{
+  margin-top: 3%;
+  width: 100vw;
+  height: 5vh;
+  display: flex;
+}
+
+.btn-nav{
+  width: calc(100% / 3);
+  color: $mauve1;
+}

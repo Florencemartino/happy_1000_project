@@ -1,6 +1,9 @@
 import "bootstrap";
 import 'plugins/flatpickr'
 
+import { navigation } from '../components/slider';
+navigation();
+
 import { initialization } from '../components/dynamicnavbar';
 initialization();
 

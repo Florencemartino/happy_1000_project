@@ -14,5 +14,3 @@ initialization();
 if (document.querySelector(".fa-caret-square-down")) {
   toggleDesc();
 }
-
-

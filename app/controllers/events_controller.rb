@@ -60,6 +60,7 @@ class EventsController < ApplicationController
 
   def account
     @event = Event.find(params[:event_id])
+    @guests = Guest.where(event_id: @event.id)
     @whishlists = Whishlist.where(event_id: @event.id)
     @baskets = Basket.where(user_id: current_user.id)
   end

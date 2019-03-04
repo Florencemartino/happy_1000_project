@@ -22,9 +22,9 @@
           <label for='<%= "inlineCheckbox#{guest.id}" %>'>
             <div class="guest-choice">
               <% if guest.photo.blank? %>
-                <%= image_tag "icons/user.png", alt: "alttext" %>
+                <%= image_tag "default-user.png",height: 50, width: 50, crop: :fill, radius: 80, alt: "alttext" %>
               <% else %>
-                <%= cl_image_tag guest.photo, height: 100, width: 100, crop: :fill, radius: 80 %>
+                <%= cl_image_tag guest.photo, height: 50, width: 50, crop: :fill, radius: 80 %>
               <% end %>
             </div>
 
@@ -32,7 +32,6 @@
               <%= guest.nickname %>
             </div>
           </label>
-
         <% end %>
       </div>
 

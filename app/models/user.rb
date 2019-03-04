@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :events, dependent: :destroy
 
   has_many :baskets
-  has_many :guests
+  has_many :guests, dependent: :destroy
   has_many :whishlists, through: :baskets
   has_many :items, through: :whishlists
 

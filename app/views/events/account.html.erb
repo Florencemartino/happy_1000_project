@@ -2,7 +2,6 @@
 
 <h3> Voici le coût total pour : <%= @event.title %></h3>
 
-
 <% sum = 0 %>
   <% @baskets.each do |basket| %>
     <% i = basket.price_in_cent %>
@@ -12,6 +11,27 @@
     <% sum += i %>
     <% end %>
   <% end %>
-<p>Total de repas :<%= sum %> € </p>
+<p>Total du repas :<%= sum %> € </p>
+<% average = sum/(@guests.count).to_f %>
+
+<p>Total par personne : <%= average.round(2) %> € </p>
+
+<h3> Qui doit quoi à qui : </h3>
+
+<%= @event.user.nickname %> <br> <!-- pour le test, enlever ensuite -->
+<% @event.guests.each do |guest| %>
+  <% if guest.is_coming %>
+    <%= guest.user.nickname %> <br>
+
+  <% end %>
+<% end %>
+
+
+
+
+
+
+
+<%= link_to "Retour", event_dashboard_path(@event)%>
 
 

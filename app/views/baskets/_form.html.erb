@@ -1,9 +1,8 @@
 
 
-      <%= simple_form_for [@event, basket]  do |f| %>
+      <%= simple_form_for [@event, basket], url: event_basket_updated_price_path(@event.id, basket)  do |f| %>
         <%= f.input :price_in_cent %>
         <%= f.submit "Add a price", :class => "btn-medium" %>
-      <div class="btn-medium-new-booking"> -->
-        <% end %>
+      <% end %>
 
 

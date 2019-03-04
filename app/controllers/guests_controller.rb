@@ -12,8 +12,9 @@ class GuestsController < ApplicationController
       @guest.user = User.find(guest_id)
       @guest.event = Event.find(params[:event_id])
       @guest.save!
-      raise
-      redirect_to event_dashboard_path(@event)
+    end
+    redirect_to event_dashboard_path(@event)
+  end
 
 
     # if @guest.save
@@ -22,8 +23,7 @@ class GuestsController < ApplicationController
     # else
     #   flash.now[:alert] = "Choisi au moins 1 poto à inviter quand même... 🙄"
     #   render :select_guest
-    end
-  end
+
 
   private
 

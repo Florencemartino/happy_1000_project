@@ -1,0 +1,17 @@
+
+  <%= link_to event_whishlist_path(whishlist.event.id, whishlist.id, sens: '-1' ), method: :patch, remote: true,  class: "quantity-css" do %>
+    <i class="fas fa-minus"></i>
+  <% end %>
+
+  <%= image_tag whishlist.item.icon %>
+
+  <%= link_to event_whishlist_path(whishlist.event_id, whishlist.id, sens: '1'), class: "quantity-css", method: :patch, remote: true do %>
+      <i class="fas fa-plus"></i>
+  <% end %>
+
+  : <%= whishlist.quantity %>
+
+  <%=link_to event_whishlist_path(whishlist.event_id, whishlist.id), method: :delete, remote: true, data: { confirm: "Do you realy want to delete this item ?" } do %>
+    <i class="fas fa-trash-alt"></i>
+  <% end %>
+

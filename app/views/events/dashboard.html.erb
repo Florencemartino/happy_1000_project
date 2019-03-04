@@ -6,15 +6,15 @@
   <div class="event-details">
     <p><%= image_tag "calendar.png", alt: "calendar", class: 'small-icon' %> <%= @event.date.strftime("%A %d %B %Y à %H:%M") %></p>
     <p><%= image_tag "house.png", alt: "house", class: 'small-icon' %> <%= @event.address %></p>
-    <p><%= image_tag "cutlery.png", alt: "cutlery", class: 'small-icon' %><%= link_to "#{@event.guests.count + 1} invités", event_guests_path(@event) %></p>
+    <p><%= image_tag "cutlery.png", alt: "cutlery", class: 'small-icon' %> <%= link_to "#{@event.guests.count + 1} invités", event_guests_path(@event) %></p>
     <% if @event.user == current_user %>
-      <p><%= image_tag "chef", alt: "chef-hat", class: 'small-icon' %>Vous êtes l'organisateur</p>
+      <p><%= image_tag "chef", alt: "chef-hat", class: 'small-icon' %> Vous êtes l'organisateur</p>
     <% elsif current_user.guests.first.is_coming %>
       <p><i class="fas fa-check-circle"></i> Je participe</p>
     <% else %>
       <p><i class="fas fa-times-circle"></i> Je ne participe pas</p>
     <% end %>
-    <p><i class="fas fa-caret-square-down"></i> Description</p>
+    <p><%= image_tag "info.png", alt: "alttext", class: 'small-icon' %> Description</p>
     <div id="description-details">
       <p class="description-content"><%= @event.description %></p>
     </div>

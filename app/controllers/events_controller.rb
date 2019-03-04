@@ -44,7 +44,13 @@ class EventsController < ApplicationController
 
   def select_guest
     @event = Event.find(params[:event_id])
-    @guests = User.where.not(id: current_user.id)
+
+  # BARRE SEARCH  BARRE SEARCH  BARRE SEARCH  BARRE SEARCH  BARRE SEARCH
+    if params[:query].present?
+      @guests = User.where("nickname ILIKE ?", "%#{params[:query]}%")
+    else
+      @guests = User.where.not(id: current_user.id)
+    end
   end
 
   def destroy
@@ -151,5 +157,4 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
   end
 end
-
 

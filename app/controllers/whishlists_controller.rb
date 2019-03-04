@@ -17,9 +17,12 @@ class WhishlistsController < ApplicationController
     @whishlist.quantity = 1
     @user = current_user
     # @whishlist.user_id = current_user.id
-    @whishlist.save
-
-    redirect_to event_whishlists_path(@event)
+    if @whishlist.save
+      respond_to do |format|
+        format.html { redirect_to event_whishlists_path(@event) }
+        format.js
+      end
+    end
   end
 
   def update
@@ -31,15 +34,19 @@ class WhishlistsController < ApplicationController
     when "-1"
       then @whishlist.quantity -= 1
     end
-    @whishlist.save!
-    redirect_to event_whishlists_path(@event)
+    if @whishlist.save
+      respond_to do |format|
+        format.html { redirect_to event_whishlists_path(@event) }
+        format.js
+      end
+    end
   end
 
   def destroy
-    @event = Event.find(params[:event_id])
+    # @event = Event.find(params[:event_id])
     @whishlist = Whishlist.find(params[:id])
     @whishlist.destroy
-    redirect_to event_whishlists_path(@event)
+    # redirect_to event_whishlists_path(@event)
   end
 
   private

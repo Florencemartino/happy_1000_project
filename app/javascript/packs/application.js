@@ -7,6 +7,13 @@ if (document.querySelector(".slider.step2")) {
   navigation();
 }
 
+
+import { foodNav } from '../components/slider-wishlist';
+
+if (document.querySelector(".slider2.sale")) {
+  foodNav();
+}
+
 import { initialization } from '../components/dynamicnavbar';
 initialization();
 

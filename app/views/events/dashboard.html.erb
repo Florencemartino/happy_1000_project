@@ -19,41 +19,43 @@
       <p class="description-content"><%= @event.description %></p>
     </div>
   </div>
+  <div class="buttons-index">
+    <div class="btn btn-primary btn-nav nav-dashboard"><%= link_to "Equilibres", event_account_path(@event)%></div>
+    <div class="btn btn-primary btn-nav nav-dashboard"><%= link_to "Voir mon panier", event_baskets_path %></div>
+  </div>
 </div>
+
 <!-- LISTE LES GENS QUI VIENNENT AVEC LEUR BASKET -->
 
 <!-- LES GENS QUI NE VIENNENT PAS NE SERONT PAS AFFICHES ICI, MAIS DANS L'INDEX DES GUESTS VIA UN TAB/ONGLET : "PARTICIPE / NE PARTICIPE PAS"     -->
 <div id="rest-of-content">
   <h3 class="text-center">On ramène quoi?</h3>
-
-  <% @baskets_per_user.each do |user, baskets| %>
-  <div>
-    <% if user.photo.blank?%>
-      <%= image_tag "default-user.png", alt: "alttext", class: "avatar", id: "navbar-wagon-menu" %>
-    <% else %>
-      <%= cl_image_tag user.photo, height: 50, width: 50, crop: :fill %>
-    <% end %>
-    <%= user.nickname %>
-    <% if user == @event.user %>
-      <em>(organisateur)</em>
-    <% end %>
-    apportera :
-    <ul>
-      <% baskets.each do |basket| %>
-        <li><%= basket.whishlist.item.name %><%= image_tag basket.whishlist.item.icon %></li>
+    <div class="container-dashboard">
+      <% @baskets_per_user.each do |user, baskets| %>
+        <div class="box-dashboard">
+          <% if user.photo.blank?%>
+            <%= image_tag "default-user.png", alt: "alttext", class: "avatar", id: "navbar-wagon-menu" %>
+          <% else %>
+            <%= cl_image_tag user.photo, height: 50, width: 50, crop: :fill %>
+          <% end %>
+          <%= user.nickname %>
+          <% if user == @event.user %>
+            <em>(organisateur)</em>
+          <% end %>
+        </div>
+          <% baskets.each do |basket| %>
+      <div class="box-dashboard">
+            <%= basket.whishlist.item.name %><%= image_tag basket.whishlist.item.icon %>
+          <% end %>
+      <hr>
+      </div>
+    </div>
       <% end %>
-    </ul>
-  </div>
-  <% end %>
+</div>
 
-  <hr>
-
+<hr>
+<div class="footer-dashboard">
   <p>Total de repas :<%= @total %> € </p>
-
-
-  <%= link_to "Equilibres", event_account_path(@event)%> <br>
-  <%= link_to "Voir mon panier", event_baskets_path, :class => "btn-medium" %> <br>
-  <%= link_to "Description de l'event", event_path(@event), :class => "btn-medium" %>
 </div>
 <!-- AUTRE TECHNIQUE POUR RECUPERER LE BASKET DE CHAQUE INVITE PAR EVENT -->
 <!-- <ul>

@@ -7,9 +7,9 @@
   position: absolute;
   opacity: 0.35;
   width: 50%;
-  bottom: -15vh;
-  right: -5%;
-  z-index: -1;
+  bottom: 25vh;
+  right: 15%;
+  z-index: 1;
   transform: rotate(40deg);
 }
 
@@ -18,9 +18,9 @@
     position: absolute;
     opacity: 0.35;
     width: 20%;
-    bottom: -8%;
-    right: 5%;
-    z-index: -1;
+    bottom: 15vh;
+    right: 15%;
+    z-index: 1;
     transform: rotate(38deg);
   }
 }
@@ -29,9 +29,9 @@
   position: absolute;
   opacity: 0.35;
   width: 50%;
-  bottom: 15vh;
-  left: -13%;
-  z-index: -1;
+  bottom: 45vh;
+  right: 13%;
+  z-index: 1;
   transform: rotate(0deg);
 }
 
@@ -40,9 +40,9 @@
   position: absolute;
   opacity: 0.35;
   width: 20%;
-  bottom: 15vh;
-  left: -5%;
-  z-index: -1;
+  bottom: 35vh;
+  right: 13%;
+  z-index: 1;
   transform: rotate(0deg);
   }
 }
@@ -51,9 +51,9 @@
   position: absolute;
   opacity: 0.35;
   width: 50%;
-  bottom: -35vh;
+  bottom: 35vh;
   left: -15%;
-  z-index: -1;
+  z-index: 1;
   transform: rotate(13deg);
 }
 
@@ -62,9 +62,9 @@
     position: absolute;
     opacity: 0.35;
     width: 20%;
-    bottom: -8%;
+    bottom: 25vh;
     right: 5%;
-    z-index: -1;
+    z-index: 1;
     transform: rotate(20deg);
   }
 }
@@ -75,7 +75,7 @@
   width: 50%;
   top: 5vh;
   left: -20%;
-  z-index: -1;
+  z-index: 1;
   transform: rotate(5deg);
 }
 
@@ -86,7 +86,7 @@
     width: 20%;
     bottom: -8%;
     right: 5%;
-    z-index: -1;
+    z-index: 1;
     transform: rotate(20deg);
   }
 }
@@ -97,7 +97,7 @@
   width: 50%;
   bottom: 27%;
   left: 0;
-  z-index: -1;
+  z-index: 1;
   transform: rotate(0deg);
 }
 
@@ -108,7 +108,7 @@
     width: 20%;
     bottom: -8%;
     right: 5%;
-    z-index: -1;
+    z-index: 1;
     transform: rotate(20deg);
   }
 }

@@ -55,41 +55,40 @@
                <h3 class="section">Je participe</h3>
               </div>
 
-              <% current_user.guests.each do |event| %>
+              <% current_user.guests.each do |guest| %>
                 <div class="container-exterieur">
                   <div class="container">
                     <div class="row">
                       <div class="col-md-12">
 
                           <div class="card-trip">
-                            <%= link_to event_dashboard_path(event), class: 'dashboard-path' do %>
+                            <%= link_to event_dashboard_path(guest.event), class: 'dashboard-path' do %>
                               <div class="card-photo">
                                 <!-- <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg"> -->
                                 <div class="card-background">
-                                  <h2 class="yellow-title"><%= event.event.title %></h2>
+                                  <h2 class="yellow-title"><%= guest.event.title %></h2>
                                   <div class="card-details">
-                                    <h6 class="yellow-details"><i class="far fa-calendar-alt"></i> <%= event.event.date.strftime("%d/%m/%Y") %></h6>
-                                    <h6 class="yellow-details"><i class="far fa-clock"></i> <%= event.event.date.strftime("%HH%M") %></h6>
-                                    <h6 class="yellow-details"><i class="fas fa-users"></i> <%= event.event.guests.count + 1 %></h6>
+                                    <h6 class="yellow-details"><i class="far fa-calendar-alt"></i> <%= guest.event.date.strftime("%d/%m/%Y") %></h6>
+                                    <h6 class="yellow-details"><i class="far fa-clock"></i> <%= guest.event.date.strftime("%HH%M") %></h6>
+                                    <h6 class="yellow-details"><i class="fas fa-users"></i> <%= guest.event.guests.count + 1 %></h6>
                                   </div>
                                 </div>
                               </div>
                             <% end %>
                             <div class="card-trip-infos">
-                              <p>Organisé par <strong><%= event.user.nickname %></strong></p>
-                              <!-- <p><em>"<%= event.event.description %>"</em></p> -->
+                              <p>Organisé par <strong><%= guest.event.user.nickname %></strong></p>
 
-                              <%= link_to edit_event_path(event) do %>
+                              <%= link_to edit_event_path(guest.event) do %>
                                 <i class="fas fa-pencil-alt"></i>
                               <% end %>
-                              <%= link_to event_path(event), method: :delete, data: { confirm: "Veux-tu vraiment supprimer ce meal ?" } do %>
+                              <%= link_to event_path(guest.event), method: :delete, data: { confirm: "Veux-tu vraiment supprimer ce meal ?" } do %>
                                 <i class="fas fa-trash-alt"></i>
                               <% end %>
 
-                              <% if event.user.photo.blank? %>
+                              <% if guest.event.user.photo.blank? %>
                                   <%= image_tag "default-user.png", alt: "alttext", class: "card-trip-user", id: "navbar-wagon-menu" %>
                               <% else %>
-                                  <%= cl_image_tag event.user.photo, width: 50, crop: :fill, gravity: :face, :radius => "max", class: "card-trip-user" %>
+                                  <%= cl_image_tag guest.event.user.photo, width: 50, crop: :fill, gravity: :face, :radius => "max", class: "card-trip-user" %>
                               <% end %>
                               <%#= cl_image_tag event.user.photo, height: 50, width: 50, crop: :fill, gravity: :face, :radius => "max", class: 'card-trip-user' %>
                             </div>

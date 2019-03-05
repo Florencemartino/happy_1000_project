@@ -6,13 +6,17 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
-
-puts 'Cleaning database...'
-Item.destroy_all
+puts 'Cleaning wishlists...'
 Whishlist.destroy_all
+puts 'Cleaning items...'
+Item.destroy_all
+puts 'Cleaning baskets...'
 Basket.destroy_all
+puts 'Cleaning events...'
 Event.destroy_all
+puts 'Cleaning guests...'
 Guest.destroy_all
+puts 'Cleaning users...'
 User.destroy_all
 
 puts 'Creating users...'
@@ -21,9 +25,6 @@ sam = User.create!(nickname: 'Samir', email: 'sam@gmail.com', password: 'azerty'
 remi = User.create!(nickname: 'Remi', email: 'rem@gmail.com', password: 'azerty', photo: 'icons/user.png')
 flo = User.create!(nickname: 'Flo', email: 'flo@gmail.com', password: 'azerty', photo: 'icons/user.png')
 susan = User.create!(nickname: 'Susan', email: 'sus@gmail.com', password: 'azerty', photo: 'icons/user.png')
-
-
-
 
 puts 'Creating event...'
 
@@ -35,6 +36,7 @@ g1 = Guest.create!(user_id: remi.id, event_id: event_1.id, is_coming: true)
 g2 = Guest.create!(user_id: flo.id, event_id: event_1.id, is_coming: true)
 g3 = Guest.create!(user_id: susan.id, event_id: event_1.id, is_coming: true)
 g4 = Guest.create!(user_id: sam.id, event_id: event_1.id, is_coming: false)
+g5 = Guest.create!(user_id: flo.id, event_id: event_2.id, is_coming: true)
 
 puts 'Creating items...'
 beer = Item.create!(name: "bière", category: "alcool", icon: "icons/beer.png")

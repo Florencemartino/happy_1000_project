@@ -8,6 +8,7 @@ function clear() {
   slider.classList.remove("step2");
   slider.classList.remove("step3");
 }
+
 function newEvents() {
   clear();
   slider.classList.add("step1");

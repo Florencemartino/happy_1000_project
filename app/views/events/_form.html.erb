@@ -1,13 +1,15 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-6 col-md-offset-3">
+    <div class="col-md-12">
       <%= simple_form_for event do |f| %>
-        <%= f.input :title, label: "Titre" %>
-        <%= f.input :description %>
-        <%= f.input :address, label: "Adresse", input_html: { id: 'address-input' }  %>
-        <%= f.input :date, as: :string, input_html: { class: 'datepicker' } %>
+
+        <%= f.input :title, placeholder: "Titre", label: false, input_html: { class: 'form-input' } %>
+        <%#= f.input :description %>
+        <%= f.input :address, placeholder: "16 Villa Gaudelet Paris 11", input_html: { id: 'address-input', class: 'form-input' }, label: false  %>
+        <%= f.input :date, as: :string, input_html: { class: 'datepicker form-input' }, placeholder: "Sélectionner une date", label: false %>
         <div class="text-center">
-          <%= f.submit "Créer", class: 'btn btn-primary' %>
+          <%= f.submit "CREER MON MEAL", class: "btn btn-info mauve create-meal" %>
+
         </div>
       <% end %>
     </div>

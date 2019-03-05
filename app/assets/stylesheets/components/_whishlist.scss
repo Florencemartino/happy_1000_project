@@ -34,8 +34,25 @@
   padding: 10px 0px;
 }
 
-// .slide-food{
-//   .card{
-//     flex-direction: unset !important;
-//   }
-// }
+
+.slide-food{
+  .card{
+    flex-direction: unset !important;
+  }
+}
+
+.icon-selection {
+  position: relative;
+}
+
+.icon-badge {
+  background: #FF5D5D;
+  color: white;
+  font-size: 12px;
+  position: absolute;
+  // top: -10px;
+  // right: -10px;
+  padding: 1px 8px;
+  border-radius: 15px;
+}
+

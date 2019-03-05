@@ -1,3 +1,9 @@
-<h1>Créer mon Happy 1000 : </h1>
 
-<%= render 'form', event: @event %>
+<%= render layout: "shared/main_layout", locals: {
+  main_title: "Crée ton prochain meal :",
+} do %>
+  <%= render 'form', event: @event %>
+<% end %>
+
+
+

@@ -1,6 +1,6 @@
 .slider-container{
   width: 100vw;
-  height: 90vh;
+  height: 70vh;
   margin: 0;
   // background-color: purple;
   position: relative;
@@ -9,7 +9,7 @@
 
 .slider{
  width: 300vw;
- height: 500px;
+ height: 70vh;
  left: -100vw;
  position: absolute;
  display: flex;
@@ -20,7 +20,7 @@
 
 .slide{
   width:100vw;
-  height: 100vh;
+  height: 102vh;
   background-color: white;
 }
 
@@ -135,3 +135,4 @@
   height: 3vh;
   z-index: 1;
 }
+

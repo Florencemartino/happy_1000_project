@@ -5,14 +5,14 @@ class BasketsController < ApplicationController
   def index
     @event = Event.find(params[:event_id])
     @whishlists = Whishlist.where(event_id: params[:event_id])
-    # @baskets = current_user.baskets.join(whishlists).where(whishlist: {event: @event})
-    all_user_baskets = current_user.baskets
-    @baskets = []
-    all_user_baskets.each do |b|
-      if b.event.id == @event.id
-        @baskets << b
-      end
-    end
+    @baskets = @event.baskets.where(user_id: current_user.id)
+    # all_user_baskets = current_user.baskets
+    # @baskets = []
+    # all_user_baskets.each do |b|
+    #   if b.event.id == @event.id
+    #     @baskets << b
+    #   end
+    # end
     # only select baskets where basket.event.id == @event.id
   end
 
@@ -40,9 +40,12 @@ class BasketsController < ApplicationController
     @basket.quantity = 1
     @whishlist.quantity = @whishlist.quantity - @basket.quantity
     @basket.price_in_cent = 0
-    @basket.save
-    @whishlist.save
-    redirect_to event_baskets_path(@event)
+    if @basket.save && @whishlist.save
+      respond_to do |format|
+      format.html { redirect_to event_baskets_path(@event) }
+      format.js
+      end
+    end
   end
 
   def update
@@ -59,13 +62,22 @@ class BasketsController < ApplicationController
     end
 
     if @basket.quantity != 0
-      @whishlist.save!
-      @basket.save!
-    elsif @basket.quantity = 0
+      if @whishlist.save! && @basket.save!
+        respond_to do |format|
+          format.html { redirect_to event_baskets_path(@event) }
+          format.js
+        end
+      end
+    elsif @basket.quantity.zero?
       @basket.destroy
-      @whishlist.save!
+      if @whishlist.save!
+        respond_to do |format|
+          format.html { redirect_to event_baskets_path(@event) }
+          format.js
+        end
+      end
     end
-    redirect_to event_baskets_path(@event)
+    # redirect_to event_baskets_path(@event)
   end
 
   def edit

@@ -8,14 +8,14 @@
     <%= link_to "Organiser un meal", new_event_path, :class => "btn btn-info mauve" %>
   </div>
 
-<% else %>
+<%# else %>
 
-   <div class="text-center">
-     <%= image_tag "happy_pan.png", alt: "alttext", class: "pan" %>
-   </div>
-   <div class="text-center">
-     <%= link_to "Organiser un meal", new_event_path, :class => "btn btn-info mauve" %>
-   </div>
+   <!-- <div class="text-center"> -->
+     <%#= image_tag "happy_pan.png", alt: "alttext", class: "pan" %>
+   <!-- </div> -->
+   <!-- <div class="text-center"> -->
+     <%#= link_to "Organiser un meal", new_event_path, :class => "btn btn-info mauve" %>
+   <!-- </div> -->
 
 <% end %>
 
@@ -27,6 +27,7 @@
   <div class="nav3 icons"><%= image_tag "happy_waiting.png", alt: "alttext", class: "happy-waiting" %>En attente</div>
   <div class="small-square carre2"></div>
   <div class="blanc"></div>
+  <%= link_to "Organiser un meal", new_event_path, :class => "btn btn-info mauve confirmation-btn" %>
 </div>
 
 <!-- <div class="buttons-index">
@@ -174,18 +175,23 @@
         <!-- CODER ICI POUR AJOUTER INVITATION EN ATTENTE (ACCEPTER / REFUSER INVIT) -->
         <h4 class="text-center" style="margin-top: 20px;">Vous n'avez aucun meal en attente</h4>
         <div class="participe">
-<!--           <div class="background"> -->
+        <!--           <div class="background"> -->
             <!-- <div class="participation">
              <%#= image_tag "happy_waiting.png", alt: "waiting logo", class: 'happy-waiting' %>
              <h3 class="section">En attente</h3>
             </div> -->
             <%#= image_tag "wine.png", alt: "wine", id: "wine-logo"  %>
-<!--           </div> -->
+        <!--           </div> -->
         </div>
       </div>
 
+
+
     </div>
   </div>
+
+
+
 
 
 

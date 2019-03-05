@@ -6,7 +6,7 @@
   <div class="event-details">
     <div class="picto"><i class="fas fa-map-marked-alt"></i><p><%= @event.address %></p></div>
     <div class="picto"><i class="fas fa-calendar-alt"></i><p><%= @event.date.strftime("%A %d %B %Y à %H:%M") %></p></div>
-    <div class="picto"><i class="fas fa-users"></i><p><%= link_to "#{@event.guests.count + 1} invités", event_guests_path(@event) %></p></div>
+    <div class="picto"><i class="fas fa-users faded"></i><p><%= link_to "#{@event.guests.count + 1} invités", event_guests_path(@event) %></p></div>
 
     <!-- <#% if @event.user == current_user %>
       <p><#%= image_tag "chef.png", alt: "chef-hat", class: 'small-icon' %> Vous êtes l'organisateur</p>

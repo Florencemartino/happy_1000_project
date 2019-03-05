@@ -59,6 +59,40 @@
   display: flex;
   justify-content: space-around;
   align-items: flex-end;
+  position: relative;
+}
+
+.small-square.carre2{
+  width: 15px;
+  height: 15px;
+  background-color: white;
+  transform: rotate(45deg);
+  position: absolute;
+  bottom: -7.5px;
+  left: 652px;
+  transition: left 0.3s ease;
+}
+
+.carre1{
+  width: 15px;
+  height: 15px;
+  background-color: white;
+  transform: rotate(45deg);
+  position: absolute;
+  bottom: -7.5px;
+  left: 210px;
+  transition: left 0.3s ease;
+}
+
+.carre3{
+  width: 15px;
+  height: 15px;
+  background-color: white;
+  transform: rotate(45deg);
+  position: absolute;
+  bottom: -7.5px;
+  left: 1090px;
+  transition: left 0.3s ease;
 }
 
 .icons{
@@ -67,6 +101,7 @@
   flex-direction: column;
   transition: opacity 0.3s ease;
   align-items: center;
+  margin-bottom: 10px;
 
 }
 

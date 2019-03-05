@@ -47,8 +47,8 @@
       <!-- IF USER IS HOSTING EVENTS -->
       <div class="slide">
         <% if !current_user.events.blank? %>
-
-<!--           <div class="background"> -->
+          <div class="participe">
+            <!--           <div class="background"> -->
             <!--             <div class="participation">
               <%#= image_tag "happy_chef.png", alt: "alttext", class: 'happy-chef' %>
               <h3 class="section">Mes meals</h3>
@@ -101,7 +101,7 @@
               </div>
             <% end %>
 
-<!--           </div> -->
+          </div>
         <% end %>
 
       </div>
@@ -110,7 +110,7 @@
       <div class="slide">
         <% if !current_user.guests.blank? %>
           <div class="participe">
-<!--             <div class="background"> -->
+              <!--             <div class="background"> -->
               <!-- <div class="participation">
                <%#= image_tag "happy_fork.png", alt: "attending logo", class: 'happy-fork' %>
                <h3 class="section">Je participe</h3>
@@ -161,15 +161,18 @@
               <% end %>
               <%#= image_tag "cheese.png", alt: "cheese", id: "cheese-logo"  %>
               <%#= image_tag "carrot.png", alt: "carrot", id: "carrot-logo"  %>
-<!--             </div> -->
+            <!--             </div> -->
 
           </div>
+        <% else %>
+          <h4 class="text-center" style="margin-top: 20px;">Vous n'avez pas de meals pour le moment</h4>
         <% end %>
       </div>
 
 
       <div class="slide">
         <!-- CODER ICI POUR AJOUTER INVITATION EN ATTENTE (ACCEPTER / REFUSER INVIT) -->
+        <h4 class="text-center" style="margin-top: 20px;">Vous n'avez aucun meal en attente</h4>
         <div class="participe">
 <!--           <div class="background"> -->
             <!-- <div class="participation">

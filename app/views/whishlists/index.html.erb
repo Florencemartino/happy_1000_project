@@ -14,7 +14,7 @@
         <div class="slider2 sale">
 
           <div class="slide-food">
-            <div class="card category d-flex flex-wrap">
+            <div class="card card-items category flex-wrap">
               <% @items.each do |item| %>
                   <% if item.category == "salé" %>
                     <%= link_to event_whishlists_path(@event, item: item.id), class: "quantity-css text-center", method: :post, remote: true do %>

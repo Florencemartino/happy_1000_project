@@ -16,6 +16,21 @@ class BasketsController < ApplicationController
     # only select baskets where basket.event.id == @event.id
   end
 
+  def update_price
+    @event = Event.find(params[:event_id])
+    @basket = Basket.find(params[:basket_id])
+    @basket.quantity = 0
+    @basket.price_in_cent = 0
+  end
+
+  def updated_price
+    @event = Event.find(params[:event_id])
+    @basket = Basket.find(params[:basket_id])
+    @basket.update(basket_params)
+    @basket.save
+    redirect_to event_baskets_path(@event)
+  end
+
   def create
     @event = Event.find(params[:event_id])
     @whishlist = Whishlist.find(params[:whishlist])

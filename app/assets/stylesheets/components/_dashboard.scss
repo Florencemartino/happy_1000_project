@@ -1,0 +1,17 @@
+.container-dashboard {
+  display: flex;
+  width: 100%;
+}
+.box-dashboard {
+  width: 100%;
+  flex-grow:1;
+}
+
+.footer-dashboard {
+  background-color: #900C3F;
+  color: #FFC300;
+  width: 100%;
+  font-weight: 400;
+  font-size: 2vh;
+  padding: 10px;
+}

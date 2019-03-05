@@ -82,3 +82,17 @@
   color: #FFC300;
   font-size: 1.5rem;
 }
+
+/* Boutons dans le Dashboard */
+.nav-dashboard {
+  width: 100% !important;
+  color: white;
+}
+.nav-dashboard a {
+  color: #FFC300;
+}
+
+.nav-dashboard a:hover {
+  color: #fff;
+  text-decoration: none;
+}

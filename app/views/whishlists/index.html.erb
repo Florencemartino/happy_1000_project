@@ -1,5 +1,5 @@
 <!-- <div class="container whishlist-container"> -->
-  <h2>Qu'as-tu besoin pour ton meal ?</h2>
+  <h2>Qu'est-ce qu'on mange ?</h2>
   <!-- <div class="row card-container">
     <div class="col-xs-6 col-sm-6 col-md-6"> -->
 
@@ -14,22 +14,14 @@
         <div class="slider2 sale">
 
           <div class="slide-food">
-            <div class="card category">
-              <ul class="list-inline">
-                <p class= "text-center"> Salé </p>
-                  <% @items.each do |item| %>
-                    <% if item.category == "salé" %>
-                      <li>
-                        <%= image_tag item.icon %>
-                        (<%= item.name %>)
-
-                        <%= link_to event_whishlists_path(@event, item: item.id), class: "quantity-css", method: :post, remote: true do %>
-                            <i class="fas fa-plus-circle"></i>
-                        <% end %>
-                      </li>
+            <div class="card category d-flex flex-wrap">
+              <% @items.each do |item| %>
+                  <% if item.category == "salé" %>
+                    <%= link_to event_whishlists_path(@event, item: item.id), class: "quantity-css text-center", method: :post, remote: true do %>
+                        <%= image_tag item.icon %><br><%= item.name %>
                     <% end %>
                   <% end %>
-              </ul>
+              <% end %>
             </div>
           </div>
 
@@ -107,11 +99,9 @@
         </ul>
       </div>
 
-  <div class="row btn-flex">
-    <div class="col-xs-4">
+    <div class="btn-flex w-100">
       <%= link_to "Valider",  event_select_guest_path, :class => "btn btn-primary" %>
     </div>
-  </div>
 <!-- </div> -->
 
 

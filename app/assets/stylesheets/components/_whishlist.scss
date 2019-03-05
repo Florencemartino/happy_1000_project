@@ -8,7 +8,7 @@
   display: flex;
   justify-content: space-around;
   align-item: center;
-  // position: absolute;
+  position: absolute;
 }
 
 .item-icon img {
@@ -16,11 +16,26 @@
 }
 
 .quantity-css {
-  color: #161968;
-  font-size: 20px;
+  color: black;
+  font-size: 16px;
+  font-family: $body-font;
+  width: fit-content;
+  &:hover {
+  text-decoration: none;
+  }
 }
 
-.category {
+.card.category {
   // width: 400px;
   padding: 20px;
+  display: flex;
+  // justify-content: space-between;
+  // align-items: center;
+}
+.slide-food{
+  .card{
+    flex-direction: unset !important;
+
+  }
+
 }

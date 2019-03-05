@@ -16,11 +16,7 @@
           <div class="slide-food">
             <div class="card category d-flex flex-wrap">
               <% @items.each do |item| %>
-                  <% if item.category == "salé" %>
-                    <%= link_to event_whishlists_path(@event, item: item.id), class: "quantity-css text-center", method: :post, remote: true do %>
-                      <%= image_tag item.icon %><br><%= item.name %>
-                    <% end %>
-                  <% end %>
+                <%= render 'select-item', category: "salé", event: @event, item: item, whishlists_per_item: @whishlists_per_item  %>
               <% end %>
             </div>
           </div>
@@ -28,11 +24,7 @@
           <div class="slide-food">
             <div class="card category d-flex flex-wrap">
               <% @items.each do |item| %>
-                <% if item.category == "sucré" %>
-                    <%= link_to event_whishlists_path(@event, item: item.id), class: "quantity-css text-center", method: :post, remote: true do %>
-                      <%= image_tag item.icon %><br><%= item.name %>
-                    <% end %>
-                <% end %>
+                <%= render 'select-item', category: "sucré", event: @event, item: item, whishlists_per_item: @whishlists_per_item  %>
               <% end %>
 
             </div>
@@ -41,11 +33,7 @@
           <div class="slide-food">
             <div class="card category d-flex flex-wrap">
               <% @items.each do |item| %>
-                <% if item.category == "soft" %>
-                  <%= link_to event_whishlists_path(@event, item: item.id), class: "quantity-css text-center", method: :post, remote: true do %>
-                    <%= image_tag item.icon %><br><%= item.name %>
-                  <% end %>
-                <% end %>
+                <%= render 'select-item', category: "soft", event: @event, item: item, whishlists_per_item: @whishlists_per_item  %>
               <% end %>
 
             </div>
@@ -54,27 +42,12 @@
           <div class="slide-food">
             <div class="card category d-flex flex-wrap">
               <% @items.each do |item| %>
-                <% if item.category == "alcool" %>
-                  <%= link_to event_whishlists_path(@event, item: item.id), class: "quantity-css text-center", method: :post, remote: true do %>
-                    <%= image_tag item.icon %><br><%= item.name %>
-                  <% end %>
-                <% end %>
+                <%= render 'select-item', category: "alcool", event: @event, item: item, whishlists_per_item: @whishlists_per_item  %>
               <% end %>
             </div>
           </div>
 
         </div>
-      </div>
-
-      <div class="card category d-flex flex-wrap">
-        <ul class="list-inline" id="basket-card">
-          <p class= "text-center"> Sélection : </p>
-          <% @whishlists.each do |whishlist| %>
-            <li id="whishlist-item-id-<%= whishlist.id %>">
-              <%= render 'button-basket', whishlist: whishlist %>
-            </li>
-          <% end %>
-        </ul>
       </div>
 
     <div class="btn-flex w-100">
@@ -85,3 +58,4 @@
 
 
 <%#= link_to whishlist.item.name, event_whishlist_path(whishlist.event_id, whishlist.id), method: :put %>  <%#= whishlist.quantity %>
+

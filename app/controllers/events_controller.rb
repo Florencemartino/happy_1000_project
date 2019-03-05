@@ -83,32 +83,6 @@ class EventsController < ApplicationController
     @refund_per_person = {}
 
     @users_sorted = @event.users.sort { |user| @sum_per_person[user] }
-    # users_sorted => [User47, User46, User49, User48]
-    # sum_per_user => {
-    #   User47 => 0,
-    #   User46 => 0,
-    #   User49 => 10,
-    #   User48 => 125
-    # }
-
-    # diff_per_user => {
-    #   User47 => -36,25,
-    #   User46 => -36,25,
-    #   User49 => -3,75,
-    #   User48 => 68,25
-    # }
-
-    # balance_per_user => {
-    #   User47 => -36,25,
-    #   User46 => -36,25,
-    #   User49 => -3,75,
-    #   User48 => 68,25
-    # }
-
-    # refund_per_person = {
-    #   User47 => { User48 => 36.25 },
-    #   User46 => { User48 => 32.5, User49 =>3.75 }
-    # }
 
     @users_sorted.reject { |user| @difference_per_person[user].positive? }.each do |user|
       user_to_refund = (@users_sorted - [user]).select do |u|
@@ -147,6 +121,32 @@ class EventsController < ApplicationController
     # end
   end
 
+    # users_sorted => [User47, User46, User49, User48]
+    # sum_per_user => {
+    #   User47 => 0,
+    #   User46 => 0,
+    #   User49 => 10,
+    #   User48 => 125
+    # }
+
+    # diff_per_user => {
+    #   User47 => -36,25,
+    #   User46 => -36,25,
+    #   User49 => -3,75,
+    #   User48 => 68,25
+    # }
+
+    # balance_per_user => {
+    #   User47 => -36,25,
+    #   User46 => -36,25,
+    #   User49 => -3,75,
+    #   User48 => 68,25
+    # }
+
+    # refund_per_person = {
+    #   User47 => { User48 => 36.25 },
+    #   User46 => { User48 => 32.5, User49 =>3.75 }
+    # }
   private
 
   def event_params

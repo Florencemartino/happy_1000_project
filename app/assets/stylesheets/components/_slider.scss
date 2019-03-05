@@ -1,6 +1,6 @@
 .slider-container{
   width: 100vw;
-  height: 90vh;
+  height: 70vh;
   margin: 0;
   // background-color: purple;
   position: relative;
@@ -9,7 +9,7 @@
 
 .slider{
  width: 300vw;
- height: 500px;
+ height: 70vh;
  left: -100vw;
  position: absolute;
  display: flex;
@@ -20,7 +20,9 @@
 
 .slide{
   width:100vw;
-  height: 100vh;
+  height: 103vh;
+  background-color: white;
+  overflow-y: auto;
 }
 
 .slider.step1{
@@ -54,3 +56,87 @@
   }
 }
 
+.navbar-icons{
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  position: relative;
+}
+
+.small-square.carre2{
+  width: 15px;
+  height: 15px;
+  background-color: white;
+  transform: rotate(45deg);
+  position: absolute;
+  bottom: -7.5px;
+  left: 48.5vw;
+  transition: left 0.3s ease;
+}
+
+.carre1{
+  width: 15px;
+  height: 15px;
+  background-color: white;
+  transform: rotate(45deg);
+  position: absolute;
+  bottom: -7.5px;
+  left: 14vw;
+  transition: left 0.3s ease;
+}
+
+.carre3{
+  width: 15px;
+  height: 15px;
+  background-color: white;
+  transform: rotate(45deg);
+  position: absolute;
+  bottom: -7.5px;
+  left: 81.5vw;
+  transition: left 0.3s ease;
+}
+
+@media screen and (min-width: 750px){
+  .small-square.carre2{
+    left: 652px;
+  }
+
+  .carre1{
+    left: 210px;
+  }
+
+  .carre3{
+    left: 1090px;
+  }
+}
+
+.icons{
+  opacity: .35;
+  display: flex;
+  flex-direction: column;
+  transition: opacity 0.3s ease;
+  align-items: center;
+  margin-bottom: 10px;
+
+}
+
+.icons.selected{
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  transition: opacity 0.3s ease;
+  align-items: center;
+}
+
+.blanc{
+  background-color: white;
+  position: absolute;
+  bottom: -20px;
+  width: 100vw;
+  height: 3vh;
+  z-index: 3;
+}
+
+.in-front{
+  z-index: 2;
+}

@@ -1,9 +1,10 @@
 // document.querySelector("[item='<%= @item.id %>']")
 //   .remove();
 
-function addItem() {
-  const addNewItem = document.getElementById("basket-card");
-  addNewItem.insertAdjacentHTML('beforeend', "<li id='<%= "whishlist-item-id-#{@whishlist.id}" %>'><%= j render "button-basket", whishlist: @whishlist %></li>");
+function updateItem() {
+  const itemBadge = document.getElementById("item-badge-<%= @item.id %>");
+  itemBadge.classList.remove("d-none");
+  itemBadge.innerHTML = "<%= @whishlist.quantity %>";
 }
 
-addItem();
+updateItem();

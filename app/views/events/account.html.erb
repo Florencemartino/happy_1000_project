@@ -1,34 +1,34 @@
-<h3> C'est l'heure des comptes ! </h3>
 
-<h3> Voici le coût total pour : <%= @event.title %></h3>
+<%= render layout: "shared/main_layout", locals: {
+  main_title: "C'est l'heure des comptes :",
+} do %>
 
-<p>Total du repas :<%= @total %> € </p>
-<% average = @total/(@guests.count) %>
-
-<p>Total par personne : <%= average.to_f %> € </p>
-
-
-<h3> Qui doit quoi à qui : </h3>
-<% @refund_per_person.each do |user, refunds| %>
-  <ul class="list-inline">
-    <li>
-        <% if user.photo.blank?%>
-          <%= image_tag "default-user.png", alt: "alttext", class: "avatar", id: "navbar-wagon-menu" %>
-        <% else %>
-          <%= cl_image_tag user.photo, height: 50, width: 50, crop: :fill %>
+<div class="card card-account card-account-body">
+  <% @refund_per_person.each do |user, refunds| %>
+    <ul class="list-inline">
+      <li>
+          <% if user.photo.blank?%>
+            <%= image_tag "default-user.png", alt: "alttext", class: "avatar avatar-account", id: "navbar-wagon-menu" %>
+          <% else %>
+            <%= cl_image_tag user.photo, height: 50, width: 50, crop: :fill %>
+          <% end %>
+        <%= user.nickname %> doit :
+        <% refunds.each do |refund, amount| %>
+          <%= amount %> € à <%= refund.nickname %>
         <% end %>
-      <%= user.nickname %> doit :
-      <% refunds.each do |refund, amount| %>
-        <%= amount %> € à <%= refund.nickname %> |
-      <% end %>
-    </li>
-  </ul>
-<% end %>
+      </li>
+    </ul>
+  <% end %>
+
+  <% end %>
+</div>
+<div class="card card-account card-account-total">
+  <% average = @total/(@guests.count) %>
+<p>Total par personne : <%= average.to_f %> € </p>
+  <p>Total du meal :<%= @total %> € </p>
+</div>
 
 
-
-
-
-<%= link_to "Retour", event_dashboard_path(@event)%>
+<%= link_to "Retour", event_dashboard_path(@event), :class => "cta" %>
 
 

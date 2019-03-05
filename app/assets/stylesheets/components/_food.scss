@@ -5,51 +5,27 @@
 
 #broccoli-logo{
   position: absolute;
-  opacity: 0.35;
+  opacity: 0.25;
   width: 50%;
-  bottom: 25vh;
-  right: 15%;
+  bottom: 27vh;
+  right: -5%;
   z-index: 1;
   transform: rotate(40deg);
 }
 
-@media screen and (min-width: 700px){
-  #broccoli-logo{
-    position: absolute;
-    opacity: 0.35;
-    width: 20%;
-    bottom: 15vh;
-    right: 15%;
-    z-index: 1;
-    transform: rotate(38deg);
-  }
-}
-
 #frying-logo{
   position: absolute;
-  opacity: 0.35;
+  opacity: 0.25;
   width: 50%;
-  bottom: 45vh;
-  right: 13%;
+  bottom: -4vh;
+  left: -8%;
   z-index: 1;
   transform: rotate(0deg);
-}
-
-@media screen and (min-width: 700px){
-  #frying-logo{
-  position: absolute;
-  opacity: 0.35;
-  width: 20%;
-  bottom: 35vh;
-  right: 13%;
-  z-index: 1;
-  transform: rotate(0deg);
-  }
 }
 
 #cheese-logo{
   position: absolute;
-  opacity: 0.35;
+  opacity: 0.25;
   width: 50%;
   bottom: 35vh;
   left: -15%;
@@ -57,58 +33,74 @@
   transform: rotate(13deg);
 }
 
+// #carrot-logo{
+//   position: absolute;
+//   opacity: 0.25;
+//   width: 50%;
+//   bottom: 0vh;
+//   left: -20%;
+//   z-index: 1;
+//   transform: rotate(5deg);
+//   transform: scaleX(-1);
+// }
+
+#wine-logo{
+  position: absolute;
+  opacity: 0.25;
+  width: 50%;
+  bottom: -18%;
+  right: -15%;
+  z-index: 1;
+}
+
 @media screen and (min-width: 700px){
+  #broccoli-logo{
+    position: absolute;
+    opacity: 0.25;
+    width: 50%;
+    bottom: 27vh;
+    right: -5%;
+    z-index: 1;
+    transform: rotate(40deg);
+  }
+
+  #frying-logo{
+  position: absolute;
+  opacity: 0.25;
+  width: 25%;
+  bottom: 23vh;
+  left: -8%;
+  z-index: 1;
+  transform: rotate(0deg);
+  }
+
   #cheese-logo{
     position: absolute;
-    opacity: 0.35;
+    opacity: 0.25;
     width: 20%;
     bottom: 25vh;
     right: 5%;
     z-index: 1;
     transform: rotate(20deg);
   }
-}
 
-#carrot-logo{
-  position: absolute;
-  opacity: 0.35;
-  width: 50%;
-  top: 5vh;
-  left: -20%;
-  z-index: 1;
-  transform: rotate(5deg);
-}
+  // #carrot-logo{
+  //   position: absolute;
+  //   opacity: 0.25;
+  //   width: 20%;
+  //   bottom: -37vh;
+  //   left: -20%;
+  //   z-index: 1;
+  //   transform: rotate(20deg);
+  //   transform: scaleX(-1);
+  // }
 
-@media screen and (min-width: 700px){
-  #carrot-logo{
-    position: absolute;
-    opacity: 0.35;
-    width: 20%;
-    bottom: -8%;
-    right: 5%;
-    z-index: 1;
-    transform: rotate(20deg);
-  }
-}
-
-#wine-logo{
-  position: absolute;
-  opacity: 0.35;
-  width: 50%;
-  bottom: 27%;
-  left: 0;
-  z-index: 1;
-  transform: rotate(0deg);
-}
-
-@media screen and (min-width: 700px){
   #wine-logo{
     position: absolute;
-    opacity: 0.35;
+    opacity: 0.25;
     width: 20%;
     bottom: -8%;
     right: 5%;
     z-index: 1;
-    transform: rotate(20deg);
   }
 }

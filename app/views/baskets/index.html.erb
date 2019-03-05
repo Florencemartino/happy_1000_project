@@ -2,13 +2,10 @@
 
 <div class="container">
   <h1>Liste de course générale :</h1>
-  <ul class="list-inline">
+  <ul class="list-inline" id="whishlist-update-card">
     <% @whishlists.each do |whishlist| %>
-      <li>
-        <%= image_tag whishlist.item.icon %>
-        (<strong><%= whishlist.quantity %></strong> <%= whishlist.item.name %> )
-         -
-          <%= link_to "Ajouter à ton panier", event_baskets_path(@event, whishlist: whishlist.id), method: :post, remote: true %>
+      <li id="whishlist-item-id-<%= whishlist.id %>">
+      <%= render 'whishlist-update', whishlist: whishlist %>
       </li>
     <% end %>
   </ul>

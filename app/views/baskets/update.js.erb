@@ -1,12 +1,12 @@
 function updateChoice() {
   const choiceQuantity = document.getElementById("basket-item-id-<%= @basket.id %>");
-  console.log(choiceQuantity)
+  const whishlistQuantity = document.getElementById("whishlist-item-id-<%= @whishlist.id %>");
   choiceQuantity.innerHTML = "<%= j render 'button-choice', basket: @basket %>";
-}
-
-function deleteChoice() {
-  const choiceQuantity = document.getElementById("basket-item-id-<%= @basket.id %>");
-  console.log(choiceQuantity)
+  whishlistQuantity.innerHTML = "<%= j render 'whishlist-update', whishlist: @whishlist %>";
+  <% if @basket.quantity.zero? %>
+  choiceQuantity.remove();
+  <% end %>
 }
 
 updateChoice();
+

@@ -30,8 +30,8 @@
 <!-- LES GENS QUI NE VIENNENT PAS NE SERONT PAS AFFICHES ICI, MAIS DANS L'INDEX DES GUESTS VIA UN TAB/ONGLET : "PARTICIPE / NE PARTICIPE PAS"     -->
 <div id="rest-of-content">
   <h3 class="text-center">On ramène quoi?</h3>
-    <div class="container-dashboard">
       <% @baskets_per_user.each do |user, baskets| %>
+    <div class="container-dashboard">
         <div class="box-dashboard">
           <% if user.photo.blank?%>
             <%= image_tag "default-user.png", alt: "alttext", class: "avatar", id: "navbar-wagon-menu" %>
@@ -46,12 +46,11 @@
           <% baskets.each do |basket| %>
       <div class="box-dashboard">
             <%= basket.whishlist.item.name %><%= image_tag basket.whishlist.item.icon %>
-          <% end %>
-      <hr>
       </div>
+          <% end %>
     </div>
-      <% end %>
 </div>
+      <% end %>
 
 <hr>
 <div class="footer-dashboard">

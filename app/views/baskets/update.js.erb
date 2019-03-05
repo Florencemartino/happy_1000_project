@@ -4,4 +4,9 @@ function updateChoice() {
   choiceQuantity.innerHTML = "<%= j render 'button-choice', basket: @basket %>";
 }
 
+function deleteChoice() {
+  const choiceQuantity = document.getElementById("basket-item-id-<%= @basket.id %>");
+  console.log(choiceQuantity)
+}
+
 updateChoice();

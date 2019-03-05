@@ -70,9 +70,14 @@ class BasketsController < ApplicationController
       end
     elsif @basket.quantity.zero?
       @basket.destroy
-      @whishlist.save!
+      if @whishlist.save!
+        respond_to do |format|
+          format.html { redirect_to event_baskets_path(@event) }
+          format.js
+        end
+      end
     end
-    redirect_to event_baskets_path(@event)
+    # redirect_to event_baskets_path(@event)
   end
 
   def edit

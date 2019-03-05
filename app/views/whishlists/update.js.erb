@@ -1,5 +1,7 @@
 function updateQuantity() {
   const itemQuantity = document.getElementById("whishlist-item-id-<%= @whishlist.id %>");
+  console.log(itemQuantity)
+
   itemQuantity.innerHTML = "<%= j render 'button-basket', whishlist: @whishlist %>";
 }
 

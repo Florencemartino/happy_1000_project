@@ -1,5 +1,6 @@
 function updateChoice() {
   const choiceQuantity = document.getElementById("basket-item-id-<%= @basket.id %>");
+  console.log(choiceQuantity)
   choiceQuantity.innerHTML = "<%= j render 'button-choice', basket: @basket %>";
 }
 

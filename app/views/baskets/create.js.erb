@@ -1,6 +1,7 @@
 function addChoice() {
   const addNewChoice = document.getElementById("choice-card");
-  addNewChoice.insertAdjacentHTML('beforeend', "<li>\n<%= j render 'button-choice', basket: @basket %></li>");
+  console.log(addNewChoice)
+  addNewChoice.insertAdjacentHTML('beforeend', "<li id='<%="basket-item-id-#{basket.id}" %>'><%= j render "button-choice", basket: @basket %></li>");
 }
 
 addChoice();

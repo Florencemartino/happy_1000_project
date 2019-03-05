@@ -10,7 +10,7 @@
         <div class="btn btn-primary btn-nav2 nav44">Alcool</div>
       </div>
 
-      <div class="slider-container">
+      <div class="slider-container slider-height-whishlist">
         <div class="slider2 sale">
 
           <div class="slide-food">
@@ -18,7 +18,7 @@
               <% @items.each do |item| %>
                   <% if item.category == "salé" %>
                     <%= link_to event_whishlists_path(@event, item: item.id), class: "quantity-css text-center", method: :post, remote: true do %>
-                        <%= image_tag item.icon %><br><%= item.name %>
+                      <%= image_tag item.icon %><br><%= item.name %>
                     <% end %>
                   <% end %>
               <% end %>
@@ -26,69 +26,47 @@
           </div>
 
           <div class="slide-food">
-            <div class="card category">
-              <ul class="list-inline">
-                <p class= "text-center"> Sucré </p>
-                  <% @items.each do |item| %>
-                    <% if item.category == "sucré" %>
-                      <li>
-                        <%= image_tag item.icon %>
-                        (<%= item.name %>)
-
-                        <%= link_to event_whishlists_path(@event, item: item.id), class: "quantity-css", method: :post, remote: true do %>
-                            <i class="fas fa-plus-circle"></i>
-                        <% end %>
-                      </li>
+            <div class="card category d-flex flex-wrap">
+              <% @items.each do |item| %>
+                <% if item.category == "sucré" %>
+                    <%= link_to event_whishlists_path(@event, item: item.id), class: "quantity-css text-center", method: :post, remote: true do %>
+                      <%= image_tag item.icon %><br><%= item.name %>
                     <% end %>
-                  <% end %>
-              </ul>
+                <% end %>
+              <% end %>
+
             </div>
           </div>
 
           <div class="slide-food">
-            <div class="card category">
-              <ul class="list-inline">
-                <p class= "text-center"> Soft </p>
-                  <% @items.each do |item| %>
-                    <% if item.category == "soft" %>
-                      <li>
-                        <%= image_tag item.icon %>
-                        (<%= item.name %>)
-
-                        <%= link_to event_whishlists_path(@event, item: item.id), class: "quantity-css", method: :post, remote: true do %>
-                            <i class="fas fa-plus-circle"></i>
-                        <% end %>
-                      </li>
-                    <% end %>
+            <div class="card category d-flex flex-wrap">
+              <% @items.each do |item| %>
+                <% if item.category == "soft" %>
+                  <%= link_to event_whishlists_path(@event, item: item.id), class: "quantity-css text-center", method: :post, remote: true do %>
+                    <%= image_tag item.icon %><br><%= item.name %>
                   <% end %>
-              </ul>
+                <% end %>
+              <% end %>
+
             </div>
           </div>
 
           <div class="slide-food">
-            <div class="card category">
-              <ul class="list-inline">
-                <p class= "text-center"> Alcool </p>
-                  <% @items.each do |item| %>
-                    <% if item.category == "alcool" %>
-                      <li>
-                        <%= image_tag item.icon %>
-                        (<%= item.name %>)
-
-                        <%= link_to event_whishlists_path(@event, item: item.id), class: "quantity-css", method: :post, remote: true do %>
-                            <i class="fas fa-plus-circle"></i>
-                        <% end %>
-                      </li>
-                    <% end %>
+            <div class="card category d-flex flex-wrap">
+              <% @items.each do |item| %>
+                <% if item.category == "alcool" %>
+                  <%= link_to event_whishlists_path(@event, item: item.id), class: "quantity-css text-center", method: :post, remote: true do %>
+                    <%= image_tag item.icon %><br><%= item.name %>
                   <% end %>
-              </ul>
+                <% end %>
+              <% end %>
             </div>
           </div>
 
         </div>
       </div>
 
-      <div class="card category">
+      <div class="card category d-flex flex-wrap">
         <ul class="list-inline" id="basket-card">
           <p class= "text-center"> Sélection : </p>
           <% @whishlists.each do |whishlist| %>

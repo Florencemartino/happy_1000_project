@@ -34,20 +34,24 @@ class WhishlistsController < ApplicationController
     when "-1"
       then @whishlist.quantity -= 1
     end
-    if @whishlist.save
-      respond_to do |format|
-        format.html { redirect_to event_whishlists_path(@event) }
-        format.js
+    if @whishlist.quantity != 0
+      if @whishlist.save
+        respond_to do |format|
+          format.html { redirect_to event_whishlists_path(@event) }
+          format.js
+        end
       end
+    elsif @whishlist.quantity.zero?
+      @whishlist.destroy
     end
   end
 
-  def destroy
-    # @event = Event.find(params[:event_id])
-    @whishlist = Whishlist.find(params[:id])
-    @whishlist.destroy
-    # redirect_to event_whishlists_path(@event)
-  end
+  # def destroy
+  #   # @event = Event.find(params[:event_id])
+  #   @whishlist = Whishlist.find(params[:id])
+  #   @whishlist.destroy
+  #   # redirect_to event_whishlists_path(@event)
+  # end
 
   private
 

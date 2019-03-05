@@ -1,7 +1,10 @@
 function updateQuantity() {
   const itemQuantity = document.getElementById("whishlist-item-id-<%= @whishlist.id %>");
   itemQuantity.innerHTML = "<%= j render 'button-basket', whishlist: @whishlist %>";
+  <% if @whishlist.quantity.zero? %>
+    itemQuantity.remove();
+  <% end %>
 }
 
-updateQuantity()
+updateQuantity();
 

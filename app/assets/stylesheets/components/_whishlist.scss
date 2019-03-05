@@ -20,18 +20,15 @@
 
 .quantity-css {
   color: black;
-  font-size: 11px;
+  font-size: 15px;
   font-family: $body-font;
   padding: 10px;
-  width: 25%;
+  width: 33%;
   &:hover {
     text-decoration: none;
   }
 }
 
-.quantity-css:active {
-  background-color: yellow;
-}
 
 .category {
   padding: 10px 0px;

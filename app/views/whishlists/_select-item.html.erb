@@ -1,0 +1,7 @@
+<% if item.category == category %>
+  <%= link_to event_whishlists_path(event, item: item.id, sens: "1"), class: "quantity-css text-center", method: :post, remote: true do %>
+    <%= image_tag item.icon, class: "icon-selection" %>
+    <span class="icon-badge <%= "d-none" unless whishlists_per_item[item] %>" id="item-badge-<%= item.id %>"><%= whishlists_per_item[item].quantity if whishlists_per_item[item] %></span>
+    <br><%= item.name %>
+  <% end %>
+<% end %>

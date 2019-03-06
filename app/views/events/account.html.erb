@@ -5,8 +5,11 @@
 
   <div class="card card-account card-account-body">
     <% average = @total/(@guests.count) %>
-    <p><strong>Total : <%= @total %> € (<%= average.to_f %>€/ pers)</p></strong>
+    <strong> Total : <%= @total %> € (<%= average.to_f %>€/ pers)</strong>
 
+    <% if @total == 0 %>
+      <div class="nobody-paid"> <em> (Personne n'a renseigné le prix de son meal) </em> </div>
+    <% else %>
     <% @refund_per_person.each do |user, refunds| %>
     <div class="container-account">
 
@@ -26,29 +29,19 @@
       </div>
 
       <div class="box-account">
-           <%= cl_image_tag user.photo, height: 50, width: 50, crop: :fill, class: "avatar avatar-account"%><%= refund.nickname %>
+           <%= cl_image_tag user.photo, height: 50, width: 50, crop: :fill %><%= refund.nickname %>
         <% end %>
       </div>
 
     </div>
     <% end %>
 
-
+<% end %>
 
   </div>
 
-  <div class="button-center" id-"terms">
-  <%= link_to "Retour", event_dashboard_path(@event), :class => "btn btn-info mauve org-meal", false,:onclick=>'handleClick(this);' %>
+  <div class="button-center">
+  <%= link_to "Retour", event_dashboard_path(@event), :class => "btn btn-info mauve org-meal" %>
   </div>
-
- <script>
-  function handleClick()
-   {
-    if(document.getElementById('terms').checked)
-     document.getElementById("Sign_up_id").disabled=true; // your submit button Id
-    else
-    document.getElementById("Sign_up_id").disabled=false;
-   }
- </script>
 <% end %>
 

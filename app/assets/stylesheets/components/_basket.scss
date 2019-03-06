@@ -1,0 +1,14 @@
+.basket-flex {
+display: flex;
+justify-content: space-between;
+flex-direction: column;
+}
+
+.basket-item {
+  display: flex;
+  margin: 10px;
+}
+
+.basket-price {
+  margin-left: 30px;
+}

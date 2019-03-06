@@ -2,8 +2,10 @@
   main_title: "Qui sera de la party ?",
 } do %>
 
+
   <div class="card card-items category flex-wrap">
     <div class="quantity-css text-center">
+
       <% if @event.user.photo.blank?%>
         <%= image_tag "https://www.weekend-esprithautsdefrance.com/sites/picardiev3/themes/picardiev3/img_v2/user-default.jpg", alt: "alttext", height: 50, width: 50, crop: :fill, class: "avatar-bordered"%>
       <% else %>
@@ -40,7 +42,7 @@
     <% end %>
   <% end %> -->
 
-  <div class="text-center"><%= link_to 'Back to the event', event_dashboard_path, class: "btn btn-primary" %></div>
+  <div class="text-center button-center"><%= link_to 'Back to the event', event_dashboard_path, class: "btn btn-info mauve org-meal" %></div>
 
 
 

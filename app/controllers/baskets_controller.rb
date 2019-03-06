@@ -34,11 +34,15 @@ class BasketsController < ApplicationController
   def create
     @event = Event.find(params[:event_id])
     @whishlist = Whishlist.find(params[:whishlist])
-    @basket = Basket.new
-    @basket.whishlist = @whishlist
-    @basket.user = current_user
-    @basket.quantity = 1
-    @whishlist.quantity = @whishlist.quantity - @basket.quantity
+    # @basket = Basket.new
+    @basket = Basket.where(whishlist_id: @whishlist.id, user_id: current_user.id).first_or_initialize
+    # @basket.whishlist = @whishlist
+    # @basket.user = current_user
+
+    @basket.quantity ||= 0
+    @basket.quantity += 1
+    @whishlist.quantity = @whishlist.quantity - 1
+
     @basket.price_in_cent = 0
     if @basket.save && @whishlist.save
       respond_to do |format|

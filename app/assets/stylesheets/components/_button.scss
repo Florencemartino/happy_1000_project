@@ -61,12 +61,25 @@
   width: 100%;
   display: flex;
   justify-content: space-around;
-  align-items: center;
-  position: fixed;
-  bottom: 0;
+  align-items: flex-end;
+  // position: fixed;
+  // bottom: 0;
   z-index: 4;
 }
 
+.equilibre{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 30px;
+}
+
+.panier{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 30px;
+}
 
 #btn-equilibre {
   text-decoration: none;

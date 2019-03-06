@@ -9,6 +9,7 @@
   width: 27vw;
   margin: 5% 0;
   display: flex;
+  z-index: 2;
   flex-direction: column;
   align-items: center;
   // flex-grow:1;
@@ -24,6 +25,7 @@
   margin: 1%;
 }
 .box-dashboard-items {
+  z-index: 2;
   // width: 10vw;
   // flex-grow:1;
   // display: flex;
@@ -50,6 +52,17 @@
 
 .basket-background{
   background-color: white;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.img-dash{
+  position: absolute;
+  top: 84px;
+  right: -73px;
+  opacity: 0.35;
+  width: 71%;
+
 }
 
 hr{

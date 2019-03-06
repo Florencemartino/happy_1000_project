@@ -17,15 +17,18 @@
   <h1>Mon panier :</h1>
 
   <div class="card">
-
-    <ul class="list-inline" id="choice-card">
+    <div class="list-inline basket-flex" id="choice-card">
       <% @baskets.each do |basket| %>
-       <li id="basket-item-id-<%= basket.id %>">
-        <%= render 'button-choice', basket: basket %> €
-      </li>
+        <div class="basket-item" id="basket-item-id-<%= basket.id %>">
+          <%= render 'button-choice', basket: basket %>
+        </div>
       <% end %>
-    </ul>
-    <div class="button-center">
+    </div>
+  </div>
+
+
+  <div class="button-center">
     <%= link_to "Retour", event_dashboard_path(@event), :class => "btn btn-info mauve org-meal"%></div>
   </div>
+
 <% end %>

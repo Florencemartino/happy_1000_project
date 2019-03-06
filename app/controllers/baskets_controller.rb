@@ -40,8 +40,11 @@ class BasketsController < ApplicationController
     # @basket.user = current_user
 
     @basket.quantity ||= 0
-    @basket.quantity += 1
-    @whishlist.quantity = @whishlist.quantity - 1
+
+    unless @whishlist.quantity.zero?
+      @basket.quantity += 1
+      @whishlist.quantity = @whishlist.quantity - 1
+    end
 
     @basket.price_in_cent = 0
     if @basket.save && @whishlist.save

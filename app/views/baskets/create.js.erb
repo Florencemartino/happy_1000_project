@@ -1,6 +1,8 @@
 function addChoice() {
-  const choiceHTML = "<li id='basket-item-id-<%= @basket.id %>'><%= j render "button-choice", basket: @basket %></li>"
+  const choiceHTML = "<div class='basket-item' id='basket-item-id-<%= @basket.id %>'><%= j render "button-choice", basket: @basket %></div>"
   const choice = document.getElementById("basket-item-id-<%= @basket.id %>")
+  const basketItem = document.querySelectorAll('.card-items .quantity-css');
+
   if (choice == undefined) {
     const addNewChoice = document.getElementById("choice-card");
     addNewChoice.insertAdjacentHTML('beforeend', choiceHTML);
@@ -9,6 +11,7 @@ function addChoice() {
   }
   const whishlistQuantity = document.getElementById("whishlist-item-id-<%= @whishlist.id %>");
   whishlistQuantity.innerHTML = "<%= j render 'whishlist-update', event: @event, whishlist: @whishlist %>";
+
 }
 
 addChoice();

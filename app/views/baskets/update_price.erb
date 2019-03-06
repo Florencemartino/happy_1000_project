@@ -1,9 +1,10 @@
-
-
-<h1>Update price : modifier le prix de mes éléments :</h1>
-
-<%= @basket.price_in_cent  %> €
-<%= @basket.whishlist.item.name %>
-<%= render 'form', basket: @basket %>
-
-
+<%= render layout: "shared/main_layout", locals: {
+  main_title: "Combien coûte ton meal :",
+} do %>
+  <div class="main">
+  </div>
+    <div class="card text-center">
+      <%= @basket.whishlist.item.name.capitalize %> :
+      <%= render 'form', basket: @basket %>
+    </div>
+<% end %>

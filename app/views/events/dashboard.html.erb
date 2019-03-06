@@ -1,8 +1,8 @@
 <%= render layout: "shared/main_layout", locals: {
-  main_title: "Infos meal :",
+  main_title: "#{@event.title.capitalize}",
 } do %>
   <!-- <h1 class="text-center"><%= @event.title %></h1> -->
-  <div class="text-center"> <em> <%= @event.title.capitalize %> crée par <strong><%= @event.user.nickname %> </strong></em></div>
+  <div class="text-center"> <em>crée par <strong><%= @event.user.nickname %> </strong></em></div>
 
   <div class="details-container">
     <div class="event-details">

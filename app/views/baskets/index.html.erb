@@ -18,7 +18,7 @@
 
   <div class="card card-items category flex-wrap" id="choice-card">
       <% @baskets.each do |basket| %>
-        <div class="quantity-css-basket text-center" id="basket-item-id-<%= basket.id %>">
+        <div class="quantity-css-basket text-center basket-font-size" id="basket-item-id-<%= basket.id %>">
           <%= render 'button-choice', basket: basket %>
         </div>
       <% end %>

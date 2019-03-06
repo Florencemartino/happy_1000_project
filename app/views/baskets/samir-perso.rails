@@ -22,3 +22,21 @@
     <%= link_to "Retour", event_dashboard_path(@event), :class => "btn btn-info mauve org-meal"%></div>
   </div>
 <% end %>
+
+
+<!-- <div class="basket-icon">
+  <%#= link_to event_basket_path(basket.event.id, basket.id, sens: '-1' ), method: :patch, remote: true, class: "quantity-css" do %>
+  <%#= image_tag basket.whishlist.item.icon, class: "icon-selection" %><span class="basket-badge"><%= basket.quantity %></span>
+  <% end %>
+</div>
+
+<div class="basket-price">
+  <%#= link_to "€", event_basket_update_price_path(@event, basket) %>
+
+    <% if basket.price_in_cent.nil? %>
+      <%#= puts "Ton #{basket.whishlist.item.name} n'a pas de prix" %>
+    <% else %>
+      <%#= basket.price_in_cent %>
+    <% end %>
+
+</div> -->

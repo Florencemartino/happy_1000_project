@@ -1,8 +1,8 @@
 <%= link_to event_baskets_path(event, whishlist: whishlist.id), method: :post, remote: true, class: "#{'inactive' if whishlist.quantity.zero?}" do %>
   <%= image_tag whishlist.item.icon, class: "icon-selection" %>
-  <span class="icon-badge"><%= whishlist.quantity %></span>
+  <span class="icon-badge-basket"><%= whishlist.quantity %></span>
   <br>
-  <%= whishlist.quantity %> <%= whishlist.item.name %>
+  <%= whishlist.item.name %>
 <% end %>
 
 <%# protéger dans le controller (if zero arrête d'en créé) - créer la classe inactive = qui contient une image à griser et une pastille à griser - peut-être en JS faire un if zero classList inactive %>

@@ -29,18 +29,18 @@
 
 <!-- <h2>Participera</h2>
    <li><%= @event.user.nickname %> <em>(organisateur)</em></li>
-    <% @event.guests.each do |guest| %>
-      <% if guest.is_coming %>
+    <%# @event.guests.each do |guest| %>
+      <%# if guest.is_coming %>
        <li><%= guest.user.nickname %></li>
-      <% end %>
-    <% end %>
+      <%# end %>
+    <%# end %>
   <hr>
  <h2>Ne participera pas</h2>
-   <% @event.guests.each do |guest| %>
-    <% if guest.is_coming == false %>
+   <%# @event.guests.each do |guest| %>
+    <%# if guest.is_coming == false %>
       <li><%= guest.user.nickname %></li>
-    <% end %>
-  <% end %> -->
+    <%# end %>
+  <%# end %> -->
 
   <div class="text-center button-center"><%= link_to 'Back to the event', event_dashboard_path, class: "btn btn-info mauve org-meal" %></div>
 

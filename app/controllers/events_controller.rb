@@ -61,7 +61,7 @@ class EventsController < ApplicationController
 
   def account
     @event = Event.find(params[:event_id])
-    @guests = @event.guests
+    @guests = @event.users + [@event.user]
     @whishlists = @event.whishlists
     @baskets = @event.baskets
 
@@ -70,7 +70,17 @@ class EventsController < ApplicationController
 
     @baskets_per_user = @event.baskets.group_by { |basket| basket.user }
 
+    @guests.each do |user|
+      if @baskets_per_user[user].nil?
+        @baskets_per_user[user] = [Basket.create(whishlist: @event.whishlists.first, user: user, quantity: 0, price_in_cent: 0)]
+      end
+    end
+
     @sum_per_person = {}
+    @guests.each do |user|
+      @sum_per_person[user] = 0
+    end
+
     @difference_per_person = {}
 
     @baskets_per_user.each do |user, baskets|
@@ -82,7 +92,7 @@ class EventsController < ApplicationController
     @balance_per_person = @difference_per_person.dup
     @refund_per_person = {}
 
-    @users_sorted = @event.users.sort { |user| @sum_per_person[user] }
+    @users_sorted = @guests.sort_by { |user| @sum_per_person[user] }
 
     @users_sorted.reject { |user| @difference_per_person[user].positive? }.each do |user|
       user_to_refund = (@users_sorted - [user]).select do |u|

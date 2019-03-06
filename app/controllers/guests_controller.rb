@@ -13,7 +13,6 @@ class GuestsController < ApplicationController
       @guest.user = User.find(guest_id)
       @guest.event = Event.find(params[:event_id])
       if @guest.save!
-        UserMailer.welcome.deliver_now
       redirect_to event_dashboard_path(@event)
       else
         render :new

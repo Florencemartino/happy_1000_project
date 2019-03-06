@@ -35,7 +35,7 @@ puts 'Creating guests...'
 g1 = Guest.create!(user_id: remi.id, event_id: event_1.id, is_coming: true)
 g2 = Guest.create!(user_id: flo.id, event_id: event_1.id, is_coming: true)
 g3 = Guest.create!(user_id: susan.id, event_id: event_1.id, is_coming: true)
-g4 = Guest.create!(user_id: sam.id, event_id: event_1.id, is_coming: false)
+g4 = Guest.create!(user_id: sam.id, event_id: event_1.id, is_coming: true)
 g5 = Guest.create!(user_id: flo.id, event_id: event_2.id, is_coming: true)
 
 puts 'Creating items...'

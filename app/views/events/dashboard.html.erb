@@ -7,7 +7,7 @@
   <div class="details-container">
     <div class="event-details">
       <div class="picto"><i class="fas fa-map-marked-alt"></i><p><%= @event.address %></p></div>
-      <div class="picto"><i class="fas fa-calendar-alt"></i><p><%= @event.date.strftime("%A %d %B %Y à %H:%M") %></p></div>
+      <div class="picto"><i class="fas fa-calendar-alt"></i><p><%= t(@event.date.strftime("%A %d %B %Y à %H:%M")) %></p></div>
       <div class="picto"><i class="fas fa-users faded"></i><p><%= link_to "#{@event.guests.count + 1} invités", event_guests_path(@event) %></p></div>
     </div>
   </div>
@@ -22,7 +22,7 @@
               <% if user.photo.blank?%>
                 <%= image_tag "default-user.png", alt: "alttext", class: "avatar2", id: "navbar-wagon-menu" %>
               <% else %>
-                <%= cl_image_tag user.photo, height: 50, width: 50, crop: :fill %>
+                <%= cl_image_tag user.photo, height: 50, width: 50, crop: :fill, gravity: :face, :radius => "max" %>
               <% end %>
               <%= user.nickname %>
             </div>

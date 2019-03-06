@@ -2,7 +2,7 @@
   main_title: "Infos meal :",
 } do %>
   <!-- <h1 class="text-center"><%= @event.title %></h1> -->
-  <div class="text-center"><em>crée par <%= @event.user.nickname %></em></div>
+  <div class="text-center"> <em> <%= @event.title.capitalize %> crée par <strong><%= @event.user.nickname %> </strong></em></div>
 
   <div class="details-container">
     <div class="event-details">
@@ -13,7 +13,7 @@
   </div>
   <!-- LISTE LES GENS QUI VIENNENT AVEC LEUR BASKET -->
   <div id="rest-of-content">
-    <h4 class="text-center">On ramène quoi?</h4>
+    <h5 class="text-center">On ramène quoi?</h5>
         <% @baskets_per_user.each do |user, baskets| %>
           <div class="container-dashboard">
             <div class="box-dashboard">

@@ -2,29 +2,32 @@
   main_title: "Qui sera de la party ?",
 } do %>
 
-<div class="container">
-  <h2>Guest List</h2>
-  <div>
-    <div>
+
+  <div class="card card-items category flex-wrap">
+    <div class="quantity-css text-center">
+
       <% if @event.user.photo.blank?%>
         <%= image_tag "https://www.weekend-esprithautsdefrance.com/sites/picardiev3/themes/picardiev3/img_v2/user-default.jpg", alt: "alttext", height: 50, width: 50, crop: :fill, class: "avatar-bordered"%>
       <% else %>
         <%= cl_image_tag @event.user.photo, height: 50, width: 50, crop: :fill %>
-      <% end %>
+      <% end %> <br>
+      <%= @event.user.nickname %>
     </div>
-    <div><%= @event.user.nickname %></div>
+
     <% @event.guests.each do |guest| %>
-      <% if guest.user.photo.blank?%>
-        <%= image_tag "https://www.weekend-esprithautsdefrance.com/sites/picardiev3/themes/picardiev3/img_v2/user-default.jpg", alt: "alttext", height: 50, width: 50, crop: :fill, class: "avatar-bordered"%>
-      <% else %>
-        <%= cl_image_tag guest.user.photo, height: 50, width: 50, crop: :fill, class: "avatar-bordered" %>
-      <% end %>
-      <%= guest.user.nickname %>
-      <br>
+      <div class="quantity-css text-center">
+          <% if guest.user.photo.blank?%>
+            <%= image_tag "https://www.weekend-esprithautsdefrance.com/sites/picardiev3/themes/picardiev3/img_v2/user-default.jpg", alt: "alttext", height: 50, width: 50, crop: :fill, class: "avatar-bordered"%>
+          <% else %>
+            <%= cl_image_tag guest.user.photo, height: 50, width: 50, crop: :fill, class: "avatar-bordered" %>
+          <% end %> <br>
+          <%= guest.user.nickname %>
+      </div>
     <% end %>
+
   </div>
- <hr>
-<h2>Participera</h2>
+
+<!-- <h2>Participera</h2>
    <li><%= @event.user.nickname %> <em>(organisateur)</em></li>
     <% @event.guests.each do |guest| %>
       <% if guest.is_coming %>
@@ -37,10 +40,10 @@
     <% if guest.is_coming == false %>
       <li><%= guest.user.nickname %></li>
     <% end %>
-  <% end %>
+  <% end %> -->
 
-  <div class="text-center"><%= link_to 'Back to the event', event_dashboard_path, class: "btn btn-primary" %></div>
+  <div class="text-center button-center"><%= link_to 'Back to the event', event_dashboard_path, class: "btn btn-info mauve org-meal" %></div>
 
-</div>
+
 
 <% end %>

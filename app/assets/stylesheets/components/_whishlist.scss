@@ -3,9 +3,10 @@
 // }
 
 
-.slider-container.slider-height-whishlist{
-  height: 50vh;
-}
+// .slider-container.v2{
+//   height: 67vh;
+//   margin-top: 0;
+// }
 
 .btn-flex {
   display: flex;
@@ -23,6 +24,7 @@
   font-size: 15px;
   font-family: $body-font;
   padding: 10px;
+  height: 10vh;
   width: 33%;
   &:hover {
     text-decoration: none;
@@ -34,9 +36,32 @@
   padding: 10px 0px;
 }
 
+.card-items {
+  display: flex;
+  flex-direction: row !important;
+
+}
+
+.wishlist-card {
+background: white;
+// box-shadow: 0 1px 3px rgba(0,0,0,0.6);
+// border-radius: 4px;
+width: 100vw;
+height: 65vh;
+// margin: auto;
+padding: 10px;
+}
+
+// .slide-food{
+//   .card{
+//     flex-direction: unset !important;
+//   }
+// }
 
 .icon-selection {
-  position: relative;
+
+  width: 10vw;
+
 }
 
 .icon-badge {
@@ -44,10 +69,19 @@
   color: white;
   font-size: 12px;
   position: absolute;
-  // top: -10px;
-  // right: -10px;
+  top: 0px;
+  right: 20px;
   padding: 1px 8px;
   border-radius: 15px;
+}
+
+.food-item{
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  // justify-content: center;
+  align-items: center;
+
 }
 
 .basket-badge {

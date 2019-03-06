@@ -37,6 +37,7 @@
   width: 65%;
   position: fixed;
   bottom: 0px;
+
   text-transform: uppercase;
 }
 
@@ -58,15 +59,27 @@
 
 .btn-double {
   width: 100%;
-  margin: auto !important;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
 }
-#btn-panier {
-  width: 178px;
-  margin-left: 190px;
-}
-#btn-equilibre {
-  width: 178px;
-  margin-left: 6px;
-  background-color: #F4F4F4 !important;
 
+
+#btn-equilibre {
+  text-decoration: none;
+  background-color: #F4F4F4 !important;
+}
+
+
+.org-meal2{
+  font-weight: 999;
+  z-index: 3;
+  border-radius: 3px;
+  width: calc(90vw / 2);
+  // position: fixed;
+  // bottom: 0px;
+
+  text-transform: uppercase;
 }

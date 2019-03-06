@@ -1,21 +1,32 @@
 <%= render layout: "shared/main_layout", locals: {
   main_title: "Qu'est-ce qu'on mange ?",
 } do %><!-- <div class="container whishlist-container"> -->
+
   <!-- <div class="row card-container">
     <div class="col-xs-6 col-sm-6 col-md-6"> -->
 
-      <div class="buttons-index">
+
+      <div class="navbar-icons">
+        <div class="nav11 icons selected"><%= image_tag "chicken.png", alt: "Salé", id: "chicken" %>Salé</div>
+        <div class="nav22 icons"><%= image_tag "sweet.png", alt: "Sucré", id: "sweet" %>Sucré</div>
+        <div class="nav33 icons"><%= image_tag "soda.png", alt: "Soft", id: "soda" %>Soft</div>
+        <div class="nav44 icons"><%= image_tag "alcohol.png", alt: "Alcool", id: "alcohol" %>Alcool</div>
+        <div class="small-square pos1"></div>
+        <!-- <div class="blanc"></div> -->
+      </div>
+
+<!--       <div class="buttons-index">
         <div class="btn btn-primary btn-nav2 nav11">Salé</div>
         <div class="btn btn-primary btn-nav2 nav22">Sucré</div>
         <div class="btn btn-primary btn-nav2 nav33">Soft</div>
         <div class="btn btn-primary btn-nav2 nav44">Alcool</div>
       </div>
-
-      <div class="slider-container slider-height-whishlist">
+ -->
+      <div class="slider-container">
         <div class="slider2 sale">
 
           <div class="slide-food">
-            <div class="card card-items category flex-wrap">
+            <div class="wishlist-card card-items category flex-wrap">
               <% @items.each do |item| %>
                 <%= render 'select-item', category: "salé", event: @event, item: item, whishlists_per_item: @whishlists_per_item  %>
               <% end %>
@@ -23,7 +34,7 @@
           </div>
 
           <div class="slide-food">
-            <div class="card card-items category d-flex flex-wrap">
+            <div class="wishlist-card card-items category d-flex flex-wrap">
               <% @items.each do |item| %>
                 <%= render 'select-item', category: "sucré", event: @event, item: item, whishlists_per_item: @whishlists_per_item  %>
               <% end %>
@@ -32,7 +43,7 @@
           </div>
 
           <div class="slide-food">
-            <div class="card card-items category d-flex flex-wrap">
+            <div class="wishlist-card card-items category d-flex flex-wrap">
               <% @items.each do |item| %>
                 <%= render 'select-item', category: "soft", event: @event, item: item, whishlists_per_item: @whishlists_per_item  %>
               <% end %>
@@ -41,7 +52,7 @@
           </div>
 
           <div class="slide-food">
-            <div class="card card-items category d-flex flex-wrap">
+            <div class="wishlist-card card-items category d-flex flex-wrap">
               <% @items.each do |item| %>
                 <%= render 'select-item', category: "alcool", event: @event, item: item, whishlists_per_item: @whishlists_per_item  %>
               <% end %>

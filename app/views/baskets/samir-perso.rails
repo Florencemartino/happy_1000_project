@@ -1,22 +1,4 @@
-<<<<<<< HEAD
 
-
-<!-- <div class="container"> -->
-  <h1>Liste de course</h1>
-
-
-   <div class="card card-items category flex-wrap">
-    <% @whishlists.each do |whishlist| %>
-      <div id="whishlist-item-id-<%= whishlist.id %>" class="quantity-css text-center">
-        <%= render 'whishlist-update', event: @event, whishlist: whishlist %>
-      </div>
-    <% end %>
-  </div>
-
-  <h1>Mon panier :</h1>
-
-  <div class="card">
-=======
 <%= render layout: "shared/main_layout", locals: {
   main_title: "Qu'est-ce qu'on ramène ?",
 } do %>
@@ -29,7 +11,6 @@
       <% end %>
     </ul>
     <h1>Mon panier :</h1>
->>>>>>> master
     <ul class="list-inline" id="choice-card">
       <% @baskets.each do |basket| %>
        <li id="basket-item-id-<%= basket.id %>">

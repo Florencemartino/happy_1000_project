@@ -4,7 +4,7 @@ function updateChoice() {
   <% if @basket.quantity.zero? %>
     choice.remove();
   <% else %>
-    const choiceHTML = "<li id='basket-item-id-<%= @basket.id %>'><%= j render "button-choice", basket: @basket %></li>"
+    const choiceHTML = "<div class='quantity-css-basket text-center' id='basket-item-id-<%= @basket.id %>'><%= j render "button-choice", basket: @basket %></div>"
     choice.outerHTML = choiceHTML
   <% end %>
 

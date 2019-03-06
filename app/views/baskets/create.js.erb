@@ -1,5 +1,5 @@
 function addChoice() {
-  const choiceHTML = "<div class='basket-item' id='basket-item-id-<%= @basket.id %>'><%= j render "button-choice", basket: @basket %></div>"
+  const choiceHTML = "<div class='quantity-css-basket text-center' id='basket-item-id-<%= @basket.id %>'><%= j render "button-choice", basket: @basket %></div>"
   const choice = document.getElementById("basket-item-id-<%= @basket.id %>")
   const basketItem = document.querySelectorAll('.card-items .quantity-css');
 

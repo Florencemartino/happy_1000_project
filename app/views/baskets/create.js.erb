@@ -1,8 +1,14 @@
 function addChoice() {
-  const addNewChoice = document.getElementById("choice-card");
+  const choiceHTML = "<li id='basket-item-id-<%= @basket.id %>'><%= j render "button-choice", basket: @basket %></li>"
+  const choice = document.getElementById("basket-item-id-<%= @basket.id %>")
+  if (choice == undefined) {
+    const addNewChoice = document.getElementById("choice-card");
+    addNewChoice.insertAdjacentHTML('beforeend', choiceHTML);
+  } else {
+    choice.outerHTML = choiceHTML
+  }
   const whishlistQuantity = document.getElementById("whishlist-item-id-<%= @whishlist.id %>");
-  addNewChoice.insertAdjacentHTML('beforeend', "<li id='<%="basket-item-id-#{@basket.id}" %>'><%= j render "button-choice", basket: @basket %></li>");
-  whishlistQuantity.innerHTML = "<%= j render 'whishlist-update', whishlist: @whishlist %>";
+  whishlistQuantity.innerHTML = "<%= j render 'whishlist-update', event: @event, whishlist: @whishlist %>";
 }
 
 addChoice();

@@ -56,3 +56,19 @@
   border-radius: 15px;
 }
 
+.basket-badge {
+  background: #27AE60;
+  color: white;
+  font-size: 12px;
+  position: absolute;
+  // top: -10px;
+  // right: -10px;
+  padding: 1px 8px;
+  border-radius: 15px;
+}
+
+.inactive {
+  filter: grayscale(1);
+  opacity: .35;
+}
+

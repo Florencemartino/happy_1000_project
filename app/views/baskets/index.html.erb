@@ -7,7 +7,7 @@
    <div class="card card-items category flex-wrap">
     <% @whishlists.each do |whishlist| %>
       <div id="whishlist-item-id-<%= whishlist.id %>" class="quantity-css text-center">
-        <%= render 'whishlist-update', whishlist: whishlist %>
+        <%= render 'whishlist-update', event: @event, whishlist: whishlist %>
       </div>
     <% end %>
   </div>

@@ -7,10 +7,11 @@
   <div class="details-container">
     <div class="event-details">
       <div class="picto"><i class="fas fa-map-marked-alt"></i><p><%= @event.address %></p></div>
-      <div class="picto"><i class="fas fa-calendar-alt"></i><p><%= t(@event.date.strftime("%A %d %B %Y à %H:%M")) %></p></div>
+      <div class="picto"><i class="fas fa-calendar-alt"></i><p><%= I18n.l @event.date, format: :long %></p></div>
       <div class="picto"><i class="fas fa-users faded"></i><p><%= link_to "#{@event.guests.count + 1} invités", event_guests_path(@event) %></p></div>
     </div>
   </div>
+  <!-- .strftime("%A %d %B %Y à %H:%M") -->
   <!-- LISTE LES GENS QUI VIENNENT AVEC LEUR BASKET -->
 
     <h5 class="text-center">On ramène quoi?</h5>

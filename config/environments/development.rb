@@ -8,6 +8,8 @@ Rails.application.configure do
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
+  config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
+  config.i18n.default_locale = :fr
 
   # Do not eager load code on boot.
   config.eager_load = false

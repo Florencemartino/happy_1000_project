@@ -140,12 +140,12 @@
                             <div class="card-trip-infos">
                               <p>Organisé par <strong><%= guest.event.user.nickname %></strong></p>
 
-                              <%= link_to edit_event_path(guest.event) do %>
+                              <!-- <%#= link_to edit_event_path(guest.event) do %>
                                 <i class="fas fa-pencil-alt"></i>
-                              <% end %>
-                              <%= link_to event_path(guest.event), method: :delete, data: { confirm: "Veux-tu vraiment supprimer ce meal ?" } do %>
+                              <%# end %>
+                              <%#= link_to event_path(guest.event), method: :delete, data: { confirm: "Veux-tu vraiment supprimer ce meal ?" } do %>
                                 <i class="fas fa-trash-alt"></i>
-                              <% end %>
+                              <%# end %> -->
 
                               <% if guest.event.user.photo.blank? %>
                                   <%= image_tag "default-user.png", alt: "alttext", class: "card-trip-user", id: "navbar-wagon-menu" %>

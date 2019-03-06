@@ -23,14 +23,21 @@
   }
 }
 
-.org-meal{
-  font-weight: bold;
+.org-meal-wrapper{
   position: absolute;
-  bottom: -495%;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.org-meal{
+  font-weight: 999;
   z-index: 3;
-  border-radius: 5px;
+  border-radius: 3px;
   width: 65%;
-
+  position: fixed;
+  bottom: 0px;
+  text-transform: uppercase;
 }
 
 .create-meal{
@@ -44,6 +51,22 @@
 
 }
 
-.rounded{
-  border-radius: 5px;
+.button-center {
+  display: flex;
+  justify-content: center;
+  }
+
+.btn-double {
+  width: 100%;
+  margin: auto !important;
+}
+#btn-panier {
+  width: 178px;
+  margin-left: 190px;
+}
+#btn-equilibre {
+  width: 178px;
+  margin-left: 6px;
+  background-color: #F4F4F4 !important;
+
 }

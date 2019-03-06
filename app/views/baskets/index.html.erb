@@ -1,28 +1,24 @@
-
-
-<!-- <div class="container"> -->
-  <h1>Liste de course</h1>
-
-
-   <div class="card card-items category flex-wrap">
-    <% @whishlists.each do |whishlist| %>
-      <div id="whishlist-item-id-<%= whishlist.id %>" class="quantity-css text-center">
+<%= render layout: "shared/main_layout", locals: {
+  main_title: "Qu'est-ce qu'on ramène ?",
+} do %>
+   <div class="container">
+    <ul class="list-inline" id="whishlist-update-card">
+      <% @whishlists.each do |whishlist| %>
+        <li id="whishlist-item-id-<%= whishlist.id %>">
         <%= render 'whishlist-update', whishlist: whishlist %>
-      </div>
-    <% end %>
-  </div>
-
-  <h1>Mon panier :</h1>
-
-  <div class="card">
+        </li>
+      <% end %>
+    </ul>
+    <h1>Mon panier :</h1>
     <ul class="list-inline" id="choice-card">
       <% @baskets.each do |basket| %>
        <li id="basket-item-id-<%= basket.id %>">
-        <%= render 'button-choice', basket: basket %>
+        <%= render 'button-choice', basket: basket %> €
       </li>
       <% end %>
     </ul>
+    <div class="button-center">
+    <%= link_to "Retour", event_dashboard_path(@event), :class => "btn btn-info mauve org-meal"%></div>
   </div>
-    <%= link_to "Retour", event_dashboard_path(@event)%>
+<% end %>
 
-<!-- </div> -->

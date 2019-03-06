@@ -14,7 +14,7 @@
   <!-- <i class="fas fa-trash-alt"></i> -->
 <%# end %>
 
-<%= link_to "Ajouter un prix", event_basket_update_price_path(@event, basket) %>
+<%= link_to "+ €", event_basket_update_price_path(@event, basket) %>
   <% if basket.price_in_cent.nil? %>
     <%= puts "Ton #{basket.whishlist.item.name} n'a pas de prix" %>
   <% else %>

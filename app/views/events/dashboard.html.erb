@@ -1,66 +1,50 @@
+<%= render layout: "shared/main_layout", locals: {
+  main_title: "Infos meal :",
+} do %>
+  <!-- <h1 class="text-center"><%= @event.title %></h1> -->
+  <div class="text-center"><em>crée par <%= @event.user.nickname %></em></div>
 
-<h1 class="text-center"><%= @event.title %></h1>
-<div class="text-center"><em>crée par <%= @event.user.nickname %></em></div>
-
-<div class="details-container">
-  <div class="event-details">
-    <div class="picto"><i class="fas fa-map-marked-alt"></i><p><%= @event.address %></p></div>
-    <div class="picto"><i class="fas fa-calendar-alt"></i><p><%= @event.date.strftime("%A %d %B %Y à %H:%M") %></p></div>
-    <div class="picto"><i class="fas fa-users faded"></i><p><%= link_to "#{@event.guests.count + 1} invités", event_guests_path(@event) %></p></div>
-
-    <!-- <#% if @event.user == current_user %>
-      <p><#%= image_tag "chef.png", alt: "chef-hat", class: 'small-icon' %> Vous êtes l'organisateur</p>
-    <#% elsif current_user.guests.first.is_coming %>
-      <p><i class="fas fa-check-circle"></i> Je participe</p>
-    <#% else %>
-      <p><i class="fas fa-times-circle"></i> Je ne participe pas</p>
-    <#% end %> -->
-
-    <!-- <p><%#= image_tag "info.png", alt: "alttext", class: 'small-icon' %> Description</p>
-    <div id="description-details">
-      <p class="description-content"><%= @event.description %></p>
-    </div> -->
-  </div>
-
-  <!-- BOUTONS EQUILIBRE ET PANIER -->
-
-</div>
-
-  <div class="buttons-index">
-    <div class="btn btn-primary btn-nav nav-dashboard"><%= link_to "EQUILIBRES", event_account_path(@event)%></div>
-    <div class="btn btn-primary btn-nav nav-dashboard"><%= link_to "PANIER", event_baskets_path %></div>
-  </div>
-<!-- LISTE LES GENS QUI VIENNENT AVEC LEUR BASKET -->
-
-
-<div id="rest-of-content">
-  <h3 class="text-center">On ramène quoi?</h3>
-      <% @baskets_per_user.each do |user, baskets| %>
-    <div class="container-dashboard">
-        <div class="box-dashboard">
-          <% if user.photo.blank?%>
-            <%= image_tag "default-user.png", alt: "alttext", class: "avatar", id: "navbar-wagon-menu" %>
-          <% else %>
-            <%= cl_image_tag user.photo, height: 50, width: 50, crop: :fill %>
-          <% end %>
-          <%= user.nickname %>
-          <% if user == @event.user %>
-            <em>(organisateur)</em>
-          <% end %>
-        </div>
-          <% baskets.each do |basket| %>
-      <div class="box-dashboard">
-            <%= basket.whishlist.item.name %><%= image_tag basket.whishlist.item.icon %>
-      </div>
-          <% end %>
+  <div class="details-container">
+    <div class="event-details">
+      <div class="picto"><i class="fas fa-map-marked-alt"></i><p><%= @event.address %></p></div>
+      <div class="picto"><i class="fas fa-calendar-alt"></i><p><%= @event.date.strftime("%A %d %B %Y à %H:%M") %></p></div>
+      <div class="picto"><i class="fas fa-users faded"></i><p><%= link_to "#{@event.guests.count + 1} invités", event_guests_path(@event) %></p></div>
     </div>
-</div>
-      <% end %>
+  </div>
+  <!-- LISTE LES GENS QUI VIENNENT AVEC LEUR BASKET -->
+  <div id="rest-of-content">
+    <h4 class="text-center">On ramène quoi?</h4>
+        <% @baskets_per_user.each do |user, baskets| %>
+          <div class="container-dashboard">
+            <div class="box-dashboard">
+              <% if user.photo.blank?%>
+                <%= image_tag "default-user.png", alt: "alttext", class: "avatar", id: "navbar-wagon-menu" %>
+              <% else %>
+                <%= cl_image_tag user.photo, height: 50, width: 50, crop: :fill %>
+              <% end %>
+              <%= user.nickname %>
+              <% if user == @event.user %>
+                <em>(organisateur)</em>
+              <% end %>
+            </div>
+              <% baskets.each do |basket| %>
+            <div class="box-dashboard">
+              <%= basket.whishlist.item.name %><%= image_tag basket.whishlist.item.icon %> </div>
+              <% end %>
+            </div>
+          </div>
+        <% end %> <hr>
+  </div>
 
-<hr>
-<div class="footer-dashboard">
-  <p>Total de repas :<%= @total %> € </p>
-</div>
+  <div class="btn-double">
+    <div class="btn btn-info mauve org-meal" id="btn-equilibre"><%= link_to "EQUILIBRES", event_account_path(@event)%></div>
+    <div class="btn btn-info mauve org-meal" id="btn-panier"><%= link_to "PANIER", event_baskets_path %></div>
+  </div>
+<% end %>
+
+
+
+
 <!-- AUTRE TECHNIQUE POUR RECUPERER LE BASKET DE CHAQUE INVITE PAR EVENT -->
 <!-- <ul>
   <%# @event.users.each do |user| %>

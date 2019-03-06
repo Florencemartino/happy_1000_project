@@ -19,10 +19,13 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'money-rails'
+gem 'twilio-ruby', '~> 5.21.0'
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'dotenv-rails', groups: [:development, :test]
+  gem "letter_opener", group: :development
 end
 
 group :development, :test do

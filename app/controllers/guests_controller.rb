@@ -7,13 +7,19 @@ class GuestsController < ApplicationController
 
   def create
     # binding.pry
+    # url = params[:url]
     params[:guests_ids].each do |guest_id|
       @guest = Guest.new
       @guest.user = User.find(guest_id)
       @guest.event = Event.find(params[:event_id])
-      @guest.save!
+      if @guest.save!
+        UserMailer.welcome.deliver_now
+      redirect_to event_dashboard_path(@event)
+      else
+        render :new
+      # GuestInvitationMailer.send_url(@guest, url).deliver_now
+      end
     end
-    redirect_to event_dashboard_path(@event)
   end
 
   private

@@ -10,7 +10,7 @@
         <%= f.input :date, as: :string, input_html: { class: 'datepicker form-input' }, placeholder: "Sélectionner une date", label: false %>
         <div class="text-center">
           <%= f.submit "CREER MON MEAL", class: "btn btn-info mauve create-meal" %>
-
+            <a href="whatsapp://send?text=https://www.happy-1000.com/events/#{:id}/dashboard" data-action="share/whatsapp/share">Share via Whatsapp</a>
         </div>
       <% end %>
     </div>

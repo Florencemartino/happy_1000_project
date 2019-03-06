@@ -3,7 +3,7 @@
     <div class="food-item">
       <%= image_tag item.icon, class: "icon-selection" %>
       <p><%= item.name %></p>
-      <span class="icon-badge <%= "d-none" unless whishlists_per_item[item] %>" id="item-badge-<%= item.id %>"><%= whishlists_per_item[item].quantity if whishlists_per_item[item] %></span>
+      <span class="icon-badge-whishlist <%= "d-none" unless whishlists_per_item[item] %>" id="item-badge-<%= item.id %>"><%= whishlists_per_item[item].quantity if whishlists_per_item[item] %></span>
     </div>
 
   <% end %>

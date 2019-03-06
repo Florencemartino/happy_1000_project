@@ -11,8 +11,8 @@ class GuestsController < ApplicationController
       @guest.user = User.find(guest_id)
       @guest.event = Event.find(params[:event_id])
       @guest.save!
-      redirect_to event_dashboard_path(@event)
     end
+      redirect_to event_dashboard_path(@event)
   end
 
   private

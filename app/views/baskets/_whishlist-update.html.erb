@@ -1,4 +1,4 @@
-<%= link_to event_baskets_path(@event, whishlist: whishlist.id), method: :post, remote: true, class: "quantity-css text-center" do %>
+<%= link_to event_baskets_path(@event, whishlist: whishlist.id), method: :post, remote: true, class: "" do %>
   <%= image_tag whishlist.item.icon %>
   <br>
   <%= whishlist.quantity %> <%= whishlist.item.name %>

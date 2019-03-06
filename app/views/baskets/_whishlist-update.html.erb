@@ -1,6 +1,6 @@
-
+<%= link_to event_baskets_path(@event, whishlist: whishlist.id), method: :post, remote: true, class: "" do %>
   <%= image_tag whishlist.item.icon %>
-  (<strong><%= whishlist.quantity %></strong> <%= whishlist.item.name %> )
-   -
-  <%= link_to "Ajouter à ton panier", event_baskets_path(@event, whishlist: whishlist.id), method: :post, remote: true %>
+  <br>
+  <%= whishlist.quantity %> <%= whishlist.item.name %>
+<% end %>
 

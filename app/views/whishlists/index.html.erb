@@ -15,7 +15,7 @@
         <div class="slider2 sale">
 
           <div class="slide-food">
-            <div class="card category d-flex flex-wrap">
+            <div class="card card-items category flex-wrap">
               <% @items.each do |item| %>
                 <%= render 'select-item', category: "salé", event: @event, item: item, whishlists_per_item: @whishlists_per_item  %>
               <% end %>
@@ -23,7 +23,7 @@
           </div>
 
           <div class="slide-food">
-            <div class="card category d-flex flex-wrap">
+            <div class="card card-items category d-flex flex-wrap">
               <% @items.each do |item| %>
                 <%= render 'select-item', category: "sucré", event: @event, item: item, whishlists_per_item: @whishlists_per_item  %>
               <% end %>
@@ -32,7 +32,7 @@
           </div>
 
           <div class="slide-food">
-            <div class="card category d-flex flex-wrap">
+            <div class="card card-items category d-flex flex-wrap">
               <% @items.each do |item| %>
                 <%= render 'select-item', category: "soft", event: @event, item: item, whishlists_per_item: @whishlists_per_item  %>
               <% end %>
@@ -41,7 +41,7 @@
           </div>
 
           <div class="slide-food">
-            <div class="card category d-flex flex-wrap">
+            <div class="card card-items category d-flex flex-wrap">
               <% @items.each do |item| %>
                 <%= render 'select-item', category: "alcool", event: @event, item: item, whishlists_per_item: @whishlists_per_item  %>
               <% end %>

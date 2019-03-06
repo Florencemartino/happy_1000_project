@@ -9,8 +9,6 @@
         </li>
       <% end %>
     </ul>
-
-
     <h1>Mon panier :</h1>
     <ul class="list-inline" id="choice-card">
       <% @baskets.each do |basket| %>
@@ -23,3 +21,4 @@
     <%= link_to "Retour", event_dashboard_path(@event), :class => "btn btn-info mauve org-meal"%></div>
   </div>
 <% end %>
+

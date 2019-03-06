@@ -43,13 +43,14 @@
 .create-meal{
   font-weight: bold;
   position: absolute;
-  bottom: -66px;
+  bottom: -85px;
   left: 17%;
   z-index: 3;
   border-radius: 5px;
   width: 65%;
 
 }
+
 .button-center {
   display: flex;
   justify-content: center;
@@ -67,4 +68,5 @@
   width: 178px;
   margin-left: 6px;
   background-color: #F4F4F4 !important;
+
 }

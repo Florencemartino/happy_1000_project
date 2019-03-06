@@ -6,6 +6,7 @@
         <%= f.input :title, placeholder: "Titre", label: false, input_html: { class: 'form-input' } %>
         <%#= f.input :description %>
         <%= f.input :address, placeholder: "16 Villa Gaudelet Paris 11", input_html: { id: 'address-input', class: 'form-input' }, label: false  %>
+      <div class="form-group m-0">
         <%= f.input :date, as: :string, input_html: { class: 'datepicker form-input' }, placeholder: "Sélectionner une date", label: false %>
         <div class="text-center">
           <%= f.submit "CREER MON MEAL", class: "btn btn-info mauve create-meal" %>

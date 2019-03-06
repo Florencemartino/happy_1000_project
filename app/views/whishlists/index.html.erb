@@ -1,5 +1,6 @@
-<!-- <div class="container whishlist-container"> -->
-  <h2>Qu'est-ce qu'on mange ?</h2>
+<%= render layout: "shared/main_layout", locals: {
+  main_title: "Qu'est-ce qu'on mange ?",
+} do %><!-- <div class="container whishlist-container"> -->
   <!-- <div class="row card-container">
     <div class="col-xs-6 col-sm-6 col-md-6"> -->
 
@@ -50,12 +51,14 @@
         </div>
       </div>
 
-    <div class="btn-flex w-100">
-      <%= link_to "Valider",  event_select_guest_path, :class => "btn btn-primary" %>
-    </div>
 <!-- </div> -->
 
-
+<% end %>
+<!-- <div class="btn-flex w-100">
+</div> -->
+<div class="org-meal-wrapper">
+  <%= link_to "Valider ton meal",  event_select_guest_path, :class => "btn btn-info mauve org-meal" %>
+</div>
 
 <%#= link_to whishlist.item.name, event_whishlist_path(whishlist.event_id, whishlist.id), method: :put %>  <%#= whishlist.quantity %>
 

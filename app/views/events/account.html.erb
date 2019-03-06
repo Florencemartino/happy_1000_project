@@ -37,7 +37,18 @@
 
   </div>
 
-  <div class="button-center">
-  <%= link_to "Retour", event_dashboard_path(@event), :class => "btn btn-info mauve org-meal" %>
+  <div class="button-center" id-"terms">
+  <%= link_to "Retour", event_dashboard_path(@event), :class => "btn btn-info mauve org-meal", false,:onclick=>'handleClick(this);' %>
   </div>
+
+ <script>
+  function handleClick()
+   {
+    if(document.getElementById('terms').checked)
+     document.getElementById("Sign_up_id").disabled=true; // your submit button Id
+    else
+    document.getElementById("Sign_up_id").disabled=false;
+   }
+ </script>
 <% end %>
+

@@ -4,29 +4,40 @@
 } do %>
 
   <div class="card card-account card-account-body">
-    <% @refund_per_person.each do |user, refunds| %>
-      <ul class="list-inline">
-        <li>
-            <% if user.photo.blank?%>
-              <%= image_tag "default-user.png", alt: "alttext", class: "avatar avatar-account", id: "navbar-wagon-menu" %>
-            <% else %>
-              <%= cl_image_tag user.photo, height: 50, width: 50, crop: :fill %>
-            <% end %>
-          <%= user.nickname %> doit :
-          <% refunds.each do |refund, amount| %>
-            <%= amount %> € à <%= refund.nickname %>
-          <% end %> <hr>
-        </li>
-      </ul>
-    <% end %>
-  </div>
-  <div class="card card-account card-account-total">
     <% average = @total/(@guests.count) %>
-  <p>Total par personne : <%= average.to_f %> € </p>
-    <p>Total du meal :<%= @total %> € </p>
+    <p><strong>Total : <%= @total %> € (<%= average.to_f %>€/ pers)</p></strong>
+
+    <% @refund_per_person.each do |user, refunds| %>
+    <div class="container-account">
+
+      <div class="box-account">
+          <% if user.photo.blank?%>
+            <%= image_tag "default-user.png", alt: "alttext", class: "avatar avatar-account", id: "navbar-wagon-menu" %>
+          <% else %>
+            <%= cl_image_tag user.photo, height: 50, width: 50, crop: :fill %>
+          <% end %>
+          <p><%= user.nickname %></p>
+
+      </div>
+
+      <div class="box-account">
+        <% refunds.each do |refund, amount| %>
+         <p> <%= amount %>€ <br> -----------> </p>
+      </div>
+
+      <div class="box-account">
+           <%= cl_image_tag user.photo, height: 50, width: 50, crop: :fill, class: "avatar avatar-account"%><%= refund.nickname %>
+        <% end %>
+      </div>
+
+    </div>
+    <% end %>
+
+
+
   </div>
+
   <div class="button-center">
   <%= link_to "Retour", event_dashboard_path(@event), :class => "btn btn-info mauve org-meal" %>
   </div>
-
 <% end %>

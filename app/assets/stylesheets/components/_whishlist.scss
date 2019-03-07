@@ -32,7 +32,8 @@
 }
 
 .quantity-css-basket {
-  color: black;
+  text-decoration: none;
+  color: #5e5a5a !important;
   font-size: 15px;
   font-family: $body-font;
   padding: 10px;
@@ -84,6 +85,7 @@ padding: 10px;
   // right: -10px;
   padding: 1px 8px;
   border-radius: 15px;
+  font-weight: 700;
 }
 
 .icon-badge-whishlist {
@@ -96,6 +98,7 @@ padding: 10px;
   padding: 1px 8px;
   border-radius: 15px;
   margin-left: 30px;
+  font-weight: 700;
 }
 
 .food-item{
@@ -116,10 +119,13 @@ padding: 10px;
   // right: -10px;
   padding: 1px 8px;
   border-radius: 15px;
+  font-weight: 700;
 }
 
 .inactive {
   filter: grayscale(1);
   opacity: .35;
 }
-
+a:hover {
+  text-decoration: none;
+}

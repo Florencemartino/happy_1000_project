@@ -33,7 +33,8 @@
 
           <% refunds.each do |refund, amount| %>
             <div class="box-account">
-              <p> <%= amount %>€ <br> -----------> </p>
+              <p><%= amount %>€</p>
+              <%= image_tag "balance-arrow.png", alt: "arrow", class: 'balance-arrow' %>
             </div>
             <div class="box-account">
               <% if refund.photo.blank?%>

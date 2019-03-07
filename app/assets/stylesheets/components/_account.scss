@@ -16,8 +16,8 @@
 
 .avatar-account {
   width: 50px;
-  margin-right: 20px;
-  margin-left: 10px;
+  // margin-right: 20px;
+  // margin-left: 10px;
   border-radius: 50%;
 }
 
@@ -36,10 +36,14 @@
   justify-content: center;
 }
 
+.balance-arrow {
+  width: 50vw;
+  opacity: 0.3;
+}
+
 .nobody-paid {
   text-align: center;
   font-size: 22px;
   margin: auto;
   color: #CECECE;
-
 }

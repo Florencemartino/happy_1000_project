@@ -25,16 +25,28 @@
   width: 100px;
   margin: auto;
 }
+
 .container-account {
   display: flex;
   justify-content: space-around;
+  margin: 5%;
 }
 .box-account {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 10%;
+  // margin-top: 10%;
+}
+
+.box-account p {
+  margin: 0;
+}
+
+.box-account.amount p {
+  color: $mauve1;
+  font-weight: bolder;
+  font-size: 1.5rem;
 }
 
 .balance-arrow {
@@ -49,3 +61,13 @@
   color: #CECECE;
 }
 
+.happy-calc2{
+  width: 5rem;
+  opacity: .35;
+}
+
+.total {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}

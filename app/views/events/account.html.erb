@@ -4,8 +4,6 @@
 } do %>
 
   <div class="card card-account card-account-body">
-    <% average = @total/(@guests.count) %>
-    <strong> Total : <%= @total %> € (<%= average.to_f.round(2) %>€/ pers)</strong>
 
     <% if @total == 0 %>
       <div class="nobody-paid"> Personne n'a renseigné le prix de son meal </div>
@@ -22,7 +20,7 @@
           </div>
 
           <% refunds.each do |refund, amount| %>
-            <div class="box-account">
+            <div class="box-account amount">
               <p><%= amount.to_f.round(2) %>€</p>
               <%= image_tag "balance-arrow.png", alt: "arrow", class: 'balance-arrow' %>
             </div>
@@ -38,6 +36,11 @@
         </div>
       <% end %>
     <% end %>
+    <div class="total">
+      <% average = @total/(@guests.count) %>
+      <strong> Total : <%= @total %> € (<%= average.to_f.round(2) %>€/ pers)</strong>
+      <%= image_tag "happy-calc.png", alt: "calculator", class: 'happy-calc2' %>
+    </div>
   </div>
 
   <div class="button-center">

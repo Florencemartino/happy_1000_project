@@ -1,11 +1,11 @@
 
 <%= render layout: "shared/main_layout", locals: {
-  main_title: "C'est l'heure des comptes",
+  main_title: "C'est l'heure des comptes !",
 } do %>
 
   <div class="card card-account card-account-body">
     <% average = @total/(@guests.count) %>
-    <strong> Total : <%= @total %> € (<%= average.to_f %>€/ pers)</strong>
+    <strong> Total : <%= @total %> € (<%= average.to_f.round(2) %>€/ pers)</strong>
 
     <% if @total == 0 %>
       <div class="nobody-paid"> Personne n'a renseigné le prix de son meal </div>
@@ -13,16 +13,6 @@
       <% @refund_per_person.each do |user, refunds| %>
         <div class="container-account">
           <div class="box-account">
-
-            <!--             <div class="box-dashboard">
-              <%# if user.photo.blank?%>
-                <%#= image_tag "default-user.png", alt: "default picture", class: "avatar2", id: "navbar-wagon-menu" %>
-              <%# else %>
-                <%#= cl_image_tag user.photo, height: 50, width: 50, crop: :fill, gravity: :face, :radius => "max" %>
-              <%# end %>
-              <%#= user.nickname %>
-            </div> -->
-
             <% if user.photo.blank?%>
               <%= image_tag "default-user.png", alt: "default user photo", class: "avatar-account", id: "navbar-wagon-menu" %>
             <% else %>
@@ -33,7 +23,7 @@
 
           <% refunds.each do |refund, amount| %>
             <div class="box-account">
-              <p><%= amount %>€</p>
+              <p><%= amount.to_f.round(2) %>€</p>
               <%= image_tag "balance-arrow.png", alt: "arrow", class: 'balance-arrow' %>
             </div>
             <div class="box-account">

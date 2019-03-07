@@ -61,7 +61,7 @@ padding: 10px;
   top: -30px;
   // width: 40px;
   border-radius: 50%;
-  // border: 3px solid $mauve1;
+  border: 3px solid $mauve1;
 }
 
 .card-trip-infos .card-trip-user2 {
@@ -70,6 +70,7 @@ padding: 10px;
   top: -30px;
   width: 50px;
   border-radius: 50%;
+  border: 3px solid $mauve1;
 }
 
 .container-exterieur{
@@ -90,13 +91,14 @@ padding: 10px;
   // width: 40px;
 }
 
-.card-trip-infos .fa-times {
+.card-trip-infos .fa-trash-alt {
   position: absolute;
-  font-size: 1em;
-  top: -138px;
-  right: 10px;
+  font-size: 1.25em;
+  top: -149px;
+  right: 16px;
+  opacity: .65;
   color: $yellow;
-  opacity: 1;
+
 }
 
 .card-background{

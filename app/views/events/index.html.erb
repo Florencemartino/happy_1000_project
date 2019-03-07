@@ -69,7 +69,7 @@
                             <!-- <% end %> -->
 
                             <%= link_to event_path(event), method: :delete, data: { confirm: "Veux-tu vraiment supprimer ce meal ?" } do %>
-                              <i class="fas fa-times"></i>
+                              <i class="fas fa-trash-alt"></i>
                             <% end %>
 
                             <% if event.user.photo.blank? %>

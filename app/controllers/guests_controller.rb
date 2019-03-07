@@ -12,7 +12,10 @@ class GuestsController < ApplicationController
       @guest.event = Event.find(params[:event_id])
       @guest.save!
     end
-      redirect_to event_dashboard_path(@event)
+
+    # redirect_to event_dashboard_path(@event)
+    redirect_to event_whishlists_path(@event)
+
   end
 
   private

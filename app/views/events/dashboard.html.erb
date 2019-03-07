@@ -27,17 +27,34 @@
   </div>
   <!-- .strftime("%A %d %B %Y à %H:%M") -->
   <!-- LISTE LES GENS QUI VIENNENT AVEC LEUR BASKET -->
-  <div class="basket-background empty-cart">
     <!--     <#% if @baskets_per_user[current_user].nil? %>
       <%#= image_tag "arrow.png", alt: "arrow", class: 'arrow' %>
       <%#= image_tag "happy-empty", alt: "empty basket", class: 'happy-empty' %>
       <p class="panier-vide">Il n'y a rien dans ton panier pour le moment</p>
     <%# else %>
-      <%#= image_tag "happy_fork.png", alt: "alttext", class: "img-dash" %>
     <%# end %> -->
 
-    <div class="container-dashboard">
-      <% @baskets_per_user.each do |user, baskets| %>
+  <div class="basket-background empty-cart">
+    <%= image_tag "happy_fork.png", alt: "alttext", class: "img-dash" %>
+
+    <% if !@baskets_per_user.key?(@event.user) %>
+      <div class="container-dashboard">
+        <div class="box-dashboard">
+          <% if @event.user.photo.blank? %>
+            <%= image_tag "default-user.png", alt: "default picture", class: "avatar2", id: "navbar-wagon-menu" %>
+          <% else %>
+            <%= cl_image_tag @event.user.photo, height: 50, width: 50, crop: :fill, gravity: :face, :radius => "max" %>
+          <% end %>
+          <%= @event.user.nickname %>
+        </div>
+        <div class="box-dashboard-items">
+          <p>Pas de bras pas de chocolat!</p>
+        </div>
+      </div> <hr>
+    <% end %>
+
+    <% @baskets_per_user.each do |user, baskets| %>
+      <div class="container-dashboard">
 
         <div class="box-dashboard">
           <% if user.photo.blank?%>
@@ -56,46 +73,32 @@
           </div>
         <% end %>
 
-      <% end %>
-    </div> <hr>
+      </div><hr>
+    <% end %>
+
 
 
     <% @guests.each do |guest| %>
       <div class="container-dashboard">
+
         <% next if @baskets_per_user.key?(guest) %>
-          <div class="box-dashboard">
-            <% if guest.photo.blank?%>
-              <%= image_tag "default-user.png", alt: "default picture", class: "avatar2", id: "navbar-wagon-menu" %>
-            <% else %>
-              <%= cl_image_tag user.photo, height: 50, width: 50, crop: :fill, gravity: :face, :radius => "max" %>
-            <% end %>
-            <%= guest.nickname %>
-          </div>
-          <div class="box-dashboard-items">
-            <p>N'apporte rien ! Bah bravo !</p>
-          </div>
-      </div> <hr>
+        <div class="box-dashboard">
+          <% if guest.photo.blank?%>
+            <%= image_tag "default-user.png", alt: "default picture", class: "avatar2", id: "navbar-wagon-menu" %>
+          <% else %>
+            <%= cl_image_tag user.photo, height: 50, width: 50, crop: :fill, gravity: :face, :radius => "max" %>
+          <% end %>
+          <%= guest.nickname %>
+        </div>
+        <div class="box-dashboard-items">
+          <p>Pas de bras pas de chocolat!</p>
+        </div>
+
+      </div><hr>
     <% end %>
 
+  <!-- code retiré ici meme  -->
 
   </div>
 
-
-
-<!-- AUTRE TECHNIQUE POUR RECUPERER LE BASKET DE CHAQUE INVITE PAR EVENT -->
-<!-- <ul>
-  <%# @event.users.each do |user| %>
-
-    <#% if user.guests.where(event_id: params[:event_id]).first.is_coming == true %>
-
-      <li><%#= user.nickname %> apportera : <#%= user.guests.where(event_id: params[:event_id]).first.is_coming %></li>
-
-      <ul>
-        <%# user.baskets.each do |basket| %>
-        <li><#%= basket.whishlist.item.name %></li>
-        <%# end %>
-      </ul>
-    <%# end %>
-  <%# end %>
-</ul> -->
 

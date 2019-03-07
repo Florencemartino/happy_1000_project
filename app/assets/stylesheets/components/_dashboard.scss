@@ -72,7 +72,12 @@
 //   align-items: center;
 // }
 
-.basket-background hr:last-child{
+.basket-background.empty-cart hr{
+  width: 50%;
+  margin: 0 auto;
+}
+
+.basket-background.empty-cart hr:last-child{
   width: 0;
   opacity: 0;
 }
@@ -84,11 +89,6 @@
   opacity: 0.30;
   width: 71%;
 
-}
-
-hr{
-  width: 50%;
-  margin: 0 auto;
 }
 
 .avatar2{
@@ -105,3 +105,10 @@ hr{
   top: 5px;
   right: 110px;
 }
+
+// .chocolate{
+//   width: 2.5rem;
+//   opacity: .35;
+//   transform: rotate(20deg);
+// }
+

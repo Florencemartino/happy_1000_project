@@ -21,7 +21,7 @@
           <% end %>
         <% else %>
           <%= link_to edit_user_registration_path do  %>
-            <%= cl_image_tag current_user.photo, width: 50, crop: :fill, gravity: :face, :radius => "max", class: "avatar" %>
+            <%= cl_image_tag current_user.photo, width: 50, height: 50, crop: :fill, gravity: :face, :radius => "max", class: "avatar3" %>
           <% end %>
         <% end %>
 

@@ -1,6 +1,5 @@
 .card {
 background: white;
-box-shadow: 0 1px 3px rgba(0,0,0,0.6);
 border-radius: 4px;
 width: 91%;
 margin: auto;
@@ -12,6 +11,7 @@ padding: 10px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   width: 100%;
+  border-radius: 5px;
 }
 
 .card-photo > img {
@@ -58,19 +58,19 @@ padding: 10px;
 .card-trip-infos .card-trip-user {
   position: absolute;
   left: 25px;
-  top: -20px;
-  width: 40px;
+  top: -30px;
+  // width: 40px;
   border-radius: 50%;
   border: 3px solid $mauve1;
 }
 
-.card-trip-infos .card-trip-user-y {
+.card-trip-infos .card-trip-user2 {
   position: absolute;
   left: 25px;
-  top: -20px;
-  width: 40px;
+  top: -30px;
+  width: 50px;
   border-radius: 50%;
-  border: 3px solid $yellow;
+  border: 3px solid $mauve1;
 }
 
 .container-exterieur{
@@ -84,8 +84,8 @@ padding: 10px;
 .card-trip-infos .fa-pencil-alt {
   position: absolute;
   font-size: 1em;
-  left: 25px;
-  top: 25px;
+  left: 31px;
+  top: 30px;
   color: $mauve1;
   opacity: 1;
   // width: 40px;
@@ -94,8 +94,8 @@ padding: 10px;
 .card-trip-infos .fa-trash-alt {
   position: absolute;
   font-size: 1em;
-  left: 45px;
-  top: 25px;
+  left: 54px;
+  top: 30px;
   color: $mauve1;
   opacity: 1;
 }
@@ -108,14 +108,14 @@ padding: 10px;
   justify-content: center;
   height: 22vh;
 }
-.card-background-y{
-  background-color: $yellow;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 22vh;
-}
+// .card-background-y{
+//   background-color: $yellow;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   height: 22vh;
+// }
 
 .card-details{
   display: flex;

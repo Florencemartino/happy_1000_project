@@ -21,3 +21,45 @@ flex-direction: column;
 .basket-font-size {
   font-size: 20px;
 }
+
+.basket-card-css {
+  background: white;
+  width: 100vw;
+  padding: 10px;
+  min-height: 100px;
+}
+
+.basket-relative {
+  position: relative;
+  margin-top: 5px;
+}
+
+.title-absolute {
+  position: absolute;
+  top: -15px;
+  left: 32%;
+  // background: $mauve1;
+  // width: 50%;
+  // border-top-left-radius: 10px;
+  // border-top-right-radius: 10px;
+  // height: 50px;
+}
+
+.title-absolute h1 {
+  color: white;
+  font-size: 20px;
+}
+
+.btn-primary.btn-basket {
+    width: 130%;
+    border-radius: 20px;
+}
+
+.quantity-css-basket.item-basket-padding{
+  padding-top: 21px;
+}
+
+.arrow-down {
+  font-size: 100px;
+  color: lightgray;
+}

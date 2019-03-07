@@ -13,9 +13,12 @@
   height: 20%;
 
 }
+
 .avatar-account {
-  margin-right: 20px;
-  margin-left: 10px;
+  width: 50px;
+  // margin-right: 20px;
+  // margin-left: 10px;
+  border-radius: 50%;
 }
 
 .form_for_price {
@@ -32,8 +35,15 @@
   align-items: center;
   justify-content: center;
 }
-.nobody-paid {
-  font-size: 10px;
-  margin: auto;
+
+.balance-arrow {
+  width: 50vw;
+  opacity: 0.3;
 }
 
+.nobody-paid {
+  text-align: center;
+  font-size: 22px;
+  margin: auto;
+  color: #CECECE;
+}

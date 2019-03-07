@@ -73,7 +73,7 @@ class EventsController < ApplicationController
 
     @guests.each do |user|
       if @baskets_per_user[user].nil?
-        @baskets_per_user[user] = [Basket.create(whishlist: @event.whishlists.first, user: user, quantity: 0, price_in_cent: 0)]
+        @baskets_per_user[user] = [Basket.new(whishlist: @event.whishlists.first, user: user, quantity: 0, price_in_cent: 0)]
       end
     end
 

@@ -31,7 +31,7 @@
   justify-content: center;
 }
 .org-meal{
-  font-weight: 999;
+  font-weight: 900;
   z-index: 3;
   border-radius: 3px;
   width: 65%;
@@ -42,7 +42,7 @@
 }
 
 .create-meal{
-  font-weight: bold;
+  font-weight: 900;
   position: absolute;
   bottom: -85px;
   left: 17%;
@@ -81,17 +81,23 @@
 #btn-equilibre {
 
   background-color: #F4F4F4 !important;
-
 }
+
 
 .panier{
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-right: 30px;
-
 }
 
+a  {
+ ;
+}
+
+#whishlist-item-id- {
+  color: black;
+}
 // #btn-equilibre {
 //   text-decoration: none;
 //   background-color: #F4F4F4 !important;

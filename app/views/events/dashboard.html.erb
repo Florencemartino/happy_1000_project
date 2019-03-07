@@ -29,31 +29,33 @@
 <!--       <div class="btn btn-info mauve org-meal2" id="btn-equilibre"><%#= link_to "EQUILIBRES", event_account_path(@event)%></div>
       <div class="btn btn-info mauve org-meal2"><%#= link_to "PANIER", event_baskets_path %></div> -->
   </div>
-    <div class="basket-background">
-      <%= image_tag "happy_fork.png", alt: "alttext", class: "img-dash" %>
-        <% @baskets_per_user.each do |user, baskets| %>
-          <div class="container-dashboard">
-            <div class="box-dashboard">
-              <% if user.photo.blank?%>
-                <%= image_tag "default-user.png", alt: "alttext", class: "avatar2", id: "navbar-wagon-menu" %>
-              <% else %>
-                <%= cl_image_tag user.photo, height: 50, width: 50, crop: :fill, gravity: :face, :radius => "max" %>
-              <% end %>
-              <%= user.nickname %>
-            </div>
-            <% baskets.each do |basket| %>
-              <div class="box-dashboard-items">
-                <div class="indiv-item">
-                  <%= image_tag basket.whishlist.item.icon %>
-                  <p><%= basket.whishlist.item.name %></p>
-                </div>
-              </div>
-            <% end %>
-          </div> <hr>
-        <% end %>
+    <div class="basket-background empty-cart">
         <% if @baskets_per_user[current_user].nil? %>
-        <% raise %>
-         <p><em> Il n'y a rien dans ton panier pour le moment </em></p>
+          <%= image_tag "arrow.png", alt: "arrow", class: 'arrow' %>
+          <%= image_tag "happy-empty", alt: "empty basket", class: 'happy-empty' %>
+          <p><em> Il n'y a rien dans ton panier pour le moment </em></p>
+         <% else %>
+          <%= image_tag "happy_fork.png", alt: "alttext", class: "img-dash" %>
+          <% @baskets_per_user.each do |user, baskets| %>
+            <div class="container-dashboard">
+              <div class="box-dashboard">
+                <% if user.photo.blank?%>
+                  <%= image_tag "default-user.png", alt: "default picture", class: "avatar2", id: "navbar-wagon-menu" %>
+                <% else %>
+                  <%= cl_image_tag user.photo, height: 50, width: 50, crop: :fill, gravity: :face, :radius => "max" %>
+                <% end %>
+                <%= user.nickname %>
+              </div>
+              <% baskets.each do |basket| %>
+                <div class="box-dashboard-items">
+                  <div class="indiv-item">
+                    <%= image_tag basket.whishlist.item.icon %>
+                    <p><%= basket.whishlist.item.name %></p>
+                  </div>
+                </div>
+              <% end %>
+            </div> <hr>
+          <% end %>
         <% end %>
       </div>
 

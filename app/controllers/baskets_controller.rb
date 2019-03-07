@@ -41,7 +41,7 @@ class BasketsController < ApplicationController
 
     @basket.quantity ||= 0
 
-    unless @whishlist.quantity.zero?
+    if @whishlist.quantity > 0
       @basket.quantity += 1
       @whishlist.quantity = @whishlist.quantity - 1
     end

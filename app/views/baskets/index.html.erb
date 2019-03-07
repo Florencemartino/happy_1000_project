@@ -6,7 +6,7 @@
   main_title: "Qu'est-ce qu'on ramène ?",
 } do %>
 
-   <div class="card card-items category flex-wrap">
+   <div class="basket-card-css card-items category flex-wrap">
     <% @whishlists.each do |whishlist| %>
       <div id="whishlist-item-id-<%= whishlist.id %>" class="quantity-css-basket text-center">
         <%= render 'whishlist-update', event: @event, whishlist: whishlist %>
@@ -16,24 +16,31 @@
 
 
 
+  <div class="text-center">
+    <i class="fas fa-caret-down arrow-down"></i>
+  </div>
 
+  <div class="basket-relative">
+    <div class="title-absolute">
+      <button class="btn-primary btn-basket">Mon panier</button>
+    </div>
 
-  <h1>Mon panier</h1>
-
-  <div class="card card-items category flex-wrap" id="choice-card">
-      <% if @baskets.blank? %>
-          <p id="empty-basket"> Ton panier est vide </p>
-          <% end %>
-     <% @baskets.each do |basket| %>
-        <div class="quantity-css-basket text-center basket-font-size" id="basket-item-id-<%= basket.id %>">
-          <%= render 'button-choice', basket: basket %>
-        </div>
-    <% end %>
+    <div class="basket-card-css card-items category flex-wrap" id="choice-card">
+        <% if @baskets.blank? %>
+            <p id="empty-basket">Il n'y a rien dans ton panier</p>
+            <% end %>
+       <% @baskets.each do |basket| %>
+          <div class="quantity-css-basket item-basket-padding text-center basket-font-size" id="basket-item-id-<%= basket.id %>">
+            <%= render 'button-choice', basket: basket %>
+          </div>
+      <% end %>
+    </div>
   </div>
 
 
   <div class="button-center">
     <%= link_to "Valider", event_dashboard_path(@event), :class => "btn btn-info mauve org-meal"%></div>
   </div>
+
 
 <% end %>

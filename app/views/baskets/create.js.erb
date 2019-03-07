@@ -11,6 +11,8 @@ function addChoice() {
   if (choice == undefined) {
     const addNewChoice = document.getElementById("choice-card");
     addNewChoice.insertAdjacentHTML('beforeend', choiceHTML);
+    const newModal = document.getElementById("modal-creation");
+    newModal.insertAdjacentHTML('beforeend', "<%= j render 'modal', basket: @basket %>");
   } else {
     choice.outerHTML = choiceHTML
   }

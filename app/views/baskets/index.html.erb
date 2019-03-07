@@ -2,27 +2,32 @@
 
 
 <!-- <div class="container"> -->
- <%= render layout: "shared/main_layout", locals: {
-  main_title: "Qu'est-ce qu'on ramène ?",
-} do %>
+  <div style="width: 100%; height: 28px;"></div>
 
-   <div class="basket-card-css card-items category flex-wrap">
-    <% @whishlists.each do |whishlist| %>
-      <div id="whishlist-item-id-<%= whishlist.id %>" class="quantity-css-basket text-center">
-        <%= render 'whishlist-update', event: @event, whishlist: whishlist %>
-      </div>
-    <% end %>
+  <div class="basket-relative">
+    <div class="title-absolute">
+      <button class="btn-primary btn-basket">Wishlist</button>
+    </div>
+
+     <div class="basket-card-css card-items category flex-wrap">
+      <% @whishlists.each do |whishlist| %>
+        <div id="whishlist-item-id-<%= whishlist.id %>" class="quantity-css-basket text-center">
+          <%= render 'whishlist-update', event: @event, whishlist: whishlist %>
+        </div>
+      <% end %>
+    </div>
   </div>
 
 
 
-  <div class="text-center">
+
+  <div class="text-center" style="margin: -15px 0 -3px 0;">
     <i class="fas fa-caret-down arrow-down"></i>
   </div>
 
   <div class="basket-relative">
     <div class="title-absolute">
-      <button class="btn-primary btn-basket">Mon panier</button>
+      <button class="btn-primary btn-basket">Mes courses</button>
     </div>
 
     <div class="basket-card-css card-items category flex-wrap" id="choice-card">
@@ -41,9 +46,11 @@
   <div class="button-center">
     <%= link_to "Valider", event_dashboard_path(@event), :class => "btn btn-info mauve org-meal"%></div>
   </div>
+
    <div id="modal-creation">
      <% @baskets.each do |basket| %>
         <%= render 'modal', basket: basket %>
       <% end %>
   </div>
 <% end %>
+

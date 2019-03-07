@@ -35,14 +35,11 @@ flex-direction: column;
 }
 
 .title-absolute {
-  position: absolute;
-  top: -15px;
-  left: 32%;
-  // background: $mauve1;
-  // width: 50%;
-  // border-top-left-radius: 10px;
-  // border-top-right-radius: 10px;
-  // height: 50px;
+    position: absolute;
+    top: -15px;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
 }
 
 .title-absolute h1 {
@@ -51,13 +48,11 @@ flex-direction: column;
 }
 
 .btn-primary.btn-basket {
-    width: 130%;
+    width: 35%;
     border-radius: 20px;
 }
 
-.quantity-css-basket.item-basket-padding{
-  padding-top: 21px;
-}
+
 
 .arrow-down {
   font-size: 100px;

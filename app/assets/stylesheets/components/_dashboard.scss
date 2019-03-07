@@ -56,6 +56,11 @@
   overflow-x: hidden;
 }
 
+.basket-background hr:last-child{
+  width: 0;
+  opacity: 0;
+}
+
 .img-dash{
   position: absolute;
   top: 84px;

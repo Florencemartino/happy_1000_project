@@ -52,6 +52,7 @@
           </div> <hr>
         <% end %>
         <% if @baskets_per_user[current_user].nil? %>
+        <% raise %>
          <p><em> Il n'y a rien dans ton panier pour le moment </em></p>
         <% end %>
       </div>

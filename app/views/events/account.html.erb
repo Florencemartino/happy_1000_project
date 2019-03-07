@@ -14,20 +14,35 @@
         <div class="container-account">
           <div class="box-account">
 
+            <!--             <div class="box-dashboard">
+              <%# if user.photo.blank?%>
+                <%#= image_tag "default-user.png", alt: "default picture", class: "avatar2", id: "navbar-wagon-menu" %>
+              <%# else %>
+                <%#= cl_image_tag user.photo, height: 50, width: 50, crop: :fill, gravity: :face, :radius => "max" %>
+              <%# end %>
+              <%#= user.nickname %>
+            </div> -->
+
             <% if user.photo.blank?%>
-              <%= image_tag "default-user.png", alt: "alttext", class: "avatar avatar-account", id: "navbar-wagon-menu" %>
+              <%= image_tag "default-user.png", alt: "default user photo", class: "avatar-account", id: "navbar-wagon-menu" %>
             <% else %>
-              <%= cl_image_tag user.photo, height: 50, width: 50, crop: :fill %>
+              <%= cl_image_tag user.photo, height: 50, width: 50, crop: :fill, gravity: :face, :radius => "max" %>
             <% end %>
             <p><%= user.nickname %></p>
           </div>
 
           <% refunds.each do |refund, amount| %>
             <div class="box-account">
-              <p> <%= amount %>€ <br> -----------> </p>
+              <p><%= amount %>€</p>
+              <%= image_tag "balance-arrow.png", alt: "arrow", class: 'balance-arrow' %>
             </div>
             <div class="box-account">
-              <%= cl_image_tag user.photo, height: 50, width: 50, crop: :fill %><%= refund.nickname %>
+              <% if refund.photo.blank?%>
+                <%= image_tag "default-user.png", alt: "default user photo", class: "avatar-account", id: "navbar-wagon-menu" %>
+              <% else %>
+                <%= cl_image_tag refund.photo, height: 50, width: 50, crop: :fill, gravity: :face, :radius => "max"  %>
+              <% end %>
+              <p><%= refund.nickname %></p>
             </div>
           <% end %>
         </div>

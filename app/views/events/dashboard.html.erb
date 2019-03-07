@@ -37,6 +37,9 @@
             <% end %>
           </div> <hr>
         <% end %>
+        <% if @baskets_per_user[current_user].nil? %>
+         <p> Il n'y a rien </p>
+        <% end %>
       </div>
 
 

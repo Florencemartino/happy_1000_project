@@ -2,9 +2,9 @@
   main_title: "Combien coûte ton meal :",
 } do %>
   <div class="main">
-  </div>
-    <div class="card text-center">
+    <div class="text-center">
       <%= @basket.whishlist.item.name.capitalize %> :
       <%= render 'form', basket: @basket %>
     </div>
+  </div>
 <% end %>

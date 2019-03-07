@@ -2,7 +2,7 @@
 <div class="form_for_price">
   <%= simple_form_for [@event, basket], url: event_basket_updated_price_path(@event.id, basket)  do |f| %>
       <%= f.input :price_in_cent, label: false %>
-      <%= f.submit "Ajouter un prix", :class => "btn btn-info mauve org-meal" %>
+      <%= f.submit "Ajouter un prix", :class => "btn btn-info mauve create-meal org-meal" %>
     <% end %>
 </div>
 

@@ -50,14 +50,17 @@
   border-radius: 5px;
   width: 65%;
 
+
 }
 
 .button-center {
   display: flex;
   justify-content: center;
+
   }
 
 .btn-double {
+
   width: 100%;
   display: flex;
   justify-content: space-around;
@@ -69,12 +72,13 @@
 
 
 #btn-equilibre {
-  text-decoration: none;
+
   background-color: #F4F4F4 !important;
 }
 
 
 .org-meal2{
+  text-decoration: none;
   font-weight: 999;
   z-index: 3;
   border-radius: 3px;

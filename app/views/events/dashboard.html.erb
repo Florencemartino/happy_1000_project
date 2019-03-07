@@ -29,9 +29,7 @@
 <!--       <div class="btn btn-info mauve org-meal2" id="btn-equilibre"><%#= link_to "EQUILIBRES", event_account_path(@event)%></div>
       <div class="btn btn-info mauve org-meal2"><%#= link_to "PANIER", event_baskets_path %></div> -->
   </div>
-
-    <h5 class="text-center">On ramène quoi?</h5>
-      <div class="basket-background">
+    <div class="basket-background">
       <%= image_tag "happy_fork.png", alt: "alttext", class: "img-dash" %>
         <% @baskets_per_user.each do |user, baskets| %>
           <div class="container-dashboard">
@@ -54,11 +52,9 @@
           </div> <hr>
         <% end %>
         <% if @baskets_per_user[current_user].nil? %>
-         <p> Il n'y a rien </p>
+         <p><em> Il n'y a rien dans ton panier pour le moment </em></p>
         <% end %>
       </div>
-
-
 
 <% end %>
 

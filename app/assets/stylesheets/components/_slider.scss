@@ -8,7 +8,7 @@
 }
 
 .slider{
- width: 300vw;
+ width: 200vw;
  height: 70vh;
  left: -100vw;
  position: absolute;
@@ -33,9 +33,9 @@
   left: -100vw;
 }
 
-.slider.step3{
-  left: -200vw;
-}
+// .slider.step3{
+//   left: -200vw;
+// }
 
 .buttons-index{
   margin-top: 3%;
@@ -71,7 +71,7 @@
   transform: rotate(45deg);
   position: absolute;
   bottom: -7.5px;
-  left: 48.5vw;
+  left: 72.8vw;
   transition: left 0.3s ease;
 }
 
@@ -82,33 +82,33 @@
   transform: rotate(45deg);
   position: absolute;
   bottom: -7.5px;
-  left: 14vw;
+  left: 22.2vw;
   transition: left 0.3s ease;
 }
 
-.carre3{
-  width: 15px;
-  height: 15px;
-  background-color: white;
-  transform: rotate(45deg);
-  position: absolute;
-  bottom: -7.5px;
-  left: 81.5vw;
-  transition: left 0.3s ease;
-}
+// .carre3{
+//   width: 15px;
+//   height: 15px;
+//   background-color: white;
+//   transform: rotate(45deg);
+//   position: absolute;
+//   bottom: -7.5px;
+//   left: 81.5vw;
+//   transition: left 0.3s ease;
+// }
 
 @media screen and (min-width: 750px){
   .small-square.carre2{
-    left: 652px;
+    left: 1142px;
   }
 
   .carre1{
-    left: 210px;
+    left: 372px;
   }
 
-  .carre3{
-    left: 1090px;
-  }
+  // .carre3{
+  //   left: 1090px;
+  // }
 }
 
 .icons{

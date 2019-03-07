@@ -22,10 +22,10 @@
 
 <!-- BOUTONS POUR NAVIGER AVEC SLIDER -->
 <div class="navbar-icons">
-  <div class="nav1 icons"><%= image_tag "happy_chef.png", alt: "alttext", class: "happy-chef" %>Mes meals</div>
-  <div class="nav2 icons selected"><%= image_tag "happy_fork.png", alt: "alttext", class: "happy-fork" %>Je participe</div>
-  <div class="nav3 icons"><%= image_tag "happy_waiting.png", alt: "alttext", class: "happy-waiting" %>En attente</div>
-  <div class="small-square carre2"></div>
+  <div class="nav1 icons selected"><%= image_tag "happy_chef.png", alt: "alttext", class: "happy-chef" %>Mes meals</div>
+  <div class="nav2 icons"><%= image_tag "happy_fork.png", alt: "alttext", class: "happy-fork" %>Je participe</div>
+<!--   <div class="nav3 icons"><%#= image_tag "happy_waiting.png", alt: "alttext", class: "happy-waiting" %>En attente</div> -->
+  <div class="small-square carre1"></div>
   <div class="blanc"></div>
   <%= link_to "organiser un meal", new_event_path, :class => "btn btn-info mauve org-meal org-meal-wrapper" %>
 
@@ -44,7 +44,7 @@
       <%= image_tag "broccoli.png", alt: "broccoli", id: "broccoli-logo"  %>
       <%= image_tag "wine.png", alt: "wine", id: "wine-logo"  %>
       <%#= image_tag "carrot.png", alt: "carrot", id: "carrot-logo"  %>
-    <div class="slider step2">
+    <div class="slider step1">
 
       <!-- IF USER IS HOSTING EVENTS -->
       <div class="slide">
@@ -172,19 +172,19 @@
       </div>
 
 
-      <div class="slide">
-        <!-- CODER ICI POUR AJOUTER INVITATION EN ATTENTE (ACCEPTER / REFUSER INVIT) -->
+        <!--       <div class="slide">
+
         <h4 class="text-center" style="margin-top: 20px;">Vous n'avez aucun meal en attente</h4>
         <div class="participe">
-        <!--           <div class="background"> -->
-            <!-- <div class="participation">
-             <%#= image_tag "happy_waiting.png", alt: "waiting logo", class: 'happy-waiting' %>
-             <h3 class="section">En attente</h3>
-            </div> -->
-            <%#= image_tag "wine.png", alt: "wine", id: "wine-logo"  %>
-        <!--           </div> -->
+          <div class="background">
+              <div class="participation">
+               <%#= image_tag "happy_waiting.png", alt: "waiting logo", class: 'happy-waiting' %>
+               <h3 class="section">En attente</h3>
+              </div>
+              <%#= image_tag "wine.png", alt: "wine", id: "wine-logo"  %>
+          </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 

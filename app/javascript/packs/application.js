@@ -4,7 +4,7 @@ import 'plugins/flatpickr'
 // Slider for the events#index
 import { navigation } from '../components/slider';
 
-if (document.querySelector(".slider.step2")) {
+if (document.querySelector(".slider.step1")) {
   navigation();
 }
 

@@ -27,6 +27,16 @@
   // margin: 1%;
 }
 
+.indiv-item img{
+  width: 7.3vw;
+}
+
+.indiv-item p{
+  white-space: nowrap;
+}
+
+
+
 .panier-vide {
   opacity: 0.5;
 }
@@ -105,10 +115,4 @@
   top: 5px;
   right: 110px;
 }
-
-// .chocolate{
-//   width: 2.5rem;
-//   opacity: .35;
-//   transform: rotate(20deg);
-// }
 

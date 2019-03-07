@@ -3,6 +3,7 @@
   width: 100%;
   // background-color: white;
   align-items: center;
+
 }
 
 .box-dashboard {
@@ -17,16 +18,19 @@
 
 .indiv-item{
   width: 10vw;
-  flex-grow:1;
+  // flex-grow:1;
   display: flex;
+  margin-right: 5px;
   align-items: center;
   // justify-content: space-between;
   flex-direction: column;
-  margin: 1%;
+  // margin: 1%;
 }
+
 .panier-vide {
   opacity: 0.5;
 }
+
 .box-dashboard-items {
   z-index: 2;
   // width: 10vw;
@@ -61,12 +65,12 @@
   min-height: 325px;
 }
 
-.empty-cart{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+// .empty-cart{
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+// }
 
 .basket-background hr:last-child{
   width: 0;

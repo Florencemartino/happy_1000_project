@@ -27,7 +27,7 @@
 
     <div class="basket-card-css card-items category flex-wrap" id="choice-card">
         <% if @baskets.blank? %>
-            <p id="empty-basket"> il n'y a rien </p>
+            <p id="empty-basket">Il n'y a rien dans ton panier</p>
             <% end %>
        <% @baskets.each do |basket| %>
           <div class="quantity-css-basket item-basket-padding text-center basket-font-size" id="basket-item-id-<%= basket.id %>">

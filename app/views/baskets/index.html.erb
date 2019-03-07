@@ -35,5 +35,9 @@
   <div class="button-center">
     <%= link_to "Retour", event_dashboard_path(@event), :class => "btn btn-info mauve org-meal"%></div>
   </div>
-
+ <div id="modal-creation">
+   <% @baskets.each do |basket| %>
+      <%= render 'modal', basket: basket %>
+    <% end %>
+</div>
 <% end %>

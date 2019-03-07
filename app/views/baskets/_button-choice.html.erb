@@ -1,20 +1,20 @@
 
 
 
-  <%= link_to event_basket_path(basket.event.id, basket.id, sens: '-1' ), method: :patch, remote: true do %>
-  <%= image_tag basket.whishlist.item.icon, class: "icon-selection" %><span class="basket-badge"><%= basket.quantity %></span>
-  <br>
-  <%= link_to event_basket_update_price_path(@event, basket) do %>
-    <i class="fas fa-plus-circle price-margin-top"></i>
+<%= link_to event_basket_path(basket.event.id, basket.id, sens: '-1' ), method: :patch, remote: true do %>
+<%= image_tag basket.whishlist.item.icon, class: "icon-selection" %><span class="basket-badge"><%= basket.quantity %></span>
+<br>
+<%#= link_to event_basket_update_price_path(@event, basket), "data-toggle" => "modal", "data-target" => "#modal#{basket.id}" do %>
+<%# end %>
+
+<% end %>
+ <div data-toggle="modal" data-target='<%="#modal#{basket.id}"%>'>
+  <% if basket.price_in_cent.nil? %>
+    <%= puts "Ton #{basket.whishlist.item.name} n'a pas de prix" %>
+  <% else %>
+    <%= basket.price_in_cent %>€
   <% end %>
-
-    <% if basket.price_in_cent.nil? %>
-      <%= puts "Ton #{basket.whishlist.item.name} n'a pas de prix" %>
-    <% else %>
-      <%= basket.price_in_cent %>€
-    <% end %>
-  <% end %>
-
-
+  <i class="fas fa-plus-circle price-margin-top"></i>
+</div>
 
 

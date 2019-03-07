@@ -90,11 +90,11 @@ padding: 10px;
   // width: 40px;
 }
 
-.card-trip-infos .fa-trash-alt {
+.card-trip-infos .fa-times {
   position: absolute;
   font-size: 1em;
-  left: 45px;
-  top: 25px;
+  top: -138px;
+  right: 10px;
   color: $mauve1;
   opacity: 1;
 }

@@ -80,12 +80,12 @@
                             <p>Organisé par <strong><%= event.user.nickname %></strong></p>
                            <!--  <p><em>"<%= event.description %>"</em></p> -->
 
-                            <%= link_to edit_event_path(event) do %>
-                              <i class="fas fa-pencil-alt"></i>
-                            <% end %>
+                            <!-- <%= link_to edit_event_path(event) do %> -->
+                              <!-- <i class="fas fa-pencil-alt"></i> -->
+                            <!-- <% end %> -->
 
                             <%= link_to event_path(event), method: :delete, data: { confirm: "Veux-tu vraiment supprimer ce meal ?" } do %>
-                              <i class="fas fa-trash-alt"></i>
+                              <i class="fas fa-times"></i>
                             <% end %>
 
                             <% if event.user.photo.blank? %>

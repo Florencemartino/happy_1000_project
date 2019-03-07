@@ -41,6 +41,7 @@ class EventsController < ApplicationController
     # @baskets = Basket.where(user_id: current_user.id)
     @total = @event.baskets.sum(:price_in_cent).to_f.round(2)
     @baskets_per_user = @event.baskets.group_by { |basket| basket.user }
+    @guests = @event.users
   end
 
   def select_guest

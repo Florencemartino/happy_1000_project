@@ -67,7 +67,7 @@
                             <div class="card-photo">
                               <!-- <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg"> -->
                               <div class="card-background">
-                                <h2 class="yellow-title"><%= event.title %></h2>
+                                <h2 class="yellow-title"><%= event.title.capitalize %></h2>
                                 <div class="card-details">
                                   <h6 class="yellow-details"><i class="far fa-calendar-alt"></i> <%= event.date.strftime("%d/%m/%Y") %></h6>
                                   <h6 class="yellow-details"><i class="far fa-clock"></i> <%= event.date.strftime("%HH%M") %></h6>

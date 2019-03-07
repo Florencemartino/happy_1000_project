@@ -18,7 +18,8 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.user = current_user
     if @event.save
-      redirect_to event_whishlists_path(@event.id)
+      # redirect_to event_whishlists_path(@event.id)
+      redirect_to event_select_guest_path(@event)
     else
       render :new
     end
@@ -72,7 +73,7 @@ class EventsController < ApplicationController
 
     @guests.each do |user|
       if @baskets_per_user[user].nil?
-        @baskets_per_user[user] = [Basket.create(whishlist: @event.whishlists.first, user: user, quantity: 0, price_in_cent: 0)]
+        @baskets_per_user[user] = [Basket.new(whishlist: @event.whishlists.first, user: user, quantity: 0, price_in_cent: 0)]
       end
     end
 

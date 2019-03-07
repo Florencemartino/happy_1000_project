@@ -7,11 +7,28 @@
   <div class="details-container">
     <div class="event-details">
       <div class="picto"><i class="fas fa-map-marked-alt"></i><p><%= @event.address %></p></div>
-      <div class="picto"><i class="fas fa-calendar-alt"></i><p><%= @event.date.strftime("%A %d %B %Y à %H:%M") %></p></div>
+      <div class="picto"><i class="fas fa-calendar-alt"></i><p><%= I18n.l @event.date, format: :long %></p></div>
       <div class="picto"><i class="fas fa-users faded"></i><p><%= link_to "#{@event.guests.count + 1} invités", event_guests_path(@event) %></p></div>
     </div>
   </div>
+  <!-- .strftime("%A %d %B %Y à %H:%M") -->
   <!-- LISTE LES GENS QUI VIENNENT AVEC LEUR BASKET -->
+  <div class="btn-double">
+    <%= link_to event_account_path(@event) do %>
+      <div class="equilibre">
+        <%= image_tag "happy-calc.png", alt: "happy-calculator", class: 'happy-calc' %>
+        <p>Equilibres</p>
+      </div>
+    <% end %>
+    <%= link_to event_baskets_path do %>
+      <div class="panier">
+        <%= image_tag "happy-basket.png", alt: "happy-basket", class: 'happy-basket' %>
+        <p>Panier</p>
+      </div>
+    <% end %>
+<!--       <div class="btn btn-info mauve org-meal2" id="btn-equilibre"><%#= link_to "EQUILIBRES", event_account_path(@event)%></div>
+      <div class="btn btn-info mauve org-meal2"><%#= link_to "PANIER", event_baskets_path %></div> -->
+  </div>
 
     <h5 class="text-center">On ramène quoi?</h5>
       <div class="basket-background">
@@ -22,7 +39,7 @@
               <% if user.photo.blank?%>
                 <%= image_tag "default-user.png", alt: "alttext", class: "avatar2", id: "navbar-wagon-menu" %>
               <% else %>
-                <%= cl_image_tag user.photo, height: 50, width: 50, crop: :fill %>
+                <%= cl_image_tag user.photo, height: 50, width: 50, crop: :fill, gravity: :face, :radius => "max" %>
               <% end %>
               <%= user.nickname %>
             </div>
@@ -36,13 +53,12 @@
             <% end %>
           </div> <hr>
         <% end %>
+        <% if @baskets_per_user[current_user].nil? %>
+         <p> Il n'y a rien </p>
+        <% end %>
       </div>
 
 
-  <div class="btn-double">
-    <div class="btn btn-info mauve org-meal2" id="btn-equilibre"><%= link_to "EQUILIBRES", event_account_path(@event)%></div>
-    <div class="btn btn-info mauve org-meal2"><%= link_to "PANIER", event_baskets_path %></div>
-  </div>
 
 <% end %>
 

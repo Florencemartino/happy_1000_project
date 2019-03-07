@@ -4,8 +4,8 @@
 
 // hauteur de la card secondaire
 .card-account-body {
-  height: 300px;
-  padding-top: 50px;
+  height: 450px;
+  padding-top: 10px;
 }
 
 // hauteur de la card principale
@@ -16,10 +16,24 @@
 .avatar-account {
   margin-right: 20px;
   margin-left: 10px;
-  width: 30px;
 }
 
 .form_for_price {
   width: 100px;
   margin: auto;
 }
+.container-account {
+  display: flex;
+  justify-content: space-around;
+}
+.box-account {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.nobody-paid {
+  font-size: 10px;
+  margin: auto;
+}
+

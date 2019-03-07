@@ -6,15 +6,16 @@ class GuestsController < ApplicationController
   end
 
   def create
-    # binding.pry
     params[:guests_ids].each do |guest_id|
       @guest = Guest.new
       @guest.user = User.find(guest_id)
       @guest.event = Event.find(params[:event_id])
       @guest.save!
     end
+
     # redirect_to event_dashboard_path(@event)
     redirect_to event_whishlists_path(@event)
+
   end
 
   private

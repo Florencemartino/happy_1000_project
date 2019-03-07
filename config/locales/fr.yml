@@ -33,13 +33,13 @@ fr:
     - nov.
     - déc.
     day_names:
-    - dimanche
-    - lundi
-    - mardi
-    - mercredi
-    - jeudi
-    - vendredi
-    - samedi
+    - Dimanche
+    - Lundi
+    - Mardi
+    - Mercredi
+    - Jeudi
+    - Vendredi
+    - Samedi
     formats:
       default: "%d/%m/%Y"
       long: "%e %B %Y"
@@ -214,6 +214,6 @@ fr:
     am: am
     formats:
       default: "%d %B %Y %Hh %Mmin %Ss"
-      long: "%A %d %B %Y %Hh%M"
+      long: "%A %d %B %Y - %Hh%M"
       short: "%d %b %Hh%M"
     pm: pm

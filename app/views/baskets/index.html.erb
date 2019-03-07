@@ -14,14 +14,21 @@
     <% end %>
   </div>
 
+
+
+
+
   <h1>Mon panier :</h1>
 
   <div class="card card-items category flex-wrap" id="choice-card">
-      <% @baskets.each do |basket| %>
+      <% if @baskets.blank? %>
+          <p id="empty-basket"> il n'y a rien </p>
+          <% end %>
+     <% @baskets.each do |basket| %>
         <div class="quantity-css-basket text-center basket-font-size" id="basket-item-id-<%= basket.id %>">
           <%= render 'button-choice', basket: basket %>
         </div>
-      <% end %>
+    <% end %>
   </div>
 
 

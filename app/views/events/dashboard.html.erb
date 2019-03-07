@@ -33,7 +33,7 @@
         <% if @baskets_per_user[current_user].nil? %>
           <%= image_tag "arrow.png", alt: "arrow", class: 'arrow' %>
           <%= image_tag "happy-empty", alt: "empty basket", class: 'happy-empty' %>
-          <p><em> Il n'y a rien dans ton panier pour le moment </em></p>
+          <p class="panier-vide">Il n'y a rien dans ton panier pour le moment</p>
          <% else %>
           <%= image_tag "happy_fork.png", alt: "alttext", class: "img-dash" %>
           <% @baskets_per_user.each do |user, baskets| %>

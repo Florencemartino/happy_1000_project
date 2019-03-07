@@ -24,6 +24,9 @@
   flex-direction: column;
   margin: 1%;
 }
+.panier-vide {
+  opacity: 0.5;
+}
 .box-dashboard-items {
   z-index: 2;
   // width: 10vw;
@@ -55,6 +58,14 @@
   background-color: white;
   position: relative;
   overflow-x: hidden;
+  min-height: 325px;
+}
+
+.empty-cart{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .basket-background hr:last-child{
@@ -64,9 +75,9 @@
 
 .img-dash{
   position: absolute;
-  top: 84px;
+  top: 65px;
   right: -73px;
-  opacity: 0.35;
+  opacity: 0.30;
   width: 71%;
 
 }
@@ -83,3 +94,10 @@ hr{
   border: #d3cbcb 1px solid;
 }
 
+.arrow{
+  width: 2.5rem;
+  opacity: .5;
+  position: absolute;
+  top: 5px;
+  right: 110px;
+}

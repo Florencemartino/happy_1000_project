@@ -77,9 +77,9 @@
     <% end %>
 
     <% @guests.each do |guest| %>
+      <% next if @baskets_per_user.key?(guest) %>
       <div class="container-dashboard">
 
-        <% next if @baskets_per_user.key?(guest) %>
         <div class="box-dashboard">
           <% if guest.photo.blank?%>
             <%= image_tag "default-user.png", alt: "default picture", class: "avatar2", id: "navbar-wagon-menu" %>

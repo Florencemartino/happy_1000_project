@@ -8,12 +8,15 @@
   }
 }
 
-input[type=checkbox]:checked+label .guest-choice {
-  border: solid 3px $mauve1;
+input[type=checkbox]+label  {
   border-radius: 50px;
-  transform: scale(1.1);
   flex: 0 0 30%;
   text-align: center;
+}
+
+input[type=checkbox]:checked+label img{
+  border: solid 3px $mauve1;
+  transform: scale(1.1);
 }
 
 label {

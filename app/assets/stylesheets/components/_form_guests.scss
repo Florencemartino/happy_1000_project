@@ -1,5 +1,5 @@
 .guest-choices {
-  display: flex;
+  text-align: center;
   justify-content: center;
   align-items: center;
   input[type=checkbox]{
@@ -29,4 +29,7 @@ label {
 
 .form-inline {
   justify-content: center;
+}
+.guest-item-id {
+  display: inline-block;
 }

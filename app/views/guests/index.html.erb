@@ -5,7 +5,6 @@
 
   <div class="card card-items category flex-wrap">
     <div class="quantity-css text-center">
-
       <% if @event.user.photo.blank?%>
         <%= image_tag "https://www.weekend-esprithautsdefrance.com/sites/picardiev3/themes/picardiev3/img_v2/user-default.jpg", alt: "alttext", height: 50, width: 50, crop: :fill, class: "avatar-bordered"%>
       <% else %>
@@ -13,7 +12,6 @@
       <% end %> <br>
       <%= @event.user.nickname %>
     </div>
-
     <% @event.guests.each do |guest| %>
       <div class="quantity-css text-center">
           <% if guest.user.photo.blank?%>

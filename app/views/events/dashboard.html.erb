@@ -84,7 +84,7 @@
           <% if guest.photo.blank?%>
             <%= image_tag "default-user.png", alt: "default picture", class: "avatar2", id: "navbar-wagon-menu" %>
           <% else %>
-            <%= cl_image_tag user.photo, height: 50, width: 50, crop: :fill, gravity: :face, :radius => "max" %>
+            <%= cl_image_tag guest.photo, height: 50, width: 50, crop: :fill, gravity: :face, :radius => "max" %>
           <% end %>
           <%= guest.nickname %>
         </div>

@@ -8,6 +8,7 @@
 
         <div class="guest-choices">
           <% @guests.each do |guest|%>
+          <div class="guest-item-id">
 
             <input type="checkbox" id='<%= "inlineCheckbox#{guest.id}" %>' value='<%= "#{guest.id}" %>' name="guests_ids[]">
 
@@ -24,6 +25,7 @@
                 <%= guest.nickname %>
               </div>
             </label>
+            </div>
           <% end %>
         </div>
         <% @shared_url = request.url %>

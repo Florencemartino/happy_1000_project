@@ -8,6 +8,7 @@
     <% if @total == 0 %>
       <div class="nobody-paid"> Personne n'a renseigné le prix de son meal </div>
     <% else %>
+
       <% @refund_per_person.each do |user, refunds| %>
         <div class="container-account">
           <div class="box-account">
@@ -24,6 +25,7 @@
               <p><%= amount.to_f.round(2) %>€</p>
               <%= image_tag "balance-arrow.png", alt: "arrow", class: 'balance-arrow' %>
             </div>
+
             <div class="box-account">
               <% if refund.photo.blank?%>
                 <%= image_tag "default-user.png", alt: "default user photo", class: "avatar-account", id: "navbar-wagon-menu" %>
@@ -33,8 +35,10 @@
               <p><%= refund.nickname %></p>
             </div>
           <% end %>
+
         </div>
       <% end %>
+
     <% end %>
     <div class="total">
       <% average = @total/(@guests.count) %>

@@ -3,11 +3,12 @@
   main_title: "C'est l'heure des comptes !",
 } do %>
 
-  <div class="card card-account card-account-body">
+  <div class="card card-account">
 
     <% if @total == 0 %>
       <div class="nobody-paid"> Personne n'a renseigné le prix de son meal </div>
     <% else %>
+
       <% @refund_per_person.each do |user, refunds| %>
         <div class="container-account">
           <div class="box-account">
@@ -19,22 +20,29 @@
             <p><%= user.nickname %></p>
           </div>
 
+        <div class="box-refunds">
           <% refunds.each do |refund, amount| %>
-            <div class="box-account amount">
-              <p><%= amount.to_f.round(2) %>€</p>
-              <%= image_tag "balance-arrow.png", alt: "arrow", class: 'balance-arrow' %>
-            </div>
-            <div class="box-account">
-              <% if refund.photo.blank?%>
-                <%= image_tag "default-user.png", alt: "default user photo", class: "avatar-account", id: "navbar-wagon-menu" %>
-              <% else %>
-                <%= cl_image_tag refund.photo, height: 50, width: 50, crop: :fill, gravity: :face, :radius => "max"  %>
-              <% end %>
-              <p><%= refund.nickname %></p>
+            <div class="box-argent">
+              <div class="box-account amount">
+                <p><%= amount.to_f.round(2) %>€</p>
+                <%= image_tag "balance-arrow.png", alt: "arrow", class: 'balance-arrow' %>
+              </div>
+
+              <div class="box-account">
+                <% if refund.photo.blank?%>
+                  <%= image_tag "default-user.png", alt: "default user photo", class: "avatar-account", id: "navbar-wagon-menu" %>
+                <% else %>
+                  <%= cl_image_tag refund.photo, height: 50, width: 50, crop: :fill, gravity: :face, :radius => "max"  %>
+                <% end %>
+                <p><%= refund.nickname %></p>
+              </div>
             </div>
           <% end %>
         </div>
+
+        </div>
       <% end %>
+
     <% end %>
     <div class="total">
       <% average = @total/(@guests.count) %>

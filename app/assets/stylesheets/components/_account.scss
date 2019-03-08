@@ -1,12 +1,13 @@
 .card-account {
   margin-top: 5%;
-}
-
-// hauteur de la card secondaire
-.card-account-body {
   height: 450px;
   padding-top: 10px;
 }
+
+// hauteur de la card secondaire
+// .card-account-body {
+
+// }
 
 // hauteur de la card principale
 .card-account-total {
@@ -30,6 +31,7 @@
   display: flex;
   justify-content: space-around;
   margin: 5%;
+  align-items: flex-start;
 }
 .box-account {
   display: flex;
@@ -46,12 +48,14 @@
 .box-account.amount p {
   color: $mauve1;
   font-weight: bolder;
-  font-size: 1.5rem;
+  font-size: 1.35rem;
+  margin-right: 27%;
 }
 
 .balance-arrow {
-  width: 50vw;
-  opacity: 0.3;
+  width: 32vw;
+  opacity: 0.1;
+  margin-right: 27%;
 }
 
 .nobody-paid {
@@ -70,4 +74,9 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+
+.box-argent{
+  display:flex;
+  margin-bottom: 10%;
 }
